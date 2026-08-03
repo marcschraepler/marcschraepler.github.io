@@ -1,131 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marc Schraepler von Gerlach – Digital Transformation Consultant</title>
-    <meta name="description" content="Digital Transformation Consultant. WordPress & Marketing IT, CRM Architecture, Process Automation. Based in Austria, working DACH & international.">
-    <link rel="canonical" href="https://marcschraepler.github.io/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Marc Schraepler von Gerlach">
-    <meta property="og:description" content="Digital Transformation Consultant – WordPress & Marketing IT, CRM Architecture, DACH & International.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --text: #1d1d1f;
-            --muted: #6e6e73;
-            --accent: #669bbc;
-            --accent-hover: #5582a0;
-            --bg: #fafafa;
-            --card: #ffffff;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
-        body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marc Schraepler von Gerlach – Digital Architect für den wachsenden Mittelstand</title>
+<meta name="description" content="Für Unternehmen ohne eigenes Tech-Team: Ich entscheide, was digital wirklich weiterhilft, und baue die Lösung bis in den laufenden Betrieb.">
+<meta name="author" content="Marc Schraepler von Gerlach">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://marcschraepler.github.io/">
+<link rel="alternate" hreflang="de" href="https://marcschraepler.com/">
+<link rel="alternate" hreflang="en" href="https://marcschraepler.com/en/">
+<link rel="me" href="https://www.linkedin.com/in/marcschraepler/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 
-        .card {
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
-        }
+<meta property="og:type" content="profile">
+<meta property="og:locale" content="de_AT">
+<meta property="og:site_name" content="Marc Schraepler von Gerlach">
+<meta property="og:url" content="https://marcschraepler.github.io/">
+<meta property="og:title" content="Marc Schraepler von Gerlach – Digital Architect für den wachsenden Mittelstand">
+<meta property="og:description" content="Für Unternehmen ohne eigenes Tech-Team: Ich entscheide, was digital wirklich weiterhilft, und baue die Lösung bis in den laufenden Betrieb.">
+<meta property="og:image" content="https://marcschraepler.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marc Schraepler von Gerlach – Digital Architect für den wachsenden Mittelstand">
+<meta name="twitter:description" content="Für Unternehmen ohne eigenes Tech-Team: Ich entscheide, was digital wirklich weiterhilft, und baue die Lösung bis in den laufenden Betrieb.">
+<meta name="twitter:image" content="https://marcschraepler.com/og-image.png">
 
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 28px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://marcschraepler.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-        h1 {
-            font-family: 'Bricolage Grotesque', Georgia, serif;
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 1.2;
-            margin-bottom: 8px;
-        }
+<style>
+/* Design-Tokens gespiegelt aus marcschraepler.com (BaseLayout) */
+:root {
+  --font-heading: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius: 0.65rem;
+  --duration: 0.2s;
 
-        .tagline {
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--accent);
-            margin-bottom: 16px;
-        }
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --muted-foreground: #525252;
+  --border: #e5e5e5;
+  --primary: #2f7192;
+  --primary-accent: #246b8e;
+  --primary-foreground: #fafafa;
+}
+@supports (color: oklch(50% 0.1 234)) {
+  :root {
+    --background: oklch(98.5% 0 none);
+    --foreground: oklch(14.5% 0 none);
+    --muted-foreground: oklch(43.9% 0 none);
+    --border: oklch(92.2% 0 none);
+    --primary: oklch(52% 0.085 234);
+    --primary-accent: oklch(50% 0.088 234);
+    --primary-foreground: oklch(98.5% 0 none);
+  }
+}
 
-        .bio {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--muted);
-            margin-bottom: 36px;
-        }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+html {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+}
 
-        .links a {
-            display: block;
-            padding: 14px 24px;
-            border: 1px solid #e2e2e7;
-            border-radius: 12px;
-            background: var(--card);
-            color: var(--text);
-            font-size: 15px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
+body {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+}
 
-        .links a:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(102,155,188,0.12);
-        }
+.card { width: 100%; max-width: 460px; text-align: center; }
 
-        .links a .arrow {
-            opacity: 0.4;
-            margin-left: 6px;
-            transition: opacity 0.2s;
-        }
+.avatar {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+.avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .links a:hover .arrow {
-            opacity: 0.8;
-        }
+h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 6vw, 32px);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
 
-        .location {
-            margin-top: 32px;
-            font-size: 13px;
-            color: var(--muted);
-        }
+.role {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 18px;
+}
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text: #f0f0f2;
-                --muted: #8e8e93;
-                --bg: #141416;
-                --card: #1c1c1e;
-            }
-            .links a { border-color: #2c2c2e; }
-        }
-    </style>
+.bio {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+  margin-bottom: 28px;
+  text-wrap: pretty;
+}
+
+.actions { display: flex; flex-direction: column; gap: 10px; }
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius) - 0.125rem);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--duration), background-color var(--duration), border-color var(--duration), transform var(--duration);
+}
+.button--primary { background-color: var(--primary); color: var(--primary-foreground); }
+.button--primary:hover { background-color: var(--primary-accent); }
+.button--outline { background-color: var(--card); border-color: var(--border); color: var(--foreground); }
+.button--outline:hover { border-color: var(--primary); color: var(--primary); }
+.button:hover { transform: translateY(-1px); }
+.button:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+
+.arrow { opacity: 0.45; font-size: 13px; transition: opacity var(--duration), transform var(--duration); }
+.button:hover .arrow { opacity: 0.9; transform: translateX(2px); }
+
+.meta {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+footer {
+  margin-top: 14px;
+  font-size: 13px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+}
+footer a {
+  color: var(--muted-foreground);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--duration), border-color var(--duration);
+}
+footer a:hover { color: var(--primary); border-bottom-color: currentColor; }
+footer a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 2px; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #171717;
+    --muted-foreground: #a1a1a1;
+    --border: rgba(250, 250, 250, 0.1);
+    --primary: #3c8296;
+    --primary-accent: #6bb0c5;
+    --primary-foreground: #fafafa;
+  }
+  @supports (color: oklch(50% 0.1 234)) {
+    :root {
+      --background: oklch(14.5% 0 none);
+      --foreground: oklch(98.5% 0 none);
+      --card: oklch(20.5% 0 none);
+      --muted-foreground: oklch(70.8% 0 none);
+      --primary: oklch(57% 0.076 219);
+      --primary-accent: oklch(72% 0.076 219);
+    }
+  }
+  .role, .button--outline:hover { color: var(--primary-accent); }
+  /* Heller Akzent als Button-Fläche: hält den Kontrast im Dunkelmodus über WCAG AA */
+  .button--primary { background-color: var(--primary-accent); color: var(--background); }
+  .button--primary:hover { background-color: #8ac9dc; }
+  .avatar { background: var(--primary-accent); color: var(--background); box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  .button:hover { transform: none; }
+  .button:hover .arrow { transform: none; }
+}
+</style>
 </head>
 <body>
-    <div class="card">
-        <img src="https://marcschraepler.com/_astro/profile.CVnBWkHx_t5IoE.webp" alt="Marc Schraepler von Gerlach" class="avatar">
-        <h1>Marc Schraepler von Gerlach</h1>
-        <p class="tagline">Digital Transformation Consultant</p>
-        <p class="bio">Bridging business and IT. CRM architecture, e-commerce platforms, and process automation for companies that need structure in their tool landscape.</p>
-        <div class="links">
-            <a href="https://marcschraepler.com/en/" target="_blank" rel="noopener">Website <span class="arrow">↗</span></a>
-        </div>
-        <p class="location">Austria · DACH · Remote</p>
-    </div>
+<main class="card">
+  <div class="avatar" aria-hidden="true">MS
+    <img src="https://marcschraepler.com/_astro/profile.CVnBWkHx_20rX2D.webp" alt="" width="112" height="112" onerror="this.remove()">
+  </div>
+
+  <h1>Marc Schraepler von Gerlach</h1>
+  <p class="role">Digital Architect für den wachsenden Mittelstand</p>
+  <p class="bio">Für Unternehmen ohne eigenes Tech-Team: Ich entscheide, was digital wirklich weiterhilft, und baue die Lösung bis in den laufenden Betrieb.</p>
+
+  <nav class="actions" aria-label="Profil-Links">
+    <a class="button button--primary" href="https://marcschraepler.com/contact/">Situation schildern</a>
+    <a class="button button--outline" href="https://marcschraepler.com/">Website <span class="arrow" aria-hidden="true">↗</span></a>
+    <a class="button button--outline" href="https://marcschraepler.com/labs/">Lösungen live testen <span class="arrow" aria-hidden="true">↗</span></a>
+    <a class="button button--outline" href="https://marcschraepler.com/about/">Über mich <span class="arrow" aria-hidden="true">↗</span></a>
+    <a class="button button--outline" href="https://www.linkedin.com/in/marcschraepler/" rel="me noopener">LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
+  </nav>
+
+  <p class="meta">Österreich · DACH · Remote</p>
+
+  <footer>
+    <a href="https://marcschraepler.com/en/" hreflang="en">English</a>
+    <a href="https://marcschraepler.com/standpunkte/">Standpunkte</a>
+    <a href="https://marcschraepler.com/impressum/">Impressum</a>
+    <a href="https://marcschraepler.com/datenschutz/">Datenschutz</a>
+  </footer>
+</main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Marc Schraepler von Gerlach",
+  "jobTitle": "Digital Architect",
+  "description": "Für Unternehmen ohne eigenes Tech-Team: Ich entscheide, was digital wirklich weiterhilft, und baue die Lösung bis in den laufenden Betrieb.",
+  "url": "https://marcschraepler.com/",
+  "image": "https://marcschraepler.com/og-image.png",
+  "sameAs": [
+    "https://marcschraepler.com/",
+    "https://www.linkedin.com/in/marcschraepler/"
+  ],
+  "address": { "@type": "PostalAddress", "addressCountry": "AT" },
+  "areaServed": ["AT", "DE", "CH"]
+}
+</script>
 </body>
 </html>
