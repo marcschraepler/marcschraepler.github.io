@@ -8,8 +8,6 @@
 <meta name="author" content="Marc Schraepler von Gerlach">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://marcschraepler.github.io/">
-<link rel="alternate" hreflang="de" href="https://marcschraepler.com/">
-<link rel="alternate" hreflang="en" href="https://marcschraepler.com/en/">
 <link rel="me" href="https://www.linkedin.com/in/marcschraepler/">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
@@ -157,22 +155,27 @@ h1 {
   color: var(--muted-foreground);
 }
 
-footer {
-  margin-top: 14px;
-  font-size: 13px;
+.lang-switch {
+  margin-top: 20px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 6px 14px;
+  gap: 6px;
 }
-footer a {
+.lang-switch button {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--muted-foreground);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color var(--duration), border-color var(--duration);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius) - 0.25rem);
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: color var(--duration), border-color var(--duration), background-color var(--duration);
 }
-footer a:hover { color: var(--primary); border-bottom-color: currentColor; }
-footer a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 2px; }
+.lang-switch button:hover { color: var(--primary); }
+.lang-switch button[aria-pressed="true"] { color: var(--primary); border-color: var(--border); background: var(--card); }
+.lang-switch button:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -196,6 +199,7 @@ footer a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px;
     }
   }
   .role, .button--outline:hover { color: var(--primary-accent); }
+  .lang-switch button:hover, .lang-switch button[aria-pressed="true"] { color: var(--primary-accent); }
   /* Heller Akzent als Button-Fläche: hält den Kontrast im Dunkelmodus über WCAG AA */
   .button--primary { background-color: var(--primary-accent); color: var(--background); }
   .button--primary:hover { background-color: #8ac9dc; }
@@ -217,25 +221,21 @@ footer a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px;
   </div>
 
   <h1>Marc Schraepler von Gerlach</h1>
-  <p class="role">Digital Architect für den wachsenden Mittelstand</p>
-  <p class="bio">Für Unternehmen ohne eigenes Tech-Team: Ich entscheide, was digital wirklich weiterhilft, und baue die Lösung bis in den laufenden Betrieb.</p>
+  <p class="role" data-i18n="role">Digital Architect für den wachsenden Mittelstand</p>
+  <p class="bio" data-i18n="bio">Für Unternehmen ohne eigenes Tech-Team: Ich entscheide, was digital wirklich weiterhilft, und baue die Lösung bis in den laufenden Betrieb.</p>
 
   <nav class="actions" aria-label="Profil-Links">
-    <a class="button button--primary" href="https://marcschraepler.com/contact/">Situation schildern</a>
-    <a class="button button--outline" href="https://marcschraepler.com/">Website <span class="arrow" aria-hidden="true">↗</span></a>
-    <a class="button button--outline" href="https://marcschraepler.com/labs/">Lösungen live testen <span class="arrow" aria-hidden="true">↗</span></a>
-    <a class="button button--outline" href="https://marcschraepler.com/about/">Über mich <span class="arrow" aria-hidden="true">↗</span></a>
+    <a class="button button--primary" href="https://marcschraepler.com/" data-i18n="cta">Zur Website</a>
     <a class="button button--outline" href="https://www.linkedin.com/in/marcschraepler/" rel="me noopener">LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
   </nav>
 
-  <p class="meta">Österreich · DACH · Remote</p>
+  <p class="meta" data-i18n="meta">Österreich · DACH · Remote</p>
 
-  <footer>
-    <a href="https://marcschraepler.com/en/" hreflang="en">English</a>
-    <a href="https://marcschraepler.com/standpunkte/">Standpunkte</a>
-    <a href="https://marcschraepler.com/impressum/">Impressum</a>
-    <a href="https://marcschraepler.com/datenschutz/">Datenschutz</a>
-  </footer>
+  <div class="lang-switch" role="group" aria-label="Sprache / Language / Langue">
+    <button type="button" data-lang="de" aria-pressed="true">DE</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+  </div>
 </main>
 
 <script type="application/ld+json">
@@ -254,6 +254,72 @@ footer a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px;
   "address": { "@type": "PostalAddress", "addressCountry": "AT" },
   "areaServed": ["AT", "DE", "CH"]
 }
+</script>
+
+<script>
+(function () {
+  var STRINGS = {
+    de: {
+      title: "Marc Schraepler von Gerlach – Digital Architect für den wachsenden Mittelstand",
+      description: "Für Unternehmen ohne eigenes Tech-Team: Ich entscheide, was digital wirklich weiterhilft, und baue die Lösung bis in den laufenden Betrieb.",
+      role: "Digital Architect für den wachsenden Mittelstand",
+      bio: "Für Unternehmen ohne eigenes Tech-Team: Ich entscheide, was digital wirklich weiterhilft, und baue die Lösung bis in den laufenden Betrieb.",
+      cta: "Zur Website",
+      meta: "Österreich · DACH · Remote"
+    },
+    en: {
+      title: "Marc Schraepler von Gerlach – Digital Architect for the growing Mittelstand",
+      description: "For companies without their own tech team: I decide what genuinely helps digitally, and build the solution into daily operations myself.",
+      role: "Digital Architect for the growing Mittelstand",
+      bio: "For companies without their own tech team: I decide what genuinely helps digitally, and build the solution into daily operations myself.",
+      cta: "Visit website",
+      meta: "Austria · DACH region · Remote"
+    },
+    fr: {
+      title: "Marc Schraepler von Gerlach – Architecte numérique pour le Mittelstand en croissance",
+      description: "Pour les entreprises sans équipe tech interne : je décide ce qui aide vraiment sur le plan numérique, et je construis moi-même la solution jusque dans l'exploitation courante.",
+      role: "Architecte numérique pour le Mittelstand en croissance",
+      bio: "Pour les entreprises sans équipe tech interne : je décide ce qui aide vraiment sur le plan numérique, et je construis moi-même la solution jusque dans l'exploitation courante.",
+      cta: "Voir le site",
+      meta: "Autriche · Zone DACH · Télétravail"
+    }
+  };
+
+  var supported = Object.keys(STRINGS);
+  var root = document.documentElement;
+  var switchEl = document.querySelector(".lang-switch");
+  var descriptionMeta = document.querySelector('meta[name="description"]');
+
+  function applyLang(lang) {
+    if (supported.indexOf(lang) === -1) lang = "de";
+    var s = STRINGS[lang];
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (s[key]) el.textContent = s[key];
+    });
+    document.title = s.title;
+    if (descriptionMeta) descriptionMeta.setAttribute("content", s.description);
+    root.setAttribute("lang", lang);
+    if (switchEl) {
+      switchEl.querySelectorAll("button").forEach(function (btn) {
+        btn.setAttribute("aria-pressed", String(btn.getAttribute("data-lang") === lang));
+      });
+    }
+    try { localStorage.setItem("site-lang", lang); } catch (e) {}
+  }
+
+  var saved;
+  try { saved = localStorage.getItem("site-lang"); } catch (e) {}
+  var browserLang = (navigator.language || "de").slice(0, 2);
+  applyLang(saved || (supported.indexOf(browserLang) !== -1 ? browserLang : "de"));
+
+  if (switchEl) {
+    switchEl.addEventListener("click", function (e) {
+      var btn = e.target.closest("button[data-lang]");
+      if (btn) applyLang(btn.getAttribute("data-lang"));
+    });
+  }
+})();
 </script>
 </body>
 </html>

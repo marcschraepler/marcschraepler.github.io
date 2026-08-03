@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2.1.0] - 2026-08-03
+
+### Added
+
+- Dreisprachigkeit (DE/EN/FR) per Client-seitigem Umschalter unten auf der Karte, keine separaten URLs. Englisch wortgleich von der `/en/`-Seite der Hauptseite übernommen, Französisch eigenständig übersetzt (dort noch keine offizielle Version vorhanden)
+- Spracheinstellung wird in `localStorage` gemerkt, Erstbesuch erkennt `navigator.language` (Fallback Deutsch)
+
+### Removed
+
+- Nav auf zwei Buttons reduziert (Website, LinkedIn); Buttons zu Kontakt-, Labs- und Über-mich-Sub-Seiten entfernt
+- Footer mit Links zu English/Standpunkte/Impressum/Datenschutz komplett entfernt
+- `hreflang`-Alternate-Tags im `<head>` entfernt, da sie nach dem Wegfall der Sub-Seiten-Links nicht mehr zur Seite passten
+
 ## [2.0.1] - 2026-08-03
 
 ### Fixed
