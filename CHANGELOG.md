@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [2.0.1] - 2026-08-03
+
+### Fixed
+
+- GitHub-Pages-Deployment blieb nach dem Release von 2.0.0 auf dem alten Stand, weil die Pages-Quelle auf den Branch `master` zeigt, während der Release-Commit nur nach `main` gepusht war. `master` per Fast-Forward auf `main` nachgezogen, Deploy erfolgreich ausgelöst
+
+### Chore
+
+- Verwaiste Lockfiles und temporäre Objekte aus einer abgebrochenen Sandbox-Sitzung (`.git/_stale/`) entfernt, `git fsck` danach fehlerfrei
+- Live-Verifikation nach Deploy: Profilbild lädt, alle Links (`/contact/`, `/labs/`, `/about/`, `/standpunkte/`, `/impressum/`, `/datenschutz/`, `/en/`, LinkedIn) liefern 200, Hell- und Dunkelmodus rendern korrekt
+
 ## [2.0.0] - 2026-08-03
 
 ### Changed
