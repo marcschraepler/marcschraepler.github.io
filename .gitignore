@@ -2,3 +2,23 @@
 Thumbs.db
 *.swp
 *~
+
+# Secrets & credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Local AI tooling: memories, sessions, logs, caches
+.claude/
+.codex/
+.hermes/
+.gemini/
+*.session.json
+*.log
+.cache/
+
