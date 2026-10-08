@@ -100,6 +100,21 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
 .project-chain-list strong{font-size:12px}
 @media(max-width:740px){.project-chain-list span{font-size:11px}}
 @media(max-width:360px){.project-chain-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Compact fictional multi-trade view derived from the workflow categories, not personal data */
+.trade-overview{margin-top:13px;border-top:1px solid #dce7de;padding-top:13px}
+.trade-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #e4ebe3}
+.trade-row:last-child{border-bottom:0}
+.trade-work{min-width:0;flex:1}
+.trade-work strong{display:block;font-size:12px;line-height:1.35;color:#294a39;font-weight:790}
+.trade-work small,.trade-meta small{display:block;font-size:10px;color:#738a79;line-height:1.4;margin-top:4px}
+.trade-meta{text-align:right;flex-shrink:0}
+.trade-status{display:inline-block;background:#eef2ec;border:1px solid #dfe8dc;color:#5a735e;border-radius:7px;padding:4px 7px;font-size:10px;font-weight:760;white-space:nowrap}
+.trade-active{background:#e3f0e1;border-color:#cbdfcc;color:#3c714b}
+.trade-decision{display:flex;align-items:flex-start;gap:9px;margin-top:12px;padding:12px;border-radius:10px;background:#eaf3e7;color:#486851}
+.trade-decision strong{font-size:11px;white-space:nowrap;font-weight:800}
+.trade-decision span{font-size:11px;line-height:1.5}
+@media(max-width:400px){.trade-decision{display:block}.trade-decision strong{display:block;margin-bottom:5px}.trade-work small,.trade-meta small{font-size:10px}.trade-meta{max-width:48%}}
 </style>
 </head>
 <body>
@@ -205,11 +220,27 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
             <div class="project-chain-list">
               <span>Angebot<br><strong>18.000 €</strong></span>
               <span>Auftrag<br><strong>18.000 €</strong></span>
-              <span>Abschlag<br><strong>6.000 €</strong></span>
+              <span>Abschlag bezahlt<br><strong>6.000 €</strong></span>
               <span>Offenes Obligo<br><strong>12.000 €</strong></span>
               <span>Schlussrechnung<br><strong>12.000 €</strong></span>
             </div>
-            <p class="fine" style="margin:9px 0 0">Die Beträge sind erfunden. Das offene Obligo wäre ein Prüfvorschlag, keine automatisch aktualisierte Finanzübersicht.</p>
+            <p class="fine" style="margin:9px 0 0">Alles fiktiv. Das Obligo ist ein rechnerischer Prüfvorschlag, keine Buchung.</p>
+            <div class="trade-overview" aria-label="Fiktiver Überblick über drei Gewerke">
+              <div class="label" style="margin-bottom:7px">Drei Gewerke · Ein Projektüberblick</div>
+              <div class="trade-row">
+                <div class="trade-work"><strong>Haustechnik</strong><small>Instandhaltung · Muster Bau</small></div>
+                <div class="trade-meta"><span class="trade-status trade-active">Beauftragt</span><small>12.000 € rechnerisch offen</small></div>
+              </div>
+              <div class="trade-row">
+                <div class="trade-work"><strong>Elektrik</strong><small>Investition · Beispiel Elektro</small></div>
+                <div class="trade-meta"><span class="trade-status">In Verhandlung</span><small>7.400 € Angebot · kein Obligo</small></div>
+              </div>
+              <div class="trade-row">
+                <div class="trade-work"><strong>Malerarbeiten</strong><small>Klassifikation offen · Muster Maler</small></div>
+                <div class="trade-meta"><span class="trade-status">Zurückgestellt</span><small>3.200 € Angebot · kein Obligo</small></div>
+              </div>
+            </div>
+            <div class="trade-decision"><strong>Was braucht dich?</strong><span>Die Schlussrechnung prüfen. Andere Gewerke bleiben nachvollziehbar, ohne dass alles gleichzeitig entschieden werden muss.</span></div>
           </div>
           <div class="case-amount" id="case-outcome">1.280,00 € · zur Prüfung</div>
           <dl class="summary-details" id="case-facts"></dl>
@@ -320,7 +351,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       outcome:'12.000 € · Schlussrechnung zur Prüfung',
       facts:[['Projekt','Sanierung Musterhof · fiktiv'],['Dokumente','Angebot, Auftrag, Abschlag, Schlussrechnung'],['Offenes Obligo','12.000 € · nur rechnerischer Beispielwert'],['Quellen','Gmail + fiktive Dokumente in Drive']],
       sourceLabel:'▤ Projektunterlagen ansehen',sourceTitle:'Projekt Musterhof · Fiktive Dokumentenkette',
-      sourceDetails:'Alle Daten und Beträge sind erfunden. Angebot: 18.000 €. Auftrag: 18.000 €. Abschlagsrechnung: 6.000 €. Offenes Obligo vor Prüfung: 12.000 €. Eingang der Schlussrechnung: 12.000 €. Die Zuordnung ist nur eine Simulation. Ob offene Verpflichtungen oder Finanzübersichten aktualisiert werden dürften, hängt von einer erst zu prüfenden Datenbasis und verbindlichen Prüfregeln ab.',
+      sourceDetails:'Alle Daten und Beträge sind erfunden. Angebot: 18.000 €. Auftrag: 18.000 €. Zugeordneter und bezahlter Abschlag: 6.000 €. Rechenbeispiel offenes Obligo vor Prüfung: 12.000 €. Schlussrechnung: 12.000 €. Weitere Gewerke: Elektrik in Verhandlung (7.400 € unverbindliches Angebot) und Malerarbeiten zurückgestellt (3.200 € unverbindliches Angebot). Die Zuordnung ist nur eine Simulation. Ob offene Verpflichtungen oder Finanzübersichten aktualisiert werden dürften, hängt von einer erst zu prüfenden Datenbasis und verbindlichen Prüfregeln ab.',
       yes:'Prüfung vormerken',no:'Abgleich anfordern',
       yesResult:['Entscheidung zur Prüfung vorgemerkt.','Angebot, Auftrag, Abschlag und Schlussrechnung wären zur menschlichen Prüfung verknüpft. Keine Zahlung oder Änderung einer Finanzübersicht.'],
       noResult:['Abgleich als Entwurf vorbereitet.','Keine Nachricht versendet und kein Obligo verändert.','Guten Tag, könnten Sie uns bitte den Bezug zwischen Auftrag, Abschlag und Schlussrechnung erläutern?']
