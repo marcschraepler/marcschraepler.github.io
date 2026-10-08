@@ -42,6 +42,43 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
 @media(max-width:740px){.opening-title{font-size:clamp(33px,8.2vw,42px);letter-spacing:-1.6px}.focus-note{padding:16px}.briefing-grid{grid-template-columns:1fr}.briefing-head h3{font-size:21px}.briefing-item{padding:14px}}
 @media(max-width:400px){.pill{font-size:8px}.action-row{flex-direction:column}.docrow{align-items:flex-start;flex-direction:column}.icons{gap:7px}.appicon{padding:10px 8px;font-size:12px}}
 @media(prefers-reduced-motion:reduce){button:active:not(:disabled){transform:none}}
+
+/* Targeted extension of the existing design */
+.domain-note{font-size:11px;color:#829486;margin-top:11px;line-height:1.5}
+.case-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:18px 0 22px}
+.case-choice{text-align:left;border:1px solid #d9e6d9;background:#f5f8f3;border-radius:11px;padding:12px 11px;color:#587364;min-height:70px}
+.case-choice strong{display:block;font-size:12px;line-height:1.45;color:#365b47}
+.case-choice small{display:block;font-size:10px;letter-spacing:.25px;margin-top:4px;color:#869b8b}
+.case-choice[aria-pressed="true"]{border-color:#78a187;background:#e6f0e4;box-shadow:inset 0 0 0 1px #86ac8d}
+.case-choice[aria-pressed="true"] strong{color:#234f3b}
+.processed-steps{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 6px}
+.processed-steps span{background:#e9f3e7;color:#4e795a;border-radius:7px;padding:8px 10px;font-size:11px;font-weight:740}
+.example-heading{font-size:clamp(29px,4vw,44px)}
+.case-intro{font-size:16px;line-height:1.65;color:#5f7367;margin-bottom:0}
+.case-help{margin-top:15px}
+.case-amount{font-size:23px;letter-spacing:-.6px;font-weight:810;margin:14px 0 2px;line-height:1.3}
+.example-result{padding:11px 0 0}
+.pipeline{display:grid;grid-template-columns:minmax(0,1fr) 27px minmax(0,1fr) 27px minmax(0,1fr);align-items:center;gap:9px;margin:28px 0 16px}
+.pipe-item{border:1px solid #dce7de;border-radius:16px;background:#fff;padding:21px;min-height:180px}
+.pipe-item.middle{background:#e8f2e6;border-color:#cfe1ce}
+.pipe-title{font-size:19px;font-weight:810;line-height:1.35;letter-spacing:-.35px;margin:16px 0 10px}
+.pipe-text{font-size:12px;line-height:1.6;color:#6b8071;margin:0}
+.pipe-arrow{text-align:center;font-size:26px;color:#78a086;font-weight:550}
+.tool-detail summary{font-size:13px;padding:15px 18px}
+.tool-detail-content{font-size:13px;line-height:1.65;color:#617768;padding:14px 18px 18px;border-top:1px solid #dce7dc}
+.doc-example{border-radius:12px;border:1px solid #e1e9df;padding:17px;background:#f8faf7;margin-top:15px;font-size:13px;line-height:1.7;color:#516d5b}
+@media(max-width:740px){
+.case-choices{gap:7px;margin:16px 0}
+.case-choice{padding:10px 8px;min-height:68px}
+.case-choice strong{font-size:11px}
+.case-choice small{font-size:9px}
+.pipeline{grid-template-columns:1fr;gap:6px;margin-top:20px}
+.pipe-arrow{transform:rotate(90deg);font-size:23px;line-height:1.1}
+.pipe-item{min-height:0;padding:18px}
+.pipe-title{font-size:17px;margin:8px 0}
+.case-intro{font-size:15px}
+}
+@media(max-width:380px){.case-choice strong{font-size:10px}.case-choice{padding:9px 6px}}
 </style>
 </head>
 <body>
@@ -62,138 +99,157 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     <div class="columns">
       <div>
         <div class="kicker">01 / Dein Alltag</div>
-        <h1 class="opening-title">Viele Immobilien.<br>Viele Aufgaben.<br><span class="green">Ein klarer Überblick.</span></h1>
-        <p class="lead">Du hast bereits Google, Asana und viele eingespielte Abläufe. Meine Idee: Wir könnten einiges davon vereinfachen und dir helfen, dich auf das Wesentliche zu konzentrieren.</p>
-        <div class="chips"><span class="chip">Mehrere Objekte</span><span class="chip">Viele Beteiligte</span><span class="chip">Viele offene Fäden</span></div>
+        <h1 class="opening-title">Du hast genug<br><span class="green">zu organisieren.</span></h1>
+        <p class="lead">Immobilien, Familie, Unterlagen, E-Mails und Aufgaben. Vieles ist bereits digital. Trotzdem musst du oft selbst herausfinden, was wichtig ist, wo etwas liegt und wer sich darum kümmert.</p>
+        <div class="chips"><span class="chip">Immobilien</span><span class="chip">Familie &amp; Privates</span><span class="chip">Finanzen &amp; Vermögen</span></div>
+        <p class="domain-note">Mögliche Einsatzbereiche, noch keine fertigen Funktionen.</p>
       </div>
       <div class="softpanel">
-        <div class="label">Ein typischer Ausschnitt · fiktiv</div>
+        <div class="label">Ein möglicher Alltag · fiktiv</div>
         <div class="panel" style="margin-top:14px;padding:15px 18px">
-          <div class="listline"><span class="line-icon">✉</span><div class="line-copy"><div class="line-title">E-Mails durchsehen</div><div class="line-desc">Rechnungen, Rückfragen, Angebote</div></div></div>
-          <div class="listline"><span class="line-icon">☷</span><div class="line-copy"><div class="line-title">Asana prüfen</div><div class="line-desc">Was ist offen? Wer ist dran?</div></div></div>
-          <div class="listline"><span class="line-icon">▣</span><div class="line-copy"><div class="line-title">Unterlagen finden</div><div class="line-desc">In welchem Ordner liegt das?</div></div></div>
-          <div class="listline"><span class="line-icon">◷</span><div class="line-copy"><div class="line-title">Termine nachhalten</div><div class="line-desc">Worauf warte ich noch?</div></div></div>
+          <div class="listline"><span class="line-icon">✉</span><div class="line-copy"><div class="line-title">Rechnung einordnen</div><div class="line-desc">Welche Immobilie, welcher Auftrag?</div></div></div>
+          <div class="listline"><span class="line-icon">▣</span><div class="line-copy"><div class="line-title">Private Unterlagen finden</div><div class="line-desc">Vertrag, Versicherung, Termin</div></div></div>
+          <div class="listline"><span class="line-icon">☷</span><div class="line-copy"><div class="line-title">Rückfrage nachhalten</div><div class="line-desc">Gmail, Asana, Zuständigkeit</div></div></div>
+          <div class="listline"><span class="line-icon">◷</span><div class="line-copy"><div class="line-title">Offene Entscheidungen klären</div><div class="line-desc">Was braucht jetzt Aufmerksamkeit?</div></div></div>
         </div>
-        <div class="insight"><span class="big">↗</span><div><strong>Die Idee</strong><p>Weniger selbst zusammensuchen. Mehr vorbereitet bekommen.</p></div></div>
+        <div class="insight"><span class="big">↗</span><div><strong>Die Idee</strong><p>Weniger selbst verwalten. Mehr vorbereitet bekommen.</p></div></div>
       </div>
     </div>
   </section>
   <section class="stage" data-stage="1" hidden>
     <div class="comparison-head">
       <div class="kicker">02 / Mehr Fokus</div>
-      <h2>Was wäre, wenn du<br><span class="green">nur das Wichtige siehst?</span></h2>
-      <p class="lead">Nicht noch eine lange Liste. Sondern ein kurzer Überblick darüber, wo du entscheiden musst und was bereits läuft.</p>
+      <h2>Nicht alles selbst<br><span class="green">zusammensuchen.</span></h2>
+      <p class="lead">Was muss ich entscheiden? Was läuft schon? Was kann warten? Die Informationen könnten bereits bei jedem Vorgang stehen.</p>
     </div>
     <div class="compare">
       <div class="box before" id="before-card">
         <div class="label">Heute · Illustratives Beispiel</div>
         <div class="compare-title">Alles gleichzeitig</div>
-        <div class="comparison-row"><span class="num">38</span><span class="text">E-Mails im Posteingang</span></div>
-        <div class="comparison-row"><span class="num">24</span><span class="text">offene Aufgaben</span></div>
-        <div class="comparison-row"><span class="num faint">↗</span><span class="text">Unterlagen suchen</span></div>
-        <div class="comparison-row"><span class="num faint">◷</span><span class="text">Fristen und Rückfragen prüfen</span></div>
+        <div class="comparison-row"><span class="num">38</span><span class="text">E-Mails durchsehen</span></div>
+        <div class="comparison-row"><span class="num">24</span><span class="text">offene Aufgaben überblicken</span></div>
+        <div class="comparison-row"><span class="num faint">↗</span><span class="text">Unterlagen zusammensuchen</span></div>
+        <div class="comparison-row"><span class="num faint">◷</span><span class="text">Fristen und Antworten nachhalten</span></div>
       </div>
       <div class="box after" id="after-card">
-        <div class="label">Mit Property OS · Angestrebtes Zielbild</div>
-        <div class="compare-title">Nur das Wichtige</div>
-        <div class="comparison-row"><span class="statusdot">1</span><span class="text">Entscheidung nötig</span></div>
+        <div class="label">Property OS · Mögliches Zielbild</div>
+        <div class="compare-title">Nur das Relevante</div>
+        <div class="comparison-row"><span class="statusdot">1</span><span class="text">Entscheidung benötigt</span></div>
         <div class="comparison-row"><span class="statusdot">2</span><span class="text">Vorgänge werden bearbeitet</span></div>
-        <div class="comparison-row"><span class="statusdot">✓</span><span class="text">Übrige Eingänge vorsortiert</span></div>
-        <div class="comparison-row"><span class="statusdot">✓</span><span class="text">Relevante Dokumente verlinkt</span></div>
+        <div class="comparison-row"><span class="statusdot">◷</span><span class="text">Anderes kann warten</span></div>
+        <div class="comparison-row"><span class="statusdot">✓</span><span class="text">Quellen sind verlinkt</span></div>
       </div>
     </div>
     <button type="button" class="btn primary focus-btn" id="focus-button" aria-controls="focus-note" aria-expanded="false">Zeig mir den Tagesüberblick →</button>
     <div class="focus-note" id="focus-note" aria-live="polite" role="region" aria-label="Fiktiver Tagesüberblick">
       <div class="briefing-head"><div><div class="label">Property OS · Beispiel</div><h3>Dein Überblick für heute</h3></div><span class="small-tag">Fiktiv</span></div>
       <div class="briefing-grid">
-        <div class="briefing-item"><div class="briefing-number">1</div><div><div class="briefing-title">Deine Entscheidung</div><p>Heizungswartung: Rechnung zur Prüfung vorbereitet.</p></div></div>
-        <div class="briefing-item"><div class="briefing-number">2</div><div><div class="briefing-title">Wird bereits bearbeitet</div><p>Rückfrage beim Handwerker und Terminabstimmung.</p></div></div>
+        <div class="briefing-item"><div class="briefing-number">1</div><div><div class="briefing-title">Deine Entscheidung</div><p>Heizungswartung: Rechnung, Angebot und Quelle zur Prüfung bereit.</p></div></div>
+        <div class="briefing-item"><div class="briefing-number">2</div><div><div class="briefing-title">Wird bereits bearbeitet</div><p>Rückfrage beim Dienstleister und Terminabstimmung.</p></div></div>
       </div>
-      <div class="briefing-done"><span class="statusdot" aria-hidden="true">✓</span><span>Weitere Eingänge vorsortiert. Kein Handlungsbedarf.</span></div>
+      <div class="briefing-done"><span class="statusdot" aria-hidden="true">✓</span><span>Weitere Unterlagen vorsortiert. Nicht Dringendes kann warten.</span></div>
     </div>
-    <div class="compare-caption">Alle Zahlen sind frei erfunden und veranschaulichen nur die Idee. Eine tatsächliche Entlastung müsste erst überprüft werden.</div>
+    <div class="compare-caption">Fiktive Zahlen und Abläufe. Ob und wie stark der Aufwand sinkt, müsste ein Pilot zeigen.</div>
   </section>
   <section class="stage" data-stage="2" hidden>
+    <div class="kicker">03 / Drei Beispiele zum Ausprobieren</div>
+    <h2 style="max-width:740px">Der Eingang kommt.<br><span class="green">Der Kontext könnte schon da sein.</span></h2>
+    <div class="case-choices" role="group" aria-label="Fiktives Beispiel auswählen">
+      <button type="button" class="case-choice" data-case-select="invoice" aria-pressed="true"><strong>Immobilienrechnung</strong><small>Rechnung &amp; Angebot</small></button>
+      <button type="button" class="case-choice" data-case-select="private" aria-pressed="false"><strong>Privates Dokument</strong><small>Versicherung &amp; Frist</small></button>
+      <button type="button" class="case-choice" data-case-select="followup" aria-pressed="false"><strong>Offene Rückfrage</strong><small>Gmail &amp; Asana</small></button>
+    </div>
     <div class="story-grid">
       <div>
-        <div class="kicker">03 / So könnte es funktionieren</div>
-        <h2>Eine Rechnung.<br><span class="green">Weniger Suchen.</span></h2>
-        <p class="lead">Eine Rechnung kommt per Gmail. Im Hintergrund könnte Property OS sie erkennen, dem richtigen Objekt zuordnen und mit vorhandenen Informationen vergleichen.</p>
-        <p class="fine" style="margin-top:17px">Klicke auf die Beispielaktion. Du siehst dann, was bei dir zur Entscheidung ankommen könnte.</p>
+        <h3 id="example-title" class="example-heading">Eine Rechnung.<br><span class="green">Weniger Suchen.</span></h3>
+        <p class="case-intro" id="example-intro">Eine Rechnung trifft per Gmail ein. Im Hintergrund könnte Property OS sie einer Immobilie zuordnen und passende Unterlagen finden.</p>
+        <p class="fine case-help">Wähle ein Beispiel und klicke auf „Vorbereitung simulieren“. Keine echten Daten oder Verbindungen.</p>
+        <div class="note" style="margin-top:19px"><strong>Das Prinzip dahinter:</strong> Immobilien, Privates und später auch Finanzunterlagen könnten auf ähnliche Weise vorbereitet werden. Was tatsächlich sinnvoll ist, müssten wir gemeinsam prüfen.</div>
       </div>
       <div class="story-card">
         <div id="mail-state">
           <div class="mail-top"><span class="label">Gmail · Neuer Eingang</span><span class="small-tag">Fiktiv</span></div>
-          <div class="sender"><span class="sender-icon">M</span><div><div class="sender-name">Muster Haustechnik</div><div class="sender-address">rechnung@beispiel.invalid</div></div></div>
-          <div style="font-size:17px;line-height:1.4;font-weight:795">Rechnung zur Wartung</div>
-          <p style="font-size:13px;line-height:1.65;color:#63776a;margin:12px 0 0">Anbei die Rechnung für die Heizungswartung in der Musterimmobilie.</p>
-          <div class="fakefile"><span class="pdf">PDF</span><div><div class="fname">Rechnung_1042.pdf</div><div class="fdesc">Fiktiver Beleg</div></div></div>
+          <div class="sender"><span class="sender-icon" id="case-sender-icon">M</span><div><div class="sender-name" id="case-sender">Muster Haustechnik</div><div class="sender-address" id="case-email">rechnung@beispiel.invalid</div></div></div>
+          <div style="font-size:17px;line-height:1.4;font-weight:795" id="case-subject">Rechnung zur Wartung</div>
+          <p style="font-size:13px;line-height:1.65;color:#63776a;margin:12px 0 0" id="case-mail-body">Anbei die Rechnung für die Heizungswartung in der Musterimmobilie.</p>
+          <div class="fakefile"><span class="pdf" id="case-file-type">PDF</span><div><div class="fname" id="case-filename">Rechnung_1042.pdf</div><div class="fdesc" id="case-file-desc">Fiktiver Beleg</div></div></div>
           <button type="button" class="btn primary btn-wide" id="process-button" style="margin-top:16px">Vorbereitung simulieren →</button>
         </div>
         <div id="review-state" hidden>
-          <div class="mail-top"><span class="label">Vorbereitete Entscheidung</span><span class="small-tag">Beispiel</span></div>
-          <div class="amount">1.280,00 €</div>
-          <dl class="summary-details"><dt>Immobilie</dt><dd>Musterhaus am Park</dd><dt>Anlass</dt><dd>Heizungswartung</dd><dt>Abgleich</dt><dd>Beispielangebot über 1.280,00 € gefunden</dd><dt>Quelle</dt><dd>Rechnung in Google Drive</dd></dl>
-          <div class="docrow"><span style="font-weight:750">▤ &nbsp; Rechnung_1042.pdf</span><button type="button" class="docbutton" id="open-doc">Ansehen ↗</button></div>
+          <div class="mail-top"><span class="label">Vorgang vorbereitet</span><span class="small-tag">Simulation</span></div>
+          <div class="processed-steps"><span>✓ Eingang erkannt</span><span>✓ Kontext zugeordnet</span><span>✓ Quelle gefunden</span></div>
+          <div class="case-amount" id="case-outcome">1.280,00 € · zur Prüfung</div>
+          <dl class="summary-details" id="case-facts"></dl>
+          <div class="docrow"><span style="font-weight:750" id="case-source-label">▤ &nbsp; Rechnung_1042.pdf</span><button type="button" class="docbutton" id="open-doc">Quelle ansehen ↗</button></div>
           <div class="action-row"><button type="button" class="btn primary" id="approve">Freigabe vormerken</button><button type="button" class="btn secondary" id="ask">Rückfrage entwerfen</button></div>
           <div class="result" id="action-result" aria-live="polite"></div>
           <button type="button" class="docbutton" id="reset-mail" style="margin-top:17px">← Zur eingegangenen E-Mail</button>
         </div>
-        <p class="fine" style="margin:14px 0 0">Nur Demo. Keine echte Prüfung, Freigabe, Zahlung oder Nachricht.</p>
+        <p class="fine" style="margin:14px 0 0">Nur fiktive Beispiele. Keine echten Prüfungen, Änderungen, Zahlungen oder Nachrichten.</p>
       </div>
     </div>
   </section>
   <section class="stage" data-stage="3" hidden>
-    <div class="kicker">04 / Weniger Komplexität statt neuer Software</div>
-    <h2>Du brauchst kein<br><span class="green">weiteres Cockpit.</span></h2>
-    <p class="lead" style="max-width:760px">Zuerst vereinfachen, was schon da ist. Danach könnten unterstützende Abläufe in deiner bestehenden Google-Arbeitsumgebung mitlaufen.</p>
-    <div class="flowcols">
-      <div class="flowbox">
-        <div class="label">Bleibt vertraut</div>
-        <div class="icons"><div class="appicon"><span class="glyph">M</span>Gmail</div><div class="appicon"><span class="glyph">D</span>Drive</div><div class="appicon"><span class="glyph">S</span>Sheets</div><div class="appicon"><span class="glyph">31</span>Kalender</div></div>
-        <p class="fine" style="margin:0">Nachrichten, Originale, Status und Termine dort, wo ihr heute arbeitet.</p>
+    <div class="kicker">04 / Vertraute Werkzeuge bleiben</div>
+    <h2>Keine neue Software<br><span class="green">für deinen Alltag.</span></h2>
+    <p class="lead" style="max-width:770px">Property OS wäre keine zusätzliche Anwendung, die du täglich pflegen musst. Es könnte bestehende Werkzeuge verbinden und dir die entscheidenden Informationen vorbereitet zurückgeben.</p>
+    <div class="pipeline" aria-label="Bestehende Werkzeuge, Unterstützung im Hintergrund, vorbereitete Entscheidungen">
+      <div class="pipe-item">
+        <div class="label">Bleibt erhalten</div>
+        <div class="pipe-title">Google Workspace<br>+ Asana</div>
+        <p class="pipe-text">E-Mails, Dateien, Aufgaben und Termine dort, wo du bereits arbeitest.</p>
       </div>
-      <div class="flowbox highlight">
-        <div class="label">Kann im Hintergrund helfen</div>
-        <div class="flow-engine"><div class="engine-icon">✳</div><div><strong>Property OS</strong><small>n8n Cloud und KI. Sortieren, zuordnen und vorbereiten.</small></div></div>
-        <div class="chips" style="margin-top:15px"><span class="chip" style="background:#fff">Weniger Nachhalten</span><span class="chip" style="background:#fff">Klare Zuständigkeiten</span></div>
-        <p class="fine" style="margin:16px 0 0">Entscheidungen und Zahlungsfreigaben bleiben bei Menschen.</p>
+      <span class="pipe-arrow" aria-hidden="true">→</span>
+      <div class="pipe-item middle">
+        <div class="label">Im Hintergrund · Idee</div>
+        <div class="pipe-title">Property OS</div>
+        <p class="pipe-text">Eingänge erkennen, Zusammenhänge finden, Vorgänge vorbereiten.</p>
+      </div>
+      <span class="pipe-arrow" aria-hidden="true">→</span>
+      <div class="pipe-item">
+        <div class="label">Für dich sichtbar</div>
+        <div class="pipe-title">Kontext &amp;<br>Entscheidungen</div>
+        <p class="pipe-text">Was braucht dich? Was läuft? Was kann warten? Mit Links zu den Quellen.</p>
       </div>
     </div>
-    <div class="note"><strong>Wichtig:</strong> Eure bestehende Asana-Struktur würden wir erst gemeinsam anschauen und vereinfachen. Nicht blind durch etwas Neues ersetzen. Private und gemeinsame Informationen müssten sauber getrennt bleiben.</div>
+    <details class="optional tool-detail" id="technical-details">
+      <summary>Wie könnte das technisch funktionieren?</summary>
+      <div class="tool-detail-content">Google Workspace und Asana bleiben bestehen. n8n Cloud könnte Abläufe verbinden und KI bei der Vorbereitung unterstützen. Zugriffsrechte und getrennte private und gemeinsame Bereiche müssten zuerst geprüft werden. Automatische Ablage oder Änderungen erst nach gemeinsam festgelegten Regeln. Finanzentscheidungen und Zahlungen bleiben beim Menschen.</div>
+    </details>
+    <div class="note"><strong>Zuerst vereinfachen:</strong> Wir würden deine bestehende Google-Drive- und Asana-Struktur anschauen, nicht eine komplizierte Ordnung automatisch übernehmen. Private und gemeinsame Daten müssten klar getrennt bleiben.</div>
   </section>
   <section class="stage" data-stage="4" hidden>
     <div class="last-grid">
       <div>
         <div class="kicker">05 / Klein anfangen</div>
-        <h2>Wollen wir es einfach<br><span class="green">mal ausprobieren?</span></h2>
-        <p class="lead">Keine große Umstellung. Wir schauen uns gemeinsam an, wo du heute unnötig Zeit und Aufmerksamkeit verlierst. Dann testen wir eine kleine Verbesserung.</p>
+        <h2>Wir fangen mit dem an,<br><span class="green">was schon da ist.</span></h2>
+        <p class="lead">Wollen wir es einfach mal ausprobieren? Zuerst gemeinsam verstehen, was du bereits nutzt. Dann einen konkreten Ablauf testen, statt gleich eine große Lösung einzuführen.</p>
         <div class="mini-steps">
-          <div class="mini-step"><div class="step-num">01</div><div><strong>Überblick gewinnen</strong><span>Google, Asana und den heutigen Ablauf gemeinsam anschauen.</span></div></div>
-          <div class="mini-step"><div class="step-num">02</div><div><strong>Etwas vereinfachen</strong><span>Ein Objekt, ein Vorgang und klare Zuständigkeiten.</span></div></div>
-          <div class="mini-step"><div class="step-num">03</div><div><strong>Nutzen prüfen</strong><span>Hilft es wirklich? Nur dann weiter ausbauen.</span></div></div>
+          <div class="mini-step"><div class="step-num">01</div><div><strong>Bestand verstehen</strong><span>Drive und Asana gemeinsam anschauen, inklusive Ablage und Zuständigkeiten.</span></div></div>
+          <div class="mini-step"><div class="step-num">02</div><div><strong>Einen Ablauf wählen</strong><span>Eine konkrete Verwaltungsaufgabe überschaubar vereinfachen.</span></div></div>
+          <div class="mini-step"><div class="step-num">03</div><div><strong>Nutzen testen</strong><span>Zuverlässigkeit und tatsächliche Entlastung prüfen. Erst dann erweitern.</span></div></div>
         </div>
       </div>
       <div>
-        <div class="invitation"><div class="label">Der erste Schritt</div><div class="large">Ein gemeinsamer Blick auf deinen Alltag.</div><p>Vielleicht steckt schon in einer kleinen Vereinfachung viel Entlastung. Alles Weitere entscheiden wir danach.</p></div>
+        <div class="invitation"><div class="label">Der erste Schritt</div><div class="large">Ein gemeinsamer Blick auf deinen Alltag.</div><p>Deine bestehende Ordnung ist der Ausgangspunkt. Wir finden gemeinsam heraus, wo sich Vorarbeit abnehmen lässt.</p></div>
         <details class="optional" id="cost-details">
           <summary>Was würde Property OS kosten?</summary>
           <div class="cost-detail">
             <div style="padding:2px 0 18px">
-              <div class="label" style="margin-bottom:8px">Einmalig</div>
-              <div style="font-size:19px;font-weight:800;color:#315e4e;line-height:1.4">Analyse und Einrichtung</div>
-              <p style="font-size:14px;line-height:1.65;margin:9px 0 0;color:#50695b">Bevor etwas umgesetzt wird, müssten wir uns deine bestehenden Abläufe anschauen, die Struktur vereinfachen und einen ersten Prozess einrichten. Den Aufwand würden wir vorher gemeinsam festlegen.</p>
+              <div class="label" style="margin-bottom:8px">Einmalig &amp; projektbezogen</div>
+              <div style="font-size:19px;font-weight:800;color:#315e4e;line-height:1.4">Analyse, Konzeption und Umsetzung</div>
+              <p style="font-size:14px;line-height:1.65;margin:9px 0 0;color:#50695b">Analyse, Vereinfachung, Einrichtung, Integration und Tests wären gesonderte Leistungen. Auch eine spätere Betreuung hätte eigenen Aufwand. Was davon nötig ist, könnten wir erst nach Sichtung der bestehenden Abläufe seriös schätzen und gemeinsam festlegen.</p>
             </div>
             <div style="border-top:1px solid #dce7de;padding:18px 0 0">
-              <div class="label" style="margin-bottom:8px">Laufend · Geschätzt</div>
+              <div class="label" style="margin-bottom:8px">Laufend · Vorläufig geschätzt</div>
               <div style="font-size:19px;font-weight:800;color:#315e4e;line-height:1.4">ca. 25–40 € pro Monat</div>
-              <p style="font-size:14px;line-height:1.65;margin:9px 0 0;color:#50695b">Geschätzte zusätzliche Kosten für n8n Cloud und KI-Nutzung bei einem kleinen Pilot. Google Workspace ist bereits vorhanden.</p>
+              <p style="font-size:14px;line-height:1.65;margin:9px 0 0;color:#50695b">Zusätzliche technische Betriebskosten für n8n Cloud und KI-Nutzung bei einem kleinen Pilot. Google Workspace ist bereits vorhanden. Kein Gesamtpreis für Property OS.</p>
               <div style="margin-top:17px;padding:12px 14px;background:#f7faf6;border:1px solid #e3ece2;border-radius:10px">
-                <div class="cost-line" style="font-size:12px"><span>n8n Cloud Starter</span><strong>20 € / Monat</strong></div>
-                <div class="cost-line" style="font-size:12px"><span>KI-Nutzung · Schätzung</span><strong>5–20 € / Monat</strong></div>
+                <div class="cost-line" style="font-size:12px"><span>n8n Cloud Starter</span><strong>ca. 20 € / Monat</strong></div>
+                <div class="cost-line" style="font-size:12px"><span>KI-Nutzung · Planungswert</span><strong>ca. 5–20 € / Monat</strong></div>
                 <div class="cost-line" style="font-size:12px"><span>Google Workspace</span><strong>Schon vorhanden</strong></div>
               </div>
-              <p class="fine" style="margin:11px 0 0">Vorläufige Schätzung für einen kleinen Pilot, keine endgültigen Betriebskosten. n8n Cloud bei jährlicher Abrechnung. Nutzung und Tarif können die laufenden Kosten verändern.</p>
+              <p class="fine" style="margin:11px 0 0">Ungeprüfter Orientierungswert für einen kleinen Pilot, keine Zusage. n8n Cloud bei jährlicher Abrechnung. Umfang, Verbrauch, Abrechnung und Tarif können die Kosten verändern.</p>
             </div>
           </div>
         </details>
@@ -206,16 +262,64 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
   <div class="foot-buttons"><button type="button" id="back" class="btn secondary" disabled>← Zurück</button><button type="button" id="next" class="btn primary">Weiter →</button></div>
 </footer>
 </div>
-<div id="modal" class="overlay" role="dialog" aria-modal="true" aria-label="Fiktive Rechnung" hidden>
-  <div class="paper"><div class="paper-head"><span class="label">Fiktive Dokumentvorschau</span><button type="button" id="close-doc" class="btn secondary" style="min-height:36px;padding:7px 10px">Schließen ✕</button></div><div class="paper-rule"></div><strong style="font-size:19px">Muster Haustechnik</strong><p class="fine" style="margin:7px 0 32px">Keine echten Rechnungsdaten</p><h3 style="font-size:23px">RECHNUNG 1042</h3><p class="fine" style="margin:17px 0">Musterhaus am Park<br>Heizungswartung</p><table class="paper-table"><tr><td>Wartung der Heizungsanlage</td><td>1.280,00 €</td></tr><tr><td style="font-weight:800">Beispielgesamtbetrag</td><td style="font-weight:800">1.280,00 €</td></tr></table><p class="fine" style="margin:25px 0 0">Illustration. Kein echtes Dokument und keine Zahlungsaufforderung.</p></div>
+<div id="modal" class="overlay" role="dialog" aria-modal="true" aria-label="Fiktive Dokumentvorschau" hidden>
+  <div class="paper">
+    <div class="paper-head"><span class="label">Fiktive Quelle · Nur Illustration</span><button type="button" id="close-doc" class="btn secondary" style="min-height:36px;padding:7px 10px">Schließen ✕</button></div>
+    <div class="paper-rule"></div>
+    <strong id="modal-title" style="font-size:19px">Muster Haustechnik</strong>
+    <div class="doc-example" id="modal-details">Fiktives Dokument.</div>
+    <p class="fine" style="margin:23px 0 0">Dies ist keine echte Datei und kein Zugriff auf Google Workspace oder Asana.</p>
+  </div>
 </div>
 <script>
 (()=>{'use strict';
   const $=id=>document.getElementById(id);
   const stages=[...document.querySelectorAll('[data-stage]')];
   const tabs=[...document.querySelectorAll('[data-go]')];
-  let current=0, previousFocus=null;
-  const render=(n)=>{
+  const caseButtons=[...document.querySelectorAll('[data-case-select]')];
+  const cases={
+    invoice:{
+      heading:'Eine Rechnung.<br><span class="green">Weniger Suchen.</span>',
+      intro:'Eine Immobilienrechnung trifft per Gmail ein. Property OS könnte das Objekt erkennen, ein vorhandenes Angebot finden und den Vorgang zur Prüfung vorbereiten.',
+      sender:'Muster Haustechnik',email:'rechnung@beispiel.invalid',icon:'M',subject:'Rechnung zur Heizungswartung',
+      body:'Anbei unsere Rechnung zur Wartung im fiktiven Musterhaus.',file:'Rechnung_1042.pdf',fileType:'PDF',fileDesc:'Fiktiver Beleg',
+      outcome:'1.280,00 € · zur Prüfung',
+      facts:[['Immobilie','Musterhaus am Park'],['Anlass','Heizungswartung'],['Abgleich','Angebot über 1.280,00 € im Beispiel gefunden'],['Quellen','Gmail-Rechnung + Drive-Angebot']],
+      sourceLabel:'▤ Rechnung und Angebot',sourceTitle:'Rechnung 1042 · Muster Haustechnik',
+      sourceDetails:'Fiktives Beispiel. Heizungswartung im Musterhaus am Park. Rechnungsbetrag 1.280,00 €. Ein passendes Angebot über denselben Betrag liegt beispielhaft in Google Drive vor.',
+      yes:'Freigabe vormerken',no:'Rückfrage entwerfen',
+      yesResult:['Freigabe als nächste Entscheidung vorgemerkt.','Vor der tatsächlichen Freigabe prüft ein Mensch das Original. Keine Zahlung ausgelöst.'],
+      noResult:['Rückfrage vorbereitet.','Ein Entwurf könnte in Gmail liegen. Nichts wurde versendet.','Guten Tag, könnten Sie uns bitte noch den Wartungsbericht zusenden?']
+    },
+    private:{
+      heading:'Ein privates Dokument.<br><span class="green">Richtig eingeordnet.</span>',
+      intro:'Eine fiktive Versicherungsinformation trifft ein. Property OS könnte den passenden privaten Bereich und Vertrag finden und einen möglichen Prüftermin als Hinweis vorbereiten.',
+      sender:'Muster Versicherung',email:'service@beispiel.invalid',icon:'V',subject:'Information zu Ihrer Versicherung',
+      body:'Anbei die aktualisierten Vertragsinformationen mit dem nächsten Prüftermin.',file:'Versicherungsinfo.pdf',fileType:'PDF',fileDesc:'Fiktives privates Dokument',
+      outcome:'Vertrag & Prüftermin gefunden',
+      facts:[['Bereich','Privat · Versicherungen'],['Zuordnung','Hausratvertrag im Beispiel gefunden'],['Termin','Vertragsprüfung in 21 Tagen · fiktiv'],['Quellen','Gmail-Anhang + privater Drive-Ordner']],
+      sourceLabel:'▤ Versicherungsinfo und Vertrag',sourceTitle:'Versicherungsinformation · Beispiel',
+      sourceDetails:'Fiktives Beispiel. Ein privates Versicherungsdokument könnte im geschützten Drive-Bereich mit einem bestehenden Vertrag verknüpft werden. Ein Prüftermin in 21 Tagen wird als Hinweis erkannt, aber nicht automatisch eingetragen.',
+      yes:'Termin vormerken',no:'Details prüfen',
+      yesResult:['Hinweis zur Prüfung vorgemerkt.','Ein Mensch entscheidet, ob der Termin übernommen wird. Kein Kalendereintrag erstellt.'],
+      noResult:['Vertragsvergleich vorbereitet.','Die Originaldokumente müssten von einer berechtigten Person geprüft werden. Keine automatische Änderung.']
+    },
+    followup:{
+      heading:'Eine offene Rückfrage.<br><span class="green">Nicht vergessen.</span>',
+      intro:'Eine E-Mail enthält eine noch offene Zusage. Property OS könnte die passende Asana-Aufgabe finden, den Bearbeitungsstand zeigen und eine Antwort vorbereiten.',
+      sender:'Muster Dienstleister',email:'kontakt@beispiel.invalid',icon:'D',subject:'Rückfrage zur Reparatur',
+      body:'Ist die Rückmeldung zur Reparatur schon abgestimmt? Wir warten noch auf eine Antwort.',file:'E-Mail mit Rückfrage',fileType:'MAIL',fileDesc:'Fiktiver Nachrichteneingang',
+      outcome:'Offener Vorgang erkannt',
+      facts:[['Thema','Reparatur · Beispielimmobilie'],['Asana','Bestehende Aufgabe im Beispiel erkannt'],['Status','Rückmeldung steht noch aus'],['Quellen','Gmail-Nachricht + Asana-Aufgabe']],
+      sourceLabel:'▤ Nachricht und Asana-Aufgabe',sourceTitle:'Offene Rückfrage · Beispiel',
+      sourceDetails:'Fiktives Beispiel. Eine E-Mail verweist auf die Reparatur einer Beispielimmobilie. Eine bereits vorhandene Asana-Aufgabe ist zugeordnet. Der Status wird angezeigt, ohne die Aufgabe automatisch zu ändern.',
+      yes:'Antwort entwerfen',no:'Zuständigkeit prüfen',
+      yesResult:['Antwortentwurf vorbereitet.','Die Nachricht würde erst nach deiner Prüfung versendet. Nichts wurde abgeschickt.','Guten Tag, danke für die Nachfrage. Wir prüfen den Stand und melden uns zurück.'],
+      noResult:['Zuständigkeit zur Prüfung vorgemerkt.','Die bestehende Asana-Aufgabe bleibt unverändert. Du entscheidest über die weitere Bearbeitung.']
+    }
+  };
+  let current=0,selected='invoice',previousFocus=null;
+  function render(n){
     current=Math.max(0,Math.min(4,n));
     stages.forEach((s,i)=>s.hidden=(i!==current));
     tabs.forEach((t,i)=>{if(i===current)t.setAttribute('aria-current','step');else t.removeAttribute('aria-current');t.classList.toggle('past',i<current)});
@@ -223,23 +327,107 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     $('next').textContent=current===4?'Von vorn ↺':'Weiter →';
     $('counter').textContent=(current+1)+' von 5';
     window.scrollTo({top:0,behavior:'instant'});
-  };
+  }
+  function resetMail(){
+    $('mail-state').hidden=false;
+    $('review-state').hidden=true;
+    $('action-result').classList.remove('visible');
+    $('action-result').replaceChildren();
+  }
+  function chooseCase(key){
+    if(!Object.hasOwn(cases,key))return;
+    selected=key;
+    const d=cases[key];
+    caseButtons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.caseSelect===key)));
+    $('example-title').innerHTML=d.heading;
+    $('example-intro').textContent=d.intro;
+    $('case-sender').textContent=d.sender;
+    $('case-sender-icon').textContent=d.icon;
+    $('case-email').textContent=d.email;
+    $('case-subject').textContent=d.subject;
+    $('case-mail-body').textContent=d.body;
+    $('case-file-type').textContent=d.fileType;
+    $('case-filename').textContent=d.file;
+    $('case-file-desc').textContent=d.fileDesc;
+    $('case-outcome').textContent=d.outcome;
+    const list=$('case-facts');
+    list.replaceChildren();
+    d.facts.forEach(([name,value])=>{
+      const dt=document.createElement('dt');dt.textContent=name;
+      const dd=document.createElement('dd');dd.textContent=value;
+      list.append(dt,dd);
+    });
+    $('case-source-label').textContent=d.sourceLabel;
+    $('approve').textContent=d.yes;
+    $('ask').textContent=d.no;
+    resetMail();
+  }
+  function showResult(items){
+    const target=$('action-result');
+    target.replaceChildren();
+    const heading=document.createElement('strong');
+    heading.textContent=items[0];
+    const explanation=document.createElement('div');
+    explanation.textContent=items[1];
+    explanation.style.marginTop='5px';
+    target.append(heading,explanation);
+    if(items[2]){
+      const note=document.createElement('blockquote');
+      note.textContent=items[2];
+      note.style.cssText='background:white;border:1px solid #dbe9d9;border-radius:8px;margin:10px 0 0;padding:11px';
+      target.append(note);
+    }
+    target.classList.add('visible');
+  }
   $('back').addEventListener('click',()=>render(current-1));
-  $('next').addEventListener('click',()=>{if(current===4){$('focus-note').classList.remove('visible');$('after-card').classList.remove('emphasized');$('focus-button').setAttribute('aria-expanded','false');$('focus-button').textContent='Zeig mir den Tagesüberblick →';resetMail();$('cost-details').open=false;render(0)}else render(current+1)});
+  $('next').addEventListener('click',()=>{
+    if(current===4){
+      $('focus-note').classList.remove('visible');
+      $('after-card').classList.remove('emphasized');
+      $('focus-button').setAttribute('aria-expanded','false');
+      $('focus-button').textContent='Zeig mir den Tagesüberblick →';
+      $('cost-details').open=false;
+      $('technical-details').open=false;
+      chooseCase('invoice');
+      render(0);
+    }else render(current+1);
+  });
   tabs.forEach(t=>t.addEventListener('click',()=>render(Number(t.dataset.go))));
-  $('focus-button').addEventListener('click',()=>{const open=$('focus-note').classList.toggle('visible');$('after-card').classList.toggle('emphasized',open);$('focus-button').setAttribute('aria-expanded',String(open));$('focus-button').textContent=open?'Tagesüberblick ausblenden ↑':'Zeig mir den Tagesüberblick →'});
-  const resetMail=()=>{$('mail-state').hidden=false;$('review-state').hidden=true;$('action-result').classList.remove('visible');$('action-result').replaceChildren()};
-  $('process-button').addEventListener('click',()=>{$('mail-state').hidden=true;$('review-state').hidden=false});
+  $('focus-button').addEventListener('click',()=>{
+    const open=$('focus-note').classList.toggle('visible');
+    $('after-card').classList.toggle('emphasized',open);
+    $('focus-button').setAttribute('aria-expanded',String(open));
+    $('focus-button').textContent=open?'Tagesüberblick ausblenden ↑':'Zeig mir den Tagesüberblick →';
+  });
+  caseButtons.forEach(b=>b.addEventListener('click',()=>chooseCase(b.dataset.caseSelect)));
+  $('process-button').addEventListener('click',()=>{
+    $('mail-state').hidden=true;
+    $('review-state').hidden=false;
+  });
   $('reset-mail').addEventListener('click',resetMail);
-  const showResult=(heading,body,extra)=>{const target=$('action-result');target.replaceChildren();const strong=document.createElement('strong');strong.textContent=heading;target.append(strong);const p=document.createElement('div');p.textContent=body;p.style.marginTop='5px';target.append(p);if(extra){const note=document.createElement('blockquote');note.textContent=extra;note.style.cssText='background:white;border:1px solid #dbe9d9;border-radius:8px;margin:10px 0 0;padding:11px';target.append(note)}target.classList.add('visible')};
-  $('approve').addEventListener('click',()=>showResult('Im Beispiel vorgemerkt.','Der Vorgang wäre zur menschlichen Freigabe bereit. Keine Zahlung und keine Speicherung.'));
-  $('ask').addEventListener('click',()=>showResult('Rückfrage als Entwurf vorbereitet.','Keine Nachricht wurde versendet.','Guten Tag, könnten Sie uns bitte noch den Wartungsbericht zukommen lassen?'));
+  $('approve').addEventListener('click',()=>showResult(cases[selected].yesResult));
+  $('ask').addEventListener('click',()=>showResult(cases[selected].noResult));
   const modal=$('modal');
-  const closeModal=()=>{modal.hidden=true;modal.classList.remove('visible');document.body.style.overflow='';if(previousFocus)previousFocus.focus()};
-  $('open-doc').addEventListener('click',()=>{previousFocus=document.activeElement;modal.hidden=false;modal.classList.add('visible');document.body.style.overflow='hidden';$('close-doc').focus()});
+  function closeModal(){
+    modal.hidden=true;
+    modal.classList.remove('visible');
+    document.body.style.overflow='';
+    if(previousFocus)previousFocus.focus();
+  }
+  $('open-doc').addEventListener('click',()=>{
+    const d=cases[selected];
+    $('modal-title').textContent=d.sourceTitle;
+    $('modal-details').textContent=d.sourceDetails;
+    previousFocus=document.activeElement;
+    modal.hidden=false;
+    modal.classList.add('visible');
+    document.body.style.overflow='hidden';
+    $('close-doc').focus();
+  });
   $('close-doc').addEventListener('click',closeModal);
   modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)closeModal()});
+  chooseCase('invoice');
   render(0);
 })();
 </script>
