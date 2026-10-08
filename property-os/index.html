@@ -506,6 +506,13 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     $('focus-button').textContent=open?'Tagesüberblick ausblenden ↑':'Zeig mir den Tagesüberblick →';
   });
   caseButtons.forEach(b=>b.addEventListener('click',()=>chooseCase(b.dataset.caseSelect)));
+  // On phones, keep the expanded help above the persistent bottom navigation.
+  document.querySelectorAll('.help-detail').forEach(detail=>detail.addEventListener('toggle',()=>{
+    if(!detail.open || !window.matchMedia('(max-width:740px)').matches)return;
+    const footerTop=document.querySelector('footer').getBoundingClientRect().top;
+    const extra=detail.getBoundingClientRect().bottom-footerTop+12;
+    if(extra>0)window.scrollBy({top:extra,behavior:'instant'});
+  }));
   $('process-button').addEventListener('click',()=>{
     $('mail-state').hidden=true;
     $('review-state').hidden=false;
