@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Property OS. Eine interaktive Idee für weniger Verwaltungsarbeit und mehr Überblick, in fünf kurzen Stationen.">
+<title>Property OS · Mehr Überblick, weniger Verwaltungsarbeit</title>
+<style>
+:root{--ink:#223a34;--muted:#63766b;--dark:#2c584a;--dark2:#214638;--lime:#dfeadc;--sage:#8eab96;--line:#dce7de;--paper:#fff;--bg:#f9fbf7;--panel:#f0f6ef}
+*{box-sizing:border-box}
+html{background:#e9efe7;scroll-behavior:auto}
+body{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+button{font:inherit;cursor:pointer}button:disabled{cursor:default}button:focus-visible,summary:focus-visible{outline:3px solid #7fa68a;outline-offset:4px}
+button:active:not(:disabled){transform:translateY(1px)}
+.shell{width:min(1080px,100%);background:var(--bg);border:1px solid #d6e3d6;border-radius:22px;overflow:hidden;box-shadow:0 22px 74px #163c2810}
+header{padding:20px 29px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-size:19px;letter-spacing:-.8px;font-weight:810;white-space:nowrap}.brand svg{width:36px;height:36px;flex-shrink:0}.brand .period{color:#80a38d}
+.pill{border-radius:100px;border:1px solid #d5e5d5;background:#eaf2e9;color:#52715d;padding:8px 12px;font-weight:810;font-size:10px;letter-spacing:1.05px;text-transform:uppercase;white-space:nowrap}
+.progress{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;padding:16px 29px 15px;border-bottom:1px solid var(--line)}
+.progress button{border:0;background:none;text-align:left;color:#829588;font-size:11px;font-weight:730;padding:0 1px 7px;min-width:0}
+.progress span{display:block;background:#e1e9df;height:5px;border-radius:8px;margin-bottom:9px}
+.progress button[aria-current="step"]{color:var(--ink)}.progress button[aria-current="step"] span{background:var(--dark)}.progress button.past span{background:#a2bba8}
+main{min-height:515px}.stage{padding:40px 42px 36px}.stage[hidden]{display:none!important}
+.kicker{font-size:11px;letter-spacing:1.7px;text-transform:uppercase;font-weight:840;color:#6b9177;margin-bottom:21px}
+h1,h2,h3,p{margin-top:0}h1{font-size:clamp(35px,5.3vw,61px);line-height:1.09;letter-spacing:-2.7px;font-weight:815;margin-bottom:24px}h2{font-size:clamp(31px,4.5vw,49px);line-height:1.13;letter-spacing:-2.1px;font-weight:810;margin-bottom:20px}h3{font-size:17px;letter-spacing:-.35px;font-weight:785;margin-bottom:7px}
+.green{color:#729a7e}.lead{font-size:17px;line-height:1.68;color:#5f7367;max-width:535px;margin-bottom:0}.fine{font-size:12px;line-height:1.6;color:#72877a}.label{font-size:10px;letter-spacing:1.15px;text-transform:uppercase;color:#7b9181;font-weight:840}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}.panel{padding:23px;border-radius:17px;background:#fff;border:1px solid #dfe9df;box-shadow:0 8px 28px #21463808}.softpanel{background:linear-gradient(145deg,#eef6ed,#e2eddf);border:1px solid #dce8d9;border-radius:18px;padding:23px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:27px}.chip{border:1px solid #dce8dd;border-radius:10px;background:#f1f6ef;padding:9px 12px;font-size:12px;font-weight:730;color:#476854}
+.listline{display:flex;gap:11px;align-items:center;padding:13px 0;border-bottom:1px solid #eef1ed}.listline:last-child{border-bottom:0}.line-icon{height:36px;width:36px;flex:0 0 36px;display:grid;place-items:center;background:#eff4ee;border-radius:11px;color:#47715b;font-size:15px;font-weight:730}.line-copy{min-width:0}.line-title{font-size:13px;font-weight:760}.line-desc{font-size:11px;color:#8b9b8f;margin-top:3px}.small-tag{border-radius:7px;background:#eef4ed;padding:5px 8px;font-size:10px;color:#6e8775;white-space:nowrap}
+.insight{margin-top:16px;display:flex;align-items:center;gap:12px;background:#305d4c;border-radius:12px;padding:17px 18px;color:white}.insight .big{font-size:24px;font-weight:800}.insight strong{display:block;font-size:14px;margin-bottom:4px}.insight p{color:#d2e5d7;font-size:12px;line-height:1.5;margin:0}
+.comparison-head{max-width:720px;margin-bottom:26px}.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px}.compare .box{border-radius:18px;padding:24px;min-width:0}.before{border:1px solid #e3e6dc;background:#f5f6f0}.after{border:1px solid #bed6c1;background:#e7f1e5}.compare-title{font-size:20px;font-weight:805;letter-spacing:-.6px;margin:10px 0 20px}.comparison-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #dfe7dd}.comparison-row:last-child{border:0}.num{font-size:24px;font-weight:830;letter-spacing:-1px;min-width:32px}.comparison-row .text{font-size:13px;font-weight:680;line-height:1.4}.comparison-row .right{font-size:11px;color:#728578;margin-left:auto}.faint{color:#8ca196}.statusdot{width:22px;height:22px;border-radius:100px;background:#d0e4d0;color:#407659;display:grid;place-items:center;font-weight:900;flex-shrink:0}
+.focus-btn{width:100%;margin-top:16px}.focus-note{display:none;padding:15px 17px;margin-top:13px;background:#fff;border:1px solid #d5e5d6;border-radius:12px;color:#506f5b;font-size:13px;line-height:1.65}.focus-note.visible{display:block}.emphasized{outline:3px solid #accbb0;outline-offset:2px}.compare-caption{margin-top:14px;font-size:11px;color:#87988b;line-height:1.55}
+.story-grid{display:grid;grid-template-columns:.88fr 1.12fr;align-items:center;gap:32px}.story-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 11px 30px #2146380c}.story-card .mail-top{display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid #edf1eb;padding-bottom:14px}.sender{display:flex;align-items:center;gap:12px;margin:21px 0}.sender-icon{width:43px;height:43px;border-radius:12px;background:#e6f0e8;display:grid;place-items:center;color:#386852;font-weight:820}.sender-name{font-size:14px;font-weight:750}.sender-address{font-size:11px;color:#809184}.fakefile{background:#f4f8f3;border:1px solid #e4eae3;border-radius:10px;padding:13px;display:flex;gap:10px;align-items:center;margin-top:22px}.pdf{border-radius:6px;background:#e0ebdf;padding:9px;font-size:10px;color:#416b4e;font-weight:830}.fakefile .fname{font-size:12px;font-weight:740}.fakefile .fdesc{font-size:10px;color:#899a8d;margin-top:3px}.summary-details{display:grid;grid-template-columns:105px 1fr;gap:9px 12px;font-size:13px;margin:19px 0}.summary-details dt{color:#8a9b8e}.summary-details dd{margin:0;font-weight:740}.amount{font-size:34px;font-weight:830;letter-spacing:-1.4px;margin-top:14px}.docrow{display:flex;align-items:center;justify-content:space-between;background:#f4f8f3;padding:12px;margin:18px 0;border-radius:10px;gap:10px;font-size:12px}.docbutton{background:none;border:0;color:#32644f;font-size:12px;font-weight:760;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}.btn{border-radius:11px;min-height:49px;padding:14px 18px;border:1px solid #d2e0d3;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:13px;font-weight:760;line-height:1.3}.primary{background:var(--dark);color:white;border-color:var(--dark)}.primary:hover{background:var(--dark2)}.secondary{background:#f6f9f5;color:var(--ink)}.secondary:hover{background:#ebf2e9}.btn-wide{width:100%}.action-row{display:flex;flex-wrap:wrap;gap:9px}.action-row .btn{flex:1}.result{display:none;background:#f0f7ef;border:1px solid #d8e9d6;border-radius:11px;padding:13px 15px;margin-top:13px;font-size:12px;color:#456552;line-height:1.6}.result.visible{display:block}
+.flowcols{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:27px}.flowbox{border-radius:17px;padding:23px;border:1px solid #dce7de;background:#fff}.flowbox.highlight{background:#e9f3e8;border-color:#d1e3d0}.icons{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:21px 0}.appicon{display:flex;align-items:center;gap:9px;background:#f4f7f2;border:1px solid #e4ece2;border-radius:9px;padding:13px 10px;font-size:13px;font-weight:730}.glyph{width:26px;height:26px;display:grid;place-items:center;border-radius:7px;background:#dce8dc;color:#3d7055;font-weight:840;font-size:11px;flex-shrink:0}.flow-engine{background:#fff;border:1px solid #d8e8d7;border-radius:12px;padding:16px;display:flex;align-items:center;gap:14px;margin-top:21px}.engine-icon{width:43px;height:43px;background:var(--dark);border-radius:13px;color:white;display:grid;place-items:center;flex-shrink:0;font-size:24px}.flow-engine strong{display:block;font-size:15px}.flow-engine small{display:block;font-size:11px;color:#7a8f7f;line-height:1.45;margin-top:4px}.note{margin-top:17px;border:1px solid #deeadc;border-radius:11px;background:#f4f9f3;padding:13px 15px;font-size:12px;line-height:1.65;color:#577263}
+.last-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}.mini-steps{display:flex;flex-direction:column;gap:11px;margin-top:19px}.mini-step{display:flex;align-items:flex-start;gap:13px;background:#fff;border:1px solid #dde8dc;padding:15px;border-radius:12px}.step-num{background:#e4efe2;color:#4c7758;font-weight:810;font-size:12px;display:grid;place-items:center;flex-shrink:0;border-radius:8px;width:31px;height:31px}.mini-step strong{font-size:13px;display:block;margin-bottom:4px}.mini-step span{font-size:12px;color:#7c8c7e;line-height:1.55;display:block}.invitation{background:linear-gradient(165deg,#315e4e,#254b3e);color:white;border-radius:18px;padding:29px}.invitation .label{color:#b9d5c0}.invitation .large{font-size:25px;letter-spacing:-.6px;font-weight:820;line-height:1.25;margin:20px 0 10px}.invitation p{font-size:14px;color:#d6e6da;line-height:1.7;margin:0}.optional{border:1px solid #dce7dc;border-radius:12px;margin-top:19px;background:#f4f8f3}.optional summary{cursor:pointer;padding:14px 17px;font-weight:740;font-size:12px;list-style:none;display:flex;align-items:center;justify-content:space-between}.optional summary::-webkit-details-marker{display:none}.optional summary::after{content:'＋';font-size:18px;font-weight:500;color:#547765}.optional[open] summary::after{content:'−'}.optional .cost-detail{border-top:1px solid var(--line);padding:13px 17px 16px}.cost-line{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:8px 0;color:#587163}.cost-line strong{color:#305847;white-space:nowrap}
+footer{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 29px;border-top:1px solid var(--line);background:#fcfdfb}.progress-count{font-size:12px;color:#758a7b}.foot-buttons{display:flex;gap:10px}.foot-buttons .btn{min-width:115px}.foot-buttons button:disabled{opacity:.38}
+.overlay{position:fixed;inset:0;z-index:10;background:#15291fbd;display:none;align-items:center;justify-content:center;padding:20px}.overlay.visible{display:flex}.paper{background:#fff;border-radius:16px;padding:26px;width:min(480px,100%);max-height:85vh;overflow-y:auto;box-shadow:0 30px 90px #09190e55}.paper-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.paper-rule{height:1px;background:#e1e7df;margin:22px 0}.paper-table{width:100%;border-collapse:collapse;font-size:12px}.paper-table td{border-bottom:1px solid #e4eae3;padding:11px 0}.paper-table td:last-child{text-align:right}
+@media(max-width:740px){body{padding:0;align-items:stretch;background:var(--bg)}.shell{border:0;border-radius:0;box-shadow:none;min-height:100vh}header{padding:16px 17px}.brand{font-size:17px}.brand svg{width:31px;height:31px}.pill{font-size:9px;padding:7px}.progress{padding:13px 17px;gap:7px}.progress button{font-size:0;padding-bottom:2px}.progress span{height:6px;margin-bottom:0}.stage{padding:31px 20px;min-height:calc(100dvh - 195px)}h1{font-size:clamp(34px,9vw,50px);letter-spacing:-1.8px}h2{font-size:clamp(31px,7.3vw,43px);letter-spacing:-1.4px}.lead{font-size:16px}.kicker{margin-bottom:15px}.columns,.story-grid,.flowcols,.last-grid,.compare{grid-template-columns:1fr;gap:15px}.columns,.story-grid{gap:23px}.softpanel,.panel{padding:17px}.chips{margin-top:19px}.compare .box{padding:18px}.compare-title{font-size:18px;margin:8px 0 10px}.comparison-row{padding:8px 0}.num{font-size:21px}.story-card{padding:17px}.flowcols{margin-top:23px}.flowbox{padding:18px}.flow-engine{margin-top:16px}.mini-steps{margin:12px 0 0}.invitation{padding:23px}.invitation .large{font-size:23px}.stage[data-stage="4"]{min-height:0}footer{padding:14px 17px;position:sticky;bottom:0;z-index:5;box-shadow:0 -6px 24px #193d2408}.foot-buttons .btn{min-width:0;padding:12px 15px}.paper{padding:20px}}
+@media(max-width:400px){.pill{font-size:8px}.action-row{flex-direction:column}.docrow{align-items:flex-start;flex-direction:column}.icons{gap:7px}.appicon{padding:10px 8px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){button:active:not(:disabled){transform:none}}
+</style>
+</head>
+<body>
+<div class="shell" id="app">
+<header>
+  <div class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#315e4e"/><path d="M9 18.5 20 9.5l11 9v12H9z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M16.5 30.5v-9h7v9" fill="none" stroke="#fff" stroke-width="2"/></svg><span>property os<span class="period">.</span></span></div>
+  <span class="pill">Eine Idee · Keine fertige Lösung</span>
+</header>
+<nav class="progress" aria-label="Die fünf Stationen">
+  <button type="button" data-go="0" aria-label="Station 1: Alltag" aria-current="step"><span></span>Der Alltag</button>
+  <button type="button" data-go="1" aria-label="Station 2: Fokus"><span></span>Mehr Fokus</button>
+  <button type="button" data-go="2" aria-label="Station 3: Beispiel"><span></span>Ein Beispiel</button>
+  <button type="button" data-go="3" aria-label="Station 4: Werkzeuge"><span></span>Keine neue Software</button>
+  <button type="button" data-go="4" aria-label="Station 5: Pilot"><span></span>Einfach testen</button>
+</nav>
+<main>
+  <section class="stage" data-stage="0">
+    <div class="columns">
+      <div>
+        <div class="kicker">01 / Dein Alltag</div>
+        <h1>Du hast genug<br><span class="green">zu organisieren.</span></h1>
+        <p class="lead">Immobilien, E-Mails, Unterlagen, Aufgaben und Absprachen. Google und Asana helfen bereits. Aber was braucht davon heute wirklich deine Aufmerksamkeit?</p>
+        <div class="chips"><span class="chip">Mehrere Objekte</span><span class="chip">Viele Beteiligte</span><span class="chip">Viele offene Fäden</span></div>
+      </div>
+      <div class="softpanel">
+        <div class="label">Ein typischer Ausschnitt · fiktiv</div>
+        <div class="panel" style="margin-top:14px;padding:15px 18px">
+          <div class="listline"><span class="line-icon">✉</span><div class="line-copy"><div class="line-title">E-Mails durchsehen</div><div class="line-desc">Rechnungen, Rückfragen, Angebote</div></div></div>
+          <div class="listline"><span class="line-icon">☷</span><div class="line-copy"><div class="line-title">Asana prüfen</div><div class="line-desc">Was ist offen? Wer ist dran?</div></div></div>
+          <div class="listline"><span class="line-icon">▣</span><div class="line-copy"><div class="line-title">Unterlagen finden</div><div class="line-desc">In welchem Ordner liegt das?</div></div></div>
+          <div class="listline"><span class="line-icon">◷</span><div class="line-copy"><div class="line-title">Termine nachhalten</div><div class="line-desc">Worauf warte ich noch?</div></div></div>
+        </div>
+        <div class="insight"><span class="big">↗</span><div><strong>Die Idee</strong><p>Weniger selbst zusammensuchen. Mehr vorbereitet bekommen.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <section class="stage" data-stage="1" hidden>
+    <div class="comparison-head">
+      <div class="kicker">02 / Mehr Fokus</div>
+      <h2>Was wäre, wenn du<br><span class="green">nur das Wichtige siehst?</span></h2>
+      <p class="lead">Nicht noch eine lange Liste. Sondern ein kurzer Überblick darüber, wo du entscheiden musst und was bereits läuft.</p>
+    </div>
+    <div class="compare">
+      <div class="box before" id="before-card">
+        <div class="label">Heute · Illustratives Beispiel</div>
+        <div class="compare-title">Alles gleichzeitig</div>
+        <div class="comparison-row"><span class="num">38</span><span class="text">E-Mails im Posteingang</span></div>
+        <div class="comparison-row"><span class="num">24</span><span class="text">offene Aufgaben</span></div>
+        <div class="comparison-row"><span class="num faint">↗</span><span class="text">Unterlagen suchen</span></div>
+        <div class="comparison-row"><span class="num faint">◷</span><span class="text">Fristen und Rückfragen prüfen</span></div>
+      </div>
+      <div class="box after" id="after-card">
+        <div class="label">Mit Property OS · Angestrebtes Zielbild</div>
+        <div class="compare-title">Nur das Wichtige</div>
+        <div class="comparison-row"><span class="statusdot">1</span><span class="text">Entscheidung nötig</span></div>
+        <div class="comparison-row"><span class="statusdot">2</span><span class="text">Vorgänge werden bearbeitet</span></div>
+        <div class="comparison-row"><span class="statusdot">✓</span><span class="text">Übrige Eingänge vorsortiert</span></div>
+        <div class="comparison-row"><span class="statusdot">✓</span><span class="text">Relevante Dokumente verlinkt</span></div>
+      </div>
+    </div>
+    <button type="button" class="btn primary focus-btn" id="focus-button" aria-expanded="false">Zeig mir den Tagesüberblick →</button>
+    <div class="focus-note" id="focus-note" aria-live="polite"><strong>Dein mögliches Kurzbriefing:</strong> Eine Rechnung braucht deine Prüfung. Zwei Arbeiten laufen beim Team. Alles andere ist für den Moment sortiert. <strong>Du musst nicht alles selbst durchgehen.</strong></div>
+    <div class="compare-caption">Alle Zahlen sind frei erfunden und veranschaulichen nur die Idee. Eine tatsächliche Entlastung müsste erst überprüft werden.</div>
+  </section>
+  <section class="stage" data-stage="2" hidden>
+    <div class="story-grid">
+      <div>
+        <div class="kicker">03 / So könnte es funktionieren</div>
+        <h2>Eine Rechnung.<br><span class="green">Weniger Suchen.</span></h2>
+        <p class="lead">Eine Rechnung kommt per Gmail. Im Hintergrund könnte Property OS sie erkennen, dem richtigen Objekt zuordnen und mit vorhandenen Informationen vergleichen.</p>
+        <p class="fine" style="margin-top:17px">Klicke auf die Beispielaktion. Du siehst dann, was bei dir zur Entscheidung ankommen könnte.</p>
+      </div>
+      <div class="story-card">
+        <div id="mail-state">
+          <div class="mail-top"><span class="label">Gmail · Neuer Eingang</span><span class="small-tag">Fiktiv</span></div>
+          <div class="sender"><span class="sender-icon">M</span><div><div class="sender-name">Muster Haustechnik</div><div class="sender-address">rechnung@beispiel.invalid</div></div></div>
+          <div style="font-size:17px;line-height:1.4;font-weight:795">Rechnung zur Wartung</div>
+          <p style="font-size:13px;line-height:1.65;color:#63776a;margin:12px 0 0">Anbei die Rechnung für die Heizungswartung in der Musterimmobilie.</p>
+          <div class="fakefile"><span class="pdf">PDF</span><div><div class="fname">Rechnung_1042.pdf</div><div class="fdesc">Fiktiver Beleg</div></div></div>
+          <button type="button" class="btn primary btn-wide" id="process-button" style="margin-top:16px">Vorbereitung simulieren →</button>
+        </div>
+        <div id="review-state" hidden>
+          <div class="mail-top"><span class="label">Vorbereitete Entscheidung</span><span class="small-tag">Beispiel</span></div>
+          <div class="amount">1.280,00 €</div>
+          <dl class="summary-details"><dt>Immobilie</dt><dd>Musterhaus am Park</dd><dt>Anlass</dt><dd>Heizungswartung</dd><dt>Abgleich</dt><dd>Beispielangebot über 1.280,00 € gefunden</dd><dt>Quelle</dt><dd>Rechnung in Google Drive</dd></dl>
+          <div class="docrow"><span style="font-weight:750">▤ &nbsp; Rechnung_1042.pdf</span><button type="button" class="docbutton" id="open-doc">Ansehen ↗</button></div>
+          <div class="action-row"><button type="button" class="btn primary" id="approve">Freigabe vormerken</button><button type="button" class="btn secondary" id="ask">Rückfrage entwerfen</button></div>
+          <div class="result" id="action-result" aria-live="polite"></div>
+          <button type="button" class="docbutton" id="reset-mail" style="margin-top:17px">← Zur eingegangenen E-Mail</button>
+        </div>
+        <p class="fine" style="margin:14px 0 0">Nur Demo. Keine echte Prüfung, Freigabe, Zahlung oder Nachricht.</p>
+      </div>
+    </div>
+  </section>
+  <section class="stage" data-stage="3" hidden>
+    <div class="kicker">04 / Weniger Komplexität statt neuer Software</div>
+    <h2>Du brauchst kein<br><span class="green">weiteres Cockpit.</span></h2>
+    <p class="lead" style="max-width:760px">Zuerst vereinfachen, was schon da ist. Danach könnten unterstützende Abläufe in deiner bestehenden Google-Arbeitsumgebung mitlaufen.</p>
+    <div class="flowcols">
+      <div class="flowbox">
+        <div class="label">Bleibt vertraut</div>
+        <div class="icons"><div class="appicon"><span class="glyph">M</span>Gmail</div><div class="appicon"><span class="glyph">D</span>Drive</div><div class="appicon"><span class="glyph">S</span>Sheets</div><div class="appicon"><span class="glyph">31</span>Kalender</div></div>
+        <p class="fine" style="margin:0">Nachrichten, Originale, Status und Termine dort, wo ihr heute arbeitet.</p>
+      </div>
+      <div class="flowbox highlight">
+        <div class="label">Kann im Hintergrund helfen</div>
+        <div class="flow-engine"><div class="engine-icon">✳</div><div><strong>Property OS</strong><small>n8n Cloud und KI. Sortieren, zuordnen und vorbereiten.</small></div></div>
+        <div class="chips" style="margin-top:15px"><span class="chip" style="background:#fff">Weniger Nachhalten</span><span class="chip" style="background:#fff">Klare Zuständigkeiten</span></div>
+        <p class="fine" style="margin:16px 0 0">Entscheidungen und Zahlungsfreigaben bleiben bei Menschen.</p>
+      </div>
+    </div>
+    <div class="note"><strong>Wichtig:</strong> Eure bestehende Asana-Struktur würden wir erst gemeinsam anschauen und vereinfachen. Nicht blind durch etwas Neues ersetzen. Private und gemeinsame Informationen müssten sauber getrennt bleiben.</div>
+  </section>
+  <section class="stage" data-stage="4" hidden>
+    <div class="last-grid">
+      <div>
+        <div class="kicker">05 / Klein anfangen</div>
+        <h2>Wollen wir es einfach<br><span class="green">mal ausprobieren?</span></h2>
+        <p class="lead">Keine große Umstellung. Wir schauen uns gemeinsam an, wo du heute unnötig Zeit und Aufmerksamkeit verlierst. Dann testen wir eine kleine Verbesserung.</p>
+        <div class="mini-steps">
+          <div class="mini-step"><div class="step-num">01</div><div><strong>Überblick gewinnen</strong><span>Google, Asana und den heutigen Ablauf gemeinsam anschauen.</span></div></div>
+          <div class="mini-step"><div class="step-num">02</div><div><strong>Etwas vereinfachen</strong><span>Ein Objekt, ein Vorgang und klare Zuständigkeiten.</span></div></div>
+          <div class="mini-step"><div class="step-num">03</div><div><strong>Nutzen prüfen</strong><span>Hilft es wirklich? Nur dann weiter ausbauen.</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="invitation"><div class="label">Der erste Schritt</div><div class="large">Ein gemeinsamer Blick auf deinen Alltag.</div><p>Vielleicht steckt schon in einer kleinen Vereinfachung viel Entlastung. Alles Weitere entscheiden wir danach.</p></div>
+        <details class="optional" id="cost-details">
+          <summary>Was könnte ein Pilot laufend kosten?</summary>
+          <div class="cost-detail">
+            <div style="font-size:25px;font-weight:820;color:#315e4e;margin:5px 0 10px">ca. 25–40 € <span style="font-weight:550;font-size:12px">pro Monat</span></div>
+            <div class="cost-line"><span>n8n Cloud Starter</span><strong>20 € / Monat</strong></div>
+            <div class="cost-line"><span>KI-Nutzung · Planungswert</span><strong>5–20 € / Monat</strong></div>
+            <div class="cost-line"><span>Google Workspace</span><strong>Schon vorhanden</strong></div>
+            <p class="fine" style="margin:13px 0 0">Werte aus dem Konzept, nicht live geprüfte Preise. n8n bei jährlicher Abrechnung. Verbrauch und Tarif können abweichen. Analyse, Einrichtung und Umsetzung sind separat zu kalkulieren.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div id="counter" class="progress-count" aria-live="polite">1 von 5</div>
+  <div class="foot-buttons"><button type="button" id="back" class="btn secondary" disabled>← Zurück</button><button type="button" id="next" class="btn primary">Weiter →</button></div>
+</footer>
+</div>
+<div id="modal" class="overlay" role="dialog" aria-modal="true" aria-label="Fiktive Rechnung" hidden>
+  <div class="paper"><div class="paper-head"><span class="label">Fiktive Dokumentvorschau</span><button type="button" id="close-doc" class="btn secondary" style="min-height:36px;padding:7px 10px">Schließen ✕</button></div><div class="paper-rule"></div><strong style="font-size:19px">Muster Haustechnik</strong><p class="fine" style="margin:7px 0 32px">Keine echten Rechnungsdaten</p><h3 style="font-size:23px">RECHNUNG 1042</h3><p class="fine" style="margin:17px 0">Musterhaus am Park<br>Heizungswartung</p><table class="paper-table"><tr><td>Wartung der Heizungsanlage</td><td>1.280,00 €</td></tr><tr><td style="font-weight:800">Beispielgesamtbetrag</td><td style="font-weight:800">1.280,00 €</td></tr></table><p class="fine" style="margin:25px 0 0">Illustration. Kein echtes Dokument und keine Zahlungsaufforderung.</p></div>
+</div>
+<script>
+(()=>{'use strict';
+  const $=id=>document.getElementById(id);
+  const stages=[...document.querySelectorAll('[data-stage]')];
+  const tabs=[...document.querySelectorAll('[data-go]')];
+  let current=0, previousFocus=null;
+  const render=(n)=>{
+    current=Math.max(0,Math.min(4,n));
+    stages.forEach((s,i)=>s.hidden=(i!==current));
+    tabs.forEach((t,i)=>{if(i===current)t.setAttribute('aria-current','step');else t.removeAttribute('aria-current');t.classList.toggle('past',i<current)});
+    $('back').disabled=current===0;
+    $('next').textContent=current===4?'Von vorn ↺':'Weiter →';
+    $('counter').textContent=(current+1)+' von 5';
+    window.scrollTo({top:0,behavior:'instant'});
+  };
+  $('back').addEventListener('click',()=>render(current-1));
+  $('next').addEventListener('click',()=>{if(current===4){$('focus-note').classList.remove('visible');$('after-card').classList.remove('emphasized');$('focus-button').setAttribute('aria-expanded','false');$('focus-button').textContent='Zeig mir den Tagesüberblick →';resetMail();$('cost-details').open=false;render(0)}else render(current+1)});
+  tabs.forEach(t=>t.addEventListener('click',()=>render(Number(t.dataset.go))));
+  $('focus-button').addEventListener('click',()=>{const open=$('focus-note').classList.toggle('visible');$('after-card').classList.toggle('emphasized',open);$('focus-button').setAttribute('aria-expanded',String(open));$('focus-button').textContent=open?'Tagesüberblick ausblenden ↑':'Zeig mir den Tagesüberblick →'});
+  const resetMail=()=>{$('mail-state').hidden=false;$('review-state').hidden=true;$('action-result').classList.remove('visible');$('action-result').replaceChildren()};
+  $('process-button').addEventListener('click',()=>{$('mail-state').hidden=true;$('review-state').hidden=false});
+  $('reset-mail').addEventListener('click',resetMail);
+  const showResult=(heading,body,extra)=>{const target=$('action-result');target.replaceChildren();const strong=document.createElement('strong');strong.textContent=heading;target.append(strong);const p=document.createElement('div');p.textContent=body;p.style.marginTop='5px';target.append(p);if(extra){const note=document.createElement('blockquote');note.textContent=extra;note.style.cssText='background:white;border:1px solid #dbe9d9;border-radius:8px;margin:10px 0 0;padding:11px';target.append(note)}target.classList.add('visible')};
+  $('approve').addEventListener('click',()=>showResult('Im Beispiel vorgemerkt.','Der Vorgang wäre zur menschlichen Freigabe bereit. Keine Zahlung und keine Speicherung.'));
+  $('ask').addEventListener('click',()=>showResult('Rückfrage als Entwurf vorbereitet.','Keine Nachricht wurde versendet.','Guten Tag, könnten Sie uns bitte noch den Wartungsbericht zukommen lassen?'));
+  const modal=$('modal');
+  const closeModal=()=>{modal.hidden=true;modal.classList.remove('visible');document.body.style.overflow='';if(previousFocus)previousFocus.focus()};
+  $('open-doc').addEventListener('click',()=>{previousFocus=document.activeElement;modal.hidden=false;modal.classList.add('visible');document.body.style.overflow='hidden';$('close-doc').focus()});
+  $('close-doc').addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)closeModal()});
+  render(0);
+})();
+</script>
+</body>
+</html>
