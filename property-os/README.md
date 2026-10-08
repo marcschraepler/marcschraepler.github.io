@@ -1,0 +1,1 @@
+Property OS concept demo. Place the standalone HTML file here as index.html to publish it at /property-os/.
