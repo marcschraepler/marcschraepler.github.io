@@ -83,6 +83,17 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
 /* Final mobile usability audit: persistent navigation and readable example choices */
 @media(max-width:740px){.shell{padding-bottom:calc(84px + env(safe-area-inset-bottom))}footer{position:fixed;left:0;right:0;bottom:0;width:100%;z-index:5;padding-bottom:calc(14px + env(safe-area-inset-bottom))}}
 @media(max-width:420px){.case-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.case-choice:last-child{grid-column:1/-1}.case-choice{min-height:62px;padding:10px 12px}.case-choice strong{font-size:12px;overflow-wrap:break-word}.case-choice small{font-size:10px}}
+
+/* Fiktiver Projektverlauf: kompakt und mobil lesbar */
+.project-chain{background:#f6faf5;border:1px solid #dce8dc;border-radius:12px;padding:13px;margin:16px 0 6px}
+.project-chain-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.project-chain-list span{border:1px solid #dce7de;background:#fff;border-radius:8px;padding:8px 5px;font-size:9px;line-height:1.35;color:#688074;overflow-wrap:break-word}
+.project-chain-list strong{display:block;color:#315e4e;font-size:11px;margin-top:4px;font-weight:800}
+@media(max-width:740px){
+.briefing-grid{grid-template-columns:1fr}
+.project-chain-list{grid-template-columns:repeat(3,minmax(0,1fr))}
+.project-chain-list span{font-size:10px;padding:9px 7px}
+}
 </style>
 </head>
 <body>
@@ -124,7 +135,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     <div class="comparison-head">
       <div class="kicker">02 / Mehr Fokus</div>
       <h2>Nicht alles selbst<br><span class="green">zusammensuchen.</span></h2>
-      <p class="lead">Was muss ich entscheiden? Was läuft schon? Was kann warten? Die Informationen könnten bereits bei jedem Vorgang stehen.</p>
+      <p class="lead">Was braucht wirklich deine Entscheidung? Was kann die Hausverwaltung übernehmen? Und welche Rückfrage wird bereits nachverfolgt?</p>
     </div>
     <div class="compare">
       <div class="box before" id="before-card">
@@ -137,21 +148,22 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       </div>
       <div class="box after" id="after-card">
         <div class="label">Property OS · Mögliches Zielbild</div>
-        <div class="compare-title">Nur das Relevante</div>
-        <div class="comparison-row"><span class="statusdot">1</span><span class="text">Entscheidung benötigt</span></div>
-        <div class="comparison-row"><span class="statusdot">2</span><span class="text">Vorgänge werden bearbeitet</span></div>
-        <div class="comparison-row"><span class="statusdot">◷</span><span class="text">Anderes kann warten</span></div>
-        <div class="comparison-row"><span class="statusdot">✓</span><span class="text">Quellen sind verlinkt</span></div>
+        <div class="compare-title">Klar, wer dran ist</div>
+        <div class="comparison-row"><span class="statusdot">1</span><span class="text">Wichtige Entscheidung für dich</span></div>
+        <div class="comparison-row"><span class="statusdot">↗</span><span class="text">Aufgabe für die Hausverwaltung</span></div>
+        <div class="comparison-row"><span class="statusdot">◷</span><span class="text">Rückfrage wird nachverfolgt</span></div>
+        <div class="comparison-row"><span class="statusdot">✓</span><span class="text">Unterlagen stehen beim Vorgang</span></div>
       </div>
     </div>
     <button type="button" class="btn primary focus-btn" id="focus-button" aria-controls="focus-note" aria-expanded="false">Zeig mir den Tagesüberblick →</button>
     <div class="focus-note" id="focus-note" aria-live="polite" role="region" aria-label="Fiktiver Tagesüberblick">
       <div class="briefing-head"><div><div class="label">Property OS · Beispiel</div><h3>Dein Überblick für heute</h3></div><span class="small-tag">Fiktiv</span></div>
       <div class="briefing-grid">
-        <div class="briefing-item"><div class="briefing-number">1</div><div><div class="briefing-title">Deine Entscheidung</div><p>Heizungswartung: Rechnung, Angebot und Quelle zur Prüfung bereit.</p></div></div>
-        <div class="briefing-item"><div class="briefing-number">2</div><div><div class="briefing-title">Wird bereits bearbeitet</div><p>Rückfrage beim Dienstleister und Terminabstimmung.</p></div></div>
+        <div class="briefing-item"><div class="briefing-number">1</div><div><div class="briefing-title">Deine Entscheidung</div><p>Projekt Musterhof: Schlussrechnung und Auftrag zum Abgleich vorbereitet.</p></div></div>
+        <div class="briefing-item"><div class="briefing-number">↗</div><div><div class="briefing-title">Für die Hausverwaltung</div><p>Termin mit dem Handwerker könnte dort koordiniert werden.</p></div></div>
+        <div class="briefing-item"><div class="briefing-number">◷</div><div><div class="briefing-title">Wird nachverfolgt</div><p>Offene Rückfrage zum Wartungsbericht mit Wiedervorlage.</p></div></div>
       </div>
-      <div class="briefing-done"><span class="statusdot" aria-hidden="true">✓</span><span>Weitere Unterlagen vorsortiert. Nicht Dringendes kann warten.</span></div>
+      <div class="briefing-done"><span class="statusdot" aria-hidden="true">✓</span><span>Quellen beim jeweiligen Vorgang. Nicht Dringendes kann warten.</span></div>
     </div>
     <div class="compare-caption">Fiktive Zahlen und Abläufe. Ob und wie stark der Aufwand sinkt, müsste ein Pilot zeigen.</div>
   </section>
@@ -159,7 +171,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     <div class="kicker">03 / Drei Beispiele zum Ausprobieren</div>
     <h2 style="max-width:740px">Der Eingang kommt.<br><span class="green">Der Kontext könnte schon da sein.</span></h2>
     <div class="case-choices" role="group" aria-label="Fiktives Beispiel auswählen">
-      <button type="button" class="case-choice" data-case-select="invoice" aria-pressed="true"><strong>Immobilienrechnung</strong><small>Rechnung &amp; Angebot</small></button>
+      <button type="button" class="case-choice" data-case-select="invoice" aria-pressed="true"><strong>Immobilienprojekt</strong><small>Auftrag &amp; Rechnungen</small></button>
       <button type="button" class="case-choice" data-case-select="private" aria-pressed="false"><strong>Privates Dokument</strong><small>Versicherung &amp; Frist</small></button>
       <button type="button" class="case-choice" data-case-select="followup" aria-pressed="false"><strong>Offene Rückfrage</strong><small>Gmail &amp; Asana</small></button>
     </div>
@@ -182,6 +194,17 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
         <div id="review-state" hidden>
           <div class="mail-top"><span class="label">Vorgang vorbereitet</span><span class="small-tag">Simulation</span></div>
           <div class="processed-steps"><span>✓ Eingang erkannt</span><span>✓ Kontext zugeordnet</span><span>✓ Quelle gefunden</span></div>
+          <div class="project-chain" id="project-chain" hidden aria-label="Fiktive Dokumentenkette">
+            <div class="label" style="margin-bottom:9px">Projektablauf · Fiktive Werte</div>
+            <div class="project-chain-list">
+              <span>Angebot<br><strong>18.000 €</strong></span>
+              <span>Auftrag<br><strong>18.000 €</strong></span>
+              <span>Abschlag<br><strong>6.000 €</strong></span>
+              <span>Offenes Obligo<br><strong>12.000 €</strong></span>
+              <span>Schlussrechnung<br><strong>12.000 €</strong></span>
+            </div>
+            <p class="fine" style="margin:9px 0 0">Die Beträge sind erfunden. Das offene Obligo wäre ein Prüfvorschlag, keine automatisch aktualisierte Finanzübersicht.</p>
+          </div>
           <div class="case-amount" id="case-outcome">1.280,00 € · zur Prüfung</div>
           <dl class="summary-details" id="case-facts"></dl>
           <div class="docrow"><span style="font-weight:750" id="case-source-label">▤ &nbsp; Rechnung_1042.pdf</span><button type="button" class="docbutton" id="open-doc">Quelle ansehen ↗</button></div>
@@ -220,7 +243,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       <summary>Wie könnte das technisch funktionieren?</summary>
       <div class="tool-detail-content">Google Workspace und Asana bleiben bestehen. n8n Cloud könnte Abläufe verbinden und KI bei der Vorbereitung unterstützen. Zugriffsrechte und getrennte private und gemeinsame Bereiche müssten zuerst geprüft werden. Automatische Ablage oder Änderungen erst nach gemeinsam festgelegten Regeln. Finanzentscheidungen und Zahlungen bleiben beim Menschen.</div>
     </details>
-    <div class="note"><strong>Zuerst vereinfachen:</strong> Wir würden deine bestehende Google-Drive- und Asana-Struktur anschauen, nicht eine komplizierte Ordnung automatisch übernehmen. Private und gemeinsame Daten müssten klar getrennt bleiben.</div>
+    <div class="note"><strong>Unterschiedliche Bereiche, unterschiedliche Rechte:</strong> Bei Projekten wirken Projektbeteiligte mit, bei vermieteten Objekten gegebenenfalls die Hausverwaltung. Private und familiäre Dokumente bleiben nur Berechtigten zugänglich. Die tatsächlichen Zuständigkeiten und Zugriffe müssten wir gemeinsam prüfen.</div>
   </section>
   <section class="stage" data-stage="4" hidden>
     <div class="last-grid">
@@ -229,13 +252,13 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
         <h2>Wir fangen mit dem an,<br><span class="green">was schon da ist.</span></h2>
         <p class="lead">Wollen wir es einfach mal ausprobieren? Zuerst gemeinsam verstehen, was du bereits nutzt. Dann einen konkreten Ablauf testen, statt gleich eine große Lösung einzuführen.</p>
         <div class="mini-steps">
-          <div class="mini-step"><div class="step-num">01</div><div><strong>Bestand verstehen</strong><span>Drive und Asana gemeinsam anschauen, inklusive Ablage und Zuständigkeiten.</span></div></div>
-          <div class="mini-step"><div class="step-num">02</div><div><strong>Einen Ablauf wählen</strong><span>Eine konkrete Verwaltungsaufgabe überschaubar vereinfachen.</span></div></div>
-          <div class="mini-step"><div class="step-num">03</div><div><strong>Nutzen testen</strong><span>Zuverlässigkeit und tatsächliche Entlastung prüfen. Erst dann erweitern.</span></div></div>
+          <div class="mini-step"><div class="step-num">01</div><div><strong>Bestand verstehen</strong><span>Einen echten Vorgang mit Dokumenten, Beteiligten und Zuständigkeiten in Drive und Asana ansehen.</span></div></div>
+          <div class="mini-step"><div class="step-num">02</div><div><strong>Einen Ablauf wählen</strong><span>Erst danach eine konkrete Entlastung auswählen und klein testen.</span></div></div>
+          <div class="mini-step"><div class="step-num">03</div><div><strong>Nutzen testen</strong><span>Prüfen, ob der Ablauf wirklich hilft. Erst danach über eine Umsetzung entscheiden.</span></div></div>
         </div>
       </div>
       <div>
-        <div class="invitation"><div class="label">Der erste Schritt</div><div class="large">Ein gemeinsamer Blick auf deinen Alltag.</div><p>Deine bestehende Ordnung ist der Ausgangspunkt. Wir finden gemeinsam heraus, wo sich Vorarbeit abnehmen lässt.</p></div>
+        <div class="invitation"><div class="label">Der erste Schritt</div><div class="large">Einen echten Vorgang gemeinsam ansehen.</div><p>Mit seinen Dokumenten, beteiligten Personen und Zuständigkeiten. Danach entscheiden wir, was sich sinnvoll vereinfachen lässt.</p></div>
         <details class="optional" id="cost-details">
           <summary>Was würde Property OS kosten?</summary>
           <div class="cost-detail">
@@ -283,17 +306,18 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
   const caseButtons=[...document.querySelectorAll('[data-case-select]')];
   const cases={
     invoice:{
-      heading:'Eine Rechnung.<br><span class="green">Weniger Suchen.</span>',
-      intro:'Eine Immobilienrechnung trifft per Gmail ein. Property OS könnte das Objekt erkennen, ein vorhandenes Angebot finden und den Vorgang zur Prüfung vorbereiten.',
-      sender:'Muster Haustechnik',email:'rechnung@beispiel.invalid',icon:'M',subject:'Rechnung zur Heizungswartung',
-      body:'Anbei unsere Rechnung zur Wartung im fiktiven Musterhaus.',file:'Rechnung_1042.pdf',fileType:'PDF',fileDesc:'Fiktiver Beleg',
-      outcome:'1.280,00 € · zur Prüfung',
-      facts:[['Immobilie','Musterhaus am Park'],['Anlass','Heizungswartung'],['Abgleich','Angebot über 1.280,00 € im Beispiel gefunden'],['Quellen','Gmail-Rechnung + Drive-Angebot']],
-      sourceLabel:'▤ Rechnung und Angebot',sourceTitle:'Rechnung 1042 · Muster Haustechnik',
-      sourceDetails:'Fiktives Beispiel. Heizungswartung im Musterhaus am Park. Rechnungsbetrag 1.280,00 €. Ein passendes Angebot über denselben Betrag liegt beispielhaft in Google Drive vor.',
-      yes:'Freigabe vormerken',no:'Rückfrage entwerfen',
-      yesResult:['Freigabe als nächste Entscheidung vorgemerkt.','Vor der tatsächlichen Freigabe prüft ein Mensch das Original. Keine Zahlung ausgelöst.'],
-      noResult:['Rückfrage vorbereitet.','Ein Entwurf könnte in Gmail liegen. Nichts wurde versendet.','Guten Tag, könnten Sie uns bitte noch den Wartungsbericht zusenden?']
+      heading:'Ein Immobilienprojekt.<br><span class="green">Alles im Zusammenhang.</span>',
+      intro:'Eine fiktive Schlussrechnung trifft per Gmail ein. Property OS könnte sie einem Projekt zuordnen, Angebot, Auftrag und Abschlag finden und den offenen Betrag zur Prüfung vorbereiten.',
+      sender:'Muster Bau GmbH',email:'rechnung@beispiel.invalid',icon:'B',subject:'Schlussrechnung · Projekt Musterhof',
+      body:'Anbei die Schlussrechnung für die fiktive Sanierung Musterhof. Bitte um Prüfung.',
+      file:'Schlussrechnung_Musterhof.pdf',fileType:'PDF',fileDesc:'Fiktives Projektdokument',
+      outcome:'12.000 € · Schlussrechnung zur Prüfung',
+      facts:[['Projekt','Sanierung Musterhof · fiktiv'],['Dokumente','Angebot, Auftrag, Abschlag, Schlussrechnung'],['Offenes Obligo','12.000 € · nur rechnerischer Beispielwert'],['Quellen','Gmail + fiktive Dokumente in Drive']],
+      sourceLabel:'▤ Projektunterlagen ansehen',sourceTitle:'Projekt Musterhof · Fiktive Dokumentenkette',
+      sourceDetails:'Alle Daten und Beträge sind erfunden. Angebot: 18.000 €. Auftrag: 18.000 €. Abschlagsrechnung: 6.000 €. Offenes Obligo vor Prüfung: 12.000 €. Eingang der Schlussrechnung: 12.000 €. Die Zuordnung ist nur eine Simulation. Ob offene Verpflichtungen oder Finanzübersichten aktualisiert werden dürften, hängt von einer erst zu prüfenden Datenbasis und verbindlichen Prüfregeln ab.',
+      yes:'Prüfung vormerken',no:'Abgleich anfordern',
+      yesResult:['Entscheidung zur Prüfung vorgemerkt.','Angebot, Auftrag, Abschlag und Schlussrechnung wären zur menschlichen Prüfung verknüpft. Keine Zahlung oder Änderung einer Finanzübersicht.'],
+      noResult:['Abgleich als Entwurf vorbereitet.','Keine Nachricht versendet und kein Obligo verändert.','Guten Tag, könnten Sie uns bitte den Bezug zwischen Auftrag, Abschlag und Schlussrechnung erläutern?']
     },
     private:{
       heading:'Ein privates Dokument.<br><span class="green">Richtig eingeordnet.</span>',
@@ -354,6 +378,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     $('case-filename').textContent=d.file;
     $('case-file-desc').textContent=d.fileDesc;
     $('case-outcome').textContent=d.outcome;
+    $('project-chain').hidden=(key!=='invoice');
     const list=$('case-facts');
     list.replaceChildren();
     d.facts.forEach(([name,value])=>{
