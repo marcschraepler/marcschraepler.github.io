@@ -79,6 +79,10 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
 .case-intro{font-size:15px}
 }
 @media(max-width:380px){.case-choice strong{font-size:10px}.case-choice{padding:9px 6px}}
+
+/* Final mobile usability audit: persistent navigation and readable example choices */
+@media(max-width:740px){.shell{padding-bottom:calc(84px + env(safe-area-inset-bottom))}footer{position:fixed;left:0;right:0;bottom:0;width:100%;z-index:5;padding-bottom:calc(14px + env(safe-area-inset-bottom))}}
+@media(max-width:420px){.case-choices{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.case-choice:last-child{grid-column:1/-1}.case-choice{min-height:62px;padding:10px 12px}.case-choice strong{font-size:12px;overflow-wrap:break-word}.case-choice small{font-size:10px}}
 </style>
 </head>
 <body>
