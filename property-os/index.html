@@ -115,6 +115,19 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
 .trade-decision strong{font-size:11px;white-space:nowrap;font-weight:800}
 .trade-decision span{font-size:11px;line-height:1.5}
 @media(max-width:400px){.trade-decision{display:block}.trade-decision strong{display:block;margin-bottom:5px}.trade-work small,.trade-meta small{font-size:10px}.trade-meta{max-width:48%}}
+
+/* Optional three-point explanations; always collapsed until tapped */
+.help-detail{margin-top:15px;border:1px solid #dbe8dc;border-radius:11px;background:#f5f9f3;overflow:hidden}
+.help-detail summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;padding:11px 15px;cursor:pointer;font-size:12px;font-weight:760;color:#426851;list-style:none}
+.help-detail summary::-webkit-details-marker{display:none}
+.help-detail summary::after{content:'+';font-size:19px;color:#668772;font-weight:450;line-height:1}
+.help-detail[open] summary::after{content:'−'}
+.help-detail .help-body{border-top:1px solid #e2ebe1;padding:8px 15px 14px}
+.help-detail ul{margin:7px 0 0;padding-left:20px}
+.help-detail li{font-size:12px;line-height:1.55;color:#547061;margin:8px 0}
+.help-detail li::marker{color:#789b81}
+.help-detail .help-body p{font-size:11px;line-height:1.6;color:#829587;margin:10px 0 0}
+@media(max-width:740px){.help-detail summary{font-size:13px;min-height:48px}.help-detail li{font-size:13px;line-height:1.6}.help-detail .help-body{padding-bottom:16px}}
 </style>
 </head>
 <body>
@@ -151,6 +164,10 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
         <div class="insight"><span class="big">↗</span><div><strong>Die Idee</strong><p>Weniger selbst verwalten. Mehr vorbereitet bekommen.</p></div></div>
       </div>
     </div>
+      <details class="help-detail" >
+      <summary>Was könnte Property OS hier übernehmen?</summary>
+      <div class="help-body"><ul><li>Eingänge und Aufgaben dem richtigen Bereich zuordnen.</li><li>Passende Unterlagen und Beteiligte zusammenführen.</li><li>Zeigen, was Aufmerksamkeit braucht und wer zuständig ist.</li></ul><p>Ein mögliches Zielbild. Die tatsächlichen Abläufe sind noch zu prüfen.</p></div>
+    </details>
   </section>
   <section class="stage" data-stage="1" hidden>
     <div class="comparison-head">
@@ -187,6 +204,10 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       <div class="briefing-done"><span class="statusdot" aria-hidden="true">✓</span><span>Quellen beim jeweiligen Vorgang. Nicht Dringendes kann warten.</span></div>
     </div>
     <div class="compare-caption">Fiktive Zahlen und Abläufe. Ob und wie stark der Aufwand sinkt, müsste ein Pilot zeigen.</div>
+      <details class="help-detail" >
+      <summary>Wie entstünde dieser Tagesüberblick?</summary>
+      <div class="help-body"><ul><li>Wichtige Entscheidungen mit ihren Unterlagen vorbereiten.</li><li>Aufgaben für die Hausverwaltung erkennbar machen.</li><li>Offene Rückfragen nachhalten und bei Bedarf wieder vorlegen.</li></ul><p>Die Auswahl wäre zunächst durch gemeinsam festgelegte Regeln zu erproben.</p></div>
+    </details>
   </section>
   <section class="stage" data-stage="2" hidden>
     <div class="kicker">03 / Drei Beispiele zum Ausprobieren</div>
@@ -202,6 +223,10 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
         <p class="case-intro" id="example-intro">Eine Rechnung trifft per Gmail ein. Im Hintergrund könnte Property OS sie einer Immobilie zuordnen und passende Unterlagen finden.</p>
         <p class="fine case-help">Wähle ein Beispiel und klicke auf „Vorbereitung simulieren“. Keine echten Daten oder Verbindungen.</p>
         <div class="note" style="margin-top:19px"><strong>Das Prinzip dahinter:</strong> Immobilien, Privates und später auch Finanzunterlagen könnten auf ähnliche Weise vorbereitet werden. Was tatsächlich sinnvoll ist, müssten wir gemeinsam prüfen.</div>
+        <details class="help-detail" id="case-help">
+      <summary>Was würde bei diesem Beispiel passieren?</summary>
+      <div class="help-body"><ul><li>Eine Schlussrechnung könnte dem richtigen Projekt zugeordnet werden.</li><li>Auftrag, Abschlag und übrige Projektunterlagen könnten verknüpft werden.</li><li>Offenes Obligo und Prüfentscheidung würden als Vorschlag bereitstehen.</li></ul><p>Keine Zahlung oder Buchung. Finanzielle Zuordnungen müssten erst überprüft werden.</p></div>
+    </details>
       </div>
       <div class="story-card">
         <div id="mail-state">
@@ -276,6 +301,10 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
         <p class="pipe-text">Was braucht dich? Was läuft? Was kann warten? Mit Links zu den Quellen.</p>
       </div>
     </div>
+    <details class="help-detail" >
+      <summary>Was würde das praktisch bedeuten?</summary>
+      <div class="help-body"><ul><li>Nachrichten und Dokumente bleiben in Google Workspace.</li><li>Aufgaben und Zuständigkeiten bleiben mit Asana verknüpft.</li><li>Die Unterstützung bereitet Hinweise vor, ohne ein neues Cockpit zu verlangen.</li></ul><p>Private und gemeinsame Zugriffe müssten vor einer Umsetzung sauber geklärt werden.</p></div>
+    </details>
     <details class="optional tool-detail" id="technical-details">
       <summary>Wie könnte das technisch funktionieren?</summary>
       <div class="tool-detail-content">Google Workspace und Asana bleiben bestehen. n8n Cloud könnte Abläufe verbinden und KI bei der Vorbereitung unterstützen. Zugriffsrechte und getrennte private und gemeinsame Bereiche müssten zuerst geprüft werden. Automatische Ablage oder Änderungen erst nach gemeinsam festgelegten Regeln. Finanzentscheidungen und Zahlungen bleiben beim Menschen.</div>
@@ -296,6 +325,10 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       </div>
       <div>
         <div class="invitation"><div class="label">Der erste Schritt</div><div class="large">Einen echten Vorgang gemeinsam ansehen.</div><p>Mit seinen Dokumenten, beteiligten Personen und Zuständigkeiten. Danach entscheiden wir, was sich sinnvoll vereinfachen lässt.</p></div>
+        <details class="help-detail" >
+      <summary>Was würden wir als Erstes konkret tun?</summary>
+      <div class="help-body"><ul><li>Einen echten Vorgang mit seinen Dokumenten gemeinsam ansehen.</li><li>Beteiligte, Zuständigkeiten und offene Schritte klären.</li><li>Eine kleine Entlastung auswählen und ihren Nutzen prüfen.</li></ul><p>Erst danach würden Umfang und Kosten einer Umsetzung festgelegt.</p></div>
+    </details>
         <details class="optional" id="cost-details">
           <summary>Was würde Property OS kosten?</summary>
           <div class="cost-detail">
@@ -352,6 +385,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       facts:[['Projekt','Sanierung Musterhof · fiktiv'],['Dokumente','Angebot, Auftrag, Abschlag, Schlussrechnung'],['Offenes Obligo','12.000 € · nur rechnerischer Beispielwert'],['Quellen','Gmail + fiktive Dokumente in Drive']],
       sourceLabel:'▤ Projektunterlagen ansehen',sourceTitle:'Projekt Musterhof · Fiktive Dokumentenkette',
       sourceDetails:'Alle Daten und Beträge sind erfunden. Angebot: 18.000 €. Auftrag: 18.000 €. Zugeordneter und bezahlter Abschlag: 6.000 €. Rechenbeispiel offenes Obligo vor Prüfung: 12.000 €. Schlussrechnung: 12.000 €. Weitere Gewerke: Elektrik in Verhandlung (7.400 € unverbindliches Angebot) und Malerarbeiten zurückgestellt (3.200 € unverbindliches Angebot). Die Zuordnung ist nur eine Simulation. Ob offene Verpflichtungen oder Finanzübersichten aktualisiert werden dürften, hängt von einer erst zu prüfenden Datenbasis und verbindlichen Prüfregeln ab.',
+      helper:['Die Schlussrechnung würde dem passenden Projekt zugeordnet.','Angebot, Auftrag, Abschlag und Status der Gewerke könnten verknüpft werden.','Ein offener Betrag und der Prüfbedarf würden als Vorschlag gezeigt.'], 
       yes:'Prüfung vormerken',no:'Abgleich anfordern',
       yesResult:['Entscheidung zur Prüfung vorgemerkt.','Angebot, Auftrag, Abschlag und Schlussrechnung wären zur menschlichen Prüfung verknüpft. Keine Zahlung oder Änderung einer Finanzübersicht.'],
       noResult:['Abgleich als Entwurf vorbereitet.','Keine Nachricht versendet und kein Obligo verändert.','Guten Tag, könnten Sie uns bitte den Bezug zwischen Auftrag, Abschlag und Schlussrechnung erläutern?']
@@ -365,6 +399,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       facts:[['Bereich','Privat · Versicherungen'],['Zuordnung','Hausratvertrag im Beispiel gefunden'],['Termin','Vertragsprüfung in 21 Tagen · fiktiv'],['Quellen','Gmail-Anhang + privater Drive-Ordner']],
       sourceLabel:'▤ Versicherungsinfo und Vertrag',sourceTitle:'Versicherungsinformation · Beispiel',
       sourceDetails:'Fiktives Beispiel. Ein privates Versicherungsdokument könnte im geschützten Drive-Bereich mit einem bestehenden Vertrag verknüpft werden. Ein Prüftermin in 21 Tagen wird als Hinweis erkannt, aber nicht automatisch eingetragen.',
+      helper:['Das eingegangene Dokument könnte im privaten Bereich erkannt werden.','Der passende Versicherungsvertrag könnte als Quelle verknüpft werden.','Ein möglicher Prüftermin würde zur Entscheidung vorgeschlagen.'],
       yes:'Termin vormerken',no:'Details prüfen',
       yesResult:['Hinweis zur Prüfung vorgemerkt.','Ein Mensch entscheidet, ob der Termin übernommen wird. Kein Kalendereintrag erstellt.'],
       noResult:['Vertragsvergleich vorbereitet.','Die Originaldokumente müssten von einer berechtigten Person geprüft werden. Keine automatische Änderung.']
@@ -378,6 +413,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       facts:[['Thema','Reparatur · Beispielimmobilie'],['Asana','Bestehende Aufgabe im Beispiel erkannt'],['Status','Rückmeldung steht noch aus'],['Quellen','Gmail-Nachricht + Asana-Aufgabe']],
       sourceLabel:'▤ Nachricht und Asana-Aufgabe',sourceTitle:'Offene Rückfrage · Beispiel',
       sourceDetails:'Fiktives Beispiel. Eine E-Mail verweist auf die Reparatur einer Beispielimmobilie. Eine bereits vorhandene Asana-Aufgabe ist zugeordnet. Der Status wird angezeigt, ohne die Aufgabe automatisch zu ändern.',
+      helper:['Eine offene Rückfrage könnte aus der E-Mail erkannt werden.','Die passende bestehende Asana-Aufgabe würde als Kontext gefunden.','Ein Antwortentwurf oder eine Zuständigkeitsprüfung würde vorbereitet.'],
       yes:'Antwort entwerfen',no:'Zuständigkeit prüfen',
       yesResult:['Antwortentwurf vorbereitet.','Die Nachricht würde erst nach deiner Prüfung versendet. Nichts wurde abgeschickt.','Guten Tag, danke für die Nachfrage. Wir prüfen den Stand und melden uns zurück.'],
       noResult:['Zuständigkeit zur Prüfung vorgemerkt.','Die bestehende Asana-Aufgabe bleibt unverändert. Du entscheidest über die weitere Bearbeitung.']
@@ -415,6 +451,9 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     $('case-filename').textContent=d.file;
     $('case-file-desc').textContent=d.fileDesc;
     $('case-outcome').textContent=d.outcome;
+    const bullets=$('case-help').querySelectorAll('li');
+    d.helper.forEach((tip,i)=>{bullets[i].textContent=tip});
+    $('case-help').open=false;
     $('project-chain').hidden=(key!=='invoice');
     const list=$('case-facts');
     list.replaceChildren();
@@ -454,6 +493,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       $('focus-button').textContent='Zeig mir den Tagesüberblick →';
       $('cost-details').open=false;
       $('technical-details').open=false;
+      document.querySelectorAll('.help-detail').forEach(x=>x.open=false);
       chooseCase('invoice');
       render(0);
     }else render(current+1);
