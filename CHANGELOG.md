@@ -7,6 +7,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
+- SYSTEM-Demo radikal vereinfacht: drei Bildschirme statt fünf Stationen, aufgebaut auf Sebastians drei Leitfragen (Entscheidung, Delegation, Nachverfolgung). Ein Beispiel (Weihe-Schlussrechnung), keine Kennzahlen, keine Technik- und Kostenabschnitte, kein Konjunktiv. `noindex` ergänzt.
 - SYSTEM-Demo: Station „Vertraute Werkzeuge“ zeigt den möglichen Weg von Gmail und Drive über die vorbereitende SYSTEM-Schicht zu Asana, Team und erforderlichen Entscheidungen.
 - Optionale technische Vertiefung ergänzt um n8n, Google Sites, strukturierte Datenhaltung und intelligente Dokumentensuche. Alles ausdrücklich als offener Lösungsraum formuliert.
 - Spätere Family-Office-Erweiterung als Perspektive kenntlich gemacht; Pilotkosten als unverbindliches Cloud-Beispiel präzisiert.
