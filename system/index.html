@@ -205,6 +205,26 @@ footer{flex-direction:column;align-items:stretch;gap:9px}
   .stage[data-stage="2"] .story-explainer .example-heading{margin-top:4px;font-size:27px}
   .pilot-teaser{padding:13px 14px}
 }
+/* Vier ruhige Stationen innerhalb des bestehenden Ablaufs. */
+.pipeline{grid-template-columns:repeat(3,minmax(0,1fr) 16px) minmax(0,1fr);gap:6px}
+.pipe-item{padding:16px 13px;min-height:180px}
+.pipe-title{font-size:16px;margin:13px 0 8px}
+.pipe-text{font-size:11.5px}
+.pipe-arrow{font-size:21px}
+.tool-detail-content p{margin:0 0 10px}
+.tool-detail-content p:last-child{margin:12px 0 0}
+.tool-detail-content ul{margin:0;padding-left:18px}
+.tool-detail-content li{margin:7px 0;line-height:1.55}
+.tool-detail-content strong{color:#315e4e}
+@media(max-width:740px){
+  .pipeline{grid-template-columns:1fr;gap:6px}
+  .pipe-item{display:grid;grid-template-columns:105px minmax(0,1fr);gap:4px 9px;align-items:start;min-height:0;padding:11px 13px}
+  .pipe-item .label{grid-column:1;grid-row:1 / span 2;margin-top:3px;line-height:1.5}
+  .pipe-title{grid-column:2;grid-row:1;font-size:15px;margin:0}
+  .pipe-text{grid-column:2;grid-row:2;font-size:12px}
+  .pipe-arrow{transform:rotate(90deg);font-size:17px;line-height:10px}
+}
+@media(max-width:370px){.pipe-item{grid-template-columns:90px minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -388,34 +408,40 @@ footer{flex-direction:column;align-items:stretch;gap:9px}
   </section>
   <section class="stage" data-stage="3" hidden>
     <div class="kicker">04 / Vertraute Werkzeuge bleiben</div>
-    <h2>Keine neue Software<br><span class="green">für deinen Alltag.</span></h2>
-    <p class="lead" style="max-width:770px">Google Workspace und Asana bleiben deine Arbeitsumgebung. Das System könnte im Hintergrund Vorgänge vorbereiten und zeigen, wer entscheidet, wer bearbeitet und was nachverfolgt wird.</p>
-    <div class="pipeline" aria-label="Bestehende Werkzeuge, Unterstützung im Hintergrund, vorbereitete Entscheidungen">
+    <h2>Deine Werkzeuge bleiben.<br><span class="green">Die Routine wird leichter.</span></h2>
+    <p class="lead" style="max-width:770px">Gmail, Drive und Asana bleiben, wie du sie kennst. SYSTEM könnte Eingänge vorbereiten, Aufgaben ans Team geben und dich nur einschalten, wenn deine Entscheidung gebraucht wird.</p>
+    <div class="pipeline" aria-label="Beispielablauf: Gmail und Drive, Vorbereitung durch SYSTEM, Bearbeitung in Asana, Sebastian entscheidet nur bei Bedarf">
       <div class="pipe-item">
-        <div class="label">Bleibt erhalten</div>
-        <div class="pipe-title">Google Workspace<br>+ Asana</div>
-        <p class="pipe-text">E-Mails, Dateien, Aufgaben und Termine dort, wo du bereits arbeitest.</p>
+        <div class="label">01 · Eingang</div>
+        <div class="pipe-title">Gmail<br>&amp; Drive</div>
+        <p class="pipe-text">Eine Nachricht kommt an. Die Unterlagen liegen bereits in Google.</p>
       </div>
       <span class="pipe-arrow" aria-hidden="true">→</span>
       <div class="pipe-item middle">
-        <div class="label">Im Hintergrund · Idee</div>
+        <div class="label">02 · Im Hintergrund</div>
         <div class="pipe-title">SYSTEM</div>
-        <p class="pipe-text">Kontext zusammenführen, Weiterbearbeitung vorbereiten, Wiedervorlagen ermöglichen.</p>
+        <p class="pipe-text">Könnte Informationen zuordnen und den nächsten Schritt vorbereiten.</p>
       </div>
       <span class="pipe-arrow" aria-hidden="true">→</span>
       <div class="pipe-item">
-        <div class="label">Für dich sichtbar</div>
-        <div class="pipe-title">Kontext &amp;<br>Entscheidungen</div>
-        <p class="pipe-text">Nur dort eingreifen, wo eine Entscheidung oder Klärung nötig wird.</p>
+        <div class="label">03 · Zuständig</div>
+        <div class="pipe-title">Asana<br>&amp; Team</div>
+        <p class="pipe-text">Aufgaben bearbeiten, Rückfragen klären und Antworten nachhalten.</p>
+      </div>
+      <span class="pipe-arrow" aria-hidden="true">→</span>
+      <div class="pipe-item">
+        <div class="label">04 · Nur bei Bedarf</div>
+        <div class="pipe-title">Sebastian</div>
+        <p class="pipe-text">Erhält eine Entscheidung mit dem nötigen Kontext. Sonst läuft es weiter.</p>
       </div>
     </div>
     <details class="help-detail" >
       <summary>Was würde das praktisch bedeuten?</summary>
-      <div class="help-body"><ul><li>Eine E-Mail könnte mit vorhandenen Drive-Dokumenten und einem Asana-Vorgang verknüpft werden.</li><li>Zuständige Personen könnten dort weiterarbeiten, ohne dass du jeden Schritt koordinierst.</li><li>Nur offene Entscheidungen oder vereinbarte Wiedervorlagen würden bei dir ankommen.</li></ul><p>Bestehende Werkzeuge bleiben. Zugriffsrechte und Regeln wären zuvor zu prüfen.</p></div>
+      <div class="help-body"><ul><li>Dokumente und Nachrichten könnten miteinander verknüpft werden, ohne die Originale umzuziehen.</li><li>Asana bleibt für Aufgaben, Zuständigkeiten und vereinbarte Wiedervorlagen zuständig.</li><li>Du erhältst nur Entscheidungen und Ausnahmen, die wirklich bei dir liegen.</li></ul><p>Welche Vorgänge sich dafür eignen, wäre gemeinsam zu prüfen.</p></div>
     </details>
     <details class="optional tool-detail" id="technical-details">
       <summary>Wie könnte das technisch funktionieren?</summary>
-      <div class="tool-detail-content">Google Workspace und Asana bleiben bestehen. n8n Cloud könnte Abläufe verbinden und KI bei der Vorbereitung unterstützen. Zugriffsrechte und getrennte private und gemeinsame Bereiche müssten zuerst geprüft werden. Automatische Zuordnung, Delegation, Änderungen und Eskalation erst nach geprüften Zuständigkeiten und Freigaberegeln. Finanzentscheidungen und Zahlungen bleiben beim Menschen.</div>
+      <div class="tool-detail-content"><p>Das wären mögliche Bausteine, keine bereits festgelegte Architektur:</p><ul><li><strong>n8n</strong> könnte Gmail, Drive und Asana verbinden und Vorarbeiten auslösen.</li><li><strong>Google Sites</strong> könnte später als gemeinsamer Zugang zu Anleitungen dienen. Inhalte blieben beispielsweise in Google Docs.</li><li><strong>Eine strukturierte Datenbank</strong> wäre erst sinnvoll, wenn vorhandene Tabellen für viele Objekte und Details nicht mehr ausreichen.</li><li><strong>Intelligente Dokumentensuche</strong> könnte zusammengehörige Dateien und Informationen leichter auffindbar machen.</li></ul><p>Welche Ergänzungen nötig sind, wo sie betrieben werden und was sie kosten, ist noch offen. Private und gemeinsam verwaltete Informationen bräuchten getrennte Zugriffsrechte. Finanzielle Freigaben und Zahlungen bleiben bei Menschen.</p></div>
     </details>
     <div class="note"><strong>Unterschiedliche Bereiche, unterschiedliche Rechte:</strong> Bei Projekten wirken Projektbeteiligte mit, bei vermieteten Objekten gegebenenfalls die Hausverwaltung. Private und familiäre Dokumente bleiben nur Berechtigten zugänglich. Die tatsächlichen Zuständigkeiten und Zugriffe müssten wir gemeinsam prüfen.</div>
   </section>
@@ -435,6 +461,7 @@ footer{flex-direction:column;align-items:stretch;gap:9px}
           <strong>Briefpost per iPhone erfassen</strong>
           <p>Brief scannen, Absender, Thema und mögliche Fristen zur Prüfung vorbereiten. Du entscheidest, was danach passiert.</p>
         </div>
+        <p class="fine" style="margin:14px 0 0">Später könnte SYSTEM auch weitere persönliche und familiäre Aufgaben unterstützen. Ein umfassendes Family Office ist noch kein fertiges Umsetzungskonzept.</p>
       </div>
       <div>
         <div class="invitation"><div class="label">Der erste Schritt</div><div class="large">Was soll bei dir bleiben?</div><p>Wir nehmen einen echten Vorgang. Gemeinsam klären wir, wer entscheiden, bearbeiten und nachverfolgen könnte. Dann wählen wir einen kleinen Test.</p></div>
@@ -459,7 +486,7 @@ footer{flex-direction:column;align-items:stretch;gap:9px}
                 <div class="cost-line" style="font-size:12px"><span>KI-Nutzung · Planungswert</span><strong>ca. 5–20 € / Monat</strong></div>
                 <div class="cost-line" style="font-size:12px"><span>Google Workspace</span><strong>Schon vorhanden</strong></div>
               </div>
-              <p class="fine" style="margin:11px 0 0">Ungeprüfter Orientierungswert für einen kleinen Pilot, keine Zusage. n8n Cloud bei jährlicher Abrechnung. Umfang, Verbrauch, Abrechnung und Tarif können die Kosten verändern.</p>
+              <p class="fine" style="margin:11px 0 0">Ungeprüfter Orientierungswert für einen einfachen Cloud-Pilot, keine Festlegung auf eine Betriebsform. n8n Cloud bei jährlicher Abrechnung. Weitere Bausteine wären nicht enthalten und müssten bei Bedarf gesondert kalkuliert werden.</p>
             </div>
           </div>
         </details>
