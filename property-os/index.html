@@ -138,6 +138,13 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
 .briefing-facts b{display:inline-block;color:#315e4e;font-weight:790;margin-right:5px}
 @media(max-width:740px){.briefing-facts{grid-template-columns:1fr 1fr;column-gap:9px}.briefing-facts span{font-size:11px}}
 @media(max-width:360px){.briefing-facts{grid-template-columns:1fr}.briefing-item{padding:14px 11px}.briefing-number{font-size:29px}}
+
+/* Compact process handover within the existing fictional example */
+.next-flow{margin:12px 0 14px;padding:12px 13px;border:1px solid #dae7da;border-radius:11px;background:#f5f9f3}
+.next-flow .label{margin-bottom:8px}
+.next-flow-line{display:flex;align-items:flex-start;gap:9px;margin-top:7px;font-size:11px;line-height:1.5;color:#55725e}
+.flow-dot{display:grid;place-items:center;flex-shrink:0;background:#e2ede0;color:#3d7653;border-radius:7px;width:20px;height:20px;font-size:11px;font-weight:800}
+@media(max-width:740px){.next-flow-line{font-size:12px;line-height:1.6}}
 </style>
 </head>
 <body>
@@ -159,30 +166,30 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       <div>
         <div class="kicker">01 / Dein Alltag</div>
         <h1 class="opening-title">Du hast genug<br><span class="green">zu organisieren.</span></h1>
-        <p class="lead">Immobilien, Familie, mehrere Teams, E-Mails und Aufgaben. Vieles läuft über Google Workspace und Asana. Aber was musst du selbst entscheiden, was kann jemand übernehmen und was wird schon nachgehalten?</p>
+        <p class="lead">Immobilien, Familie, mehrere Teams, E-Mails und Aufgaben. Vieles läuft über Google Workspace und Asana. Die Idee: Ein Vorgang könnte im Hintergrund weiterlaufen, bis deine Entscheidung wirklich gebraucht wird.</p>
         <div class="chips"><span class="chip">Immobilien</span><span class="chip">Familie &amp; Privates</span><span class="chip">Finanzen &amp; Vermögen</span></div>
         <p class="domain-note">Mögliche Einsatzbereiche, noch keine fertigen Funktionen.</p>
       </div>
       <div class="softpanel">
-        <div class="label">Drei Fragen · Fiktives Beispiel</div>
+        <div class="label">So könnte Arbeit weiterlaufen · fiktiv</div>
         <div class="panel" style="margin-top:14px;padding:15px 18px">
-          <div class="listline"><span class="line-icon">✓</span><div class="line-copy"><div class="line-title">Was braucht mich?</div><div class="line-desc">Eine Entscheidung ist für dich vorbereitet.</div></div></div>
-          <div class="listline"><span class="line-icon">↗</span><div class="line-copy"><div class="line-title">Wer kann übernehmen?</div><div class="line-desc">Verwaltung oder Heidelberger Team, je nach Zuständigkeit.</div></div></div>
-          <div class="listline"><span class="line-icon">◷</span><div class="line-copy"><div class="line-title">Was wird nachgehalten?</div><div class="line-desc">Eine offene Rückfrage mit nächstem Schritt.</div></div></div>
+          <div class="listline"><span class="line-icon">✉</span><div class="line-copy"><div class="line-title">Ein Vorgang kommt an</div><div class="line-desc">Die passenden Unterlagen könnten bereitliegen.</div></div></div>
+          <div class="listline"><span class="line-icon">↗</span><div class="line-copy"><div class="line-title">Die Arbeit geht weiter</div><div class="line-desc">Das zuständige Team könnte übernehmen und nachfassen.</div></div></div>
+          <div class="listline"><span class="line-icon">✓</span><div class="line-copy"><div class="line-title">Du wirst gezielt eingebunden</div><div class="line-desc">Erst bei einer Freigabe oder notwendigen Klärung.</div></div></div>
         </div>
         <div class="insight"><span class="big">↗</span><div><strong>Die Idee</strong><p>Weniger selbst verwalten. Mehr vorbereitet bekommen.</p></div></div>
       </div>
     </div>
       <details class="help-detail" >
       <summary>Was könnte Property OS hier übernehmen?</summary>
-      <div class="help-body"><ul><li>Vorgänge und dazugehörige Informationen zusammenführen.</li><li>Aufgaben nach eigenen Entscheidungen, Delegation und Nachverfolgung unterscheiden.</li><li>Dir nur das vorlegen, bei dem du tatsächlich gebraucht wirst.</li></ul><p>Wer welche Entscheidungen treffen darf, müssten wir zuerst gemeinsam festlegen.</p></div>
+      <div class="help-body"><ul><li>Eine neue Nachricht könnte mit Vorgang, Dokumenten und Zuständigkeit verbunden werden.</li><li>Vorbereitete Arbeit könnte an ein berechtigtes Team gehen, statt bei dir liegenzubleiben.</li><li>Erst bei Freigabe oder Klärungsbedarf würdest du gezielt eingebunden.</li></ul><p>Wer Aufgaben übernehmen und Entscheidungen treffen darf, müssten wir vorher gemeinsam festlegen.</p></div>
     </details>
   </section>
   <section class="stage" data-stage="1" hidden>
     <div class="comparison-head">
       <div class="kicker">02 / Mehr Fokus</div>
       <h2>Nicht alles selbst<br><span class="green">zusammensuchen.</span></h2>
-      <p class="lead">Eine kurze Übersicht könnte zeigen, was deine Entscheidung braucht, wer etwas übernehmen könnte und welche Rückfrage bereits verfolgt wird.</p>
+      <p class="lead">Während andere Vorgänge bearbeiten und Rückfragen nachhalten, könntest du nur noch die Entscheidungen sehen, bei denen du wirklich gebraucht wirst.</p>
     </div>
     <div class="compare">
       <div class="box before" id="before-card">
@@ -209,21 +216,21 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
         <div class="briefing-item">
           <div class="briefing-number">1</div>
           <div class="briefing-copy"><div class="briefing-title">Deine Entscheidung nötig</div>
-            <p>Heidelberg: Eine Rechnung wurde im Beispiel durch die Verwaltung vorgeprüft.</p>
+            <p>Heidelberg: Die Verwaltung könnte Rechnung und Auftrag abgleichen. Zur Freigabe läge alles für dich bereit.</p>
             <div class="briefing-facts"><span><b>Zuständig</b> Sebastian</span><span><b>Nächster Schritt</b> Freigabe prüfen</span><span><b>Brauchst du</b> Ja</span><span><b>Informationen</b> Gmail · Drive</span></div>
           </div>
         </div>
         <div class="briefing-item">
           <div class="briefing-number">↗</div>
           <div class="briefing-copy"><div class="briefing-title">Delegiert und in Bearbeitung</div>
-            <p>Eine Reparaturanfrage könnte bei der Hausverwaltung liegen.</p>
+            <p>Eine Reparaturanfrage könnte samt Unterlagen an die Hausverwaltung gehen. Sie stimmt den Termin ab.</p>
             <div class="briefing-facts"><span><b>Zuständig</b> Hausverwaltung</span><span><b>Nächster Schritt</b> Termin klären</span><span><b>Brauchst du</b> Vorerst nein</span><span><b>Informationen</b> Asana · Gmail</span></div>
           </div>
         </div>
         <div class="briefing-item">
           <div class="briefing-number">◷</div>
           <div class="briefing-copy"><div class="briefing-title">Rückfragen und Nachverfolgung</div>
-            <p>Das Heidelberger Team könnte eine Antwort beim Dienstleister nachhalten.</p>
+            <p>Das Heidelberger Team könnte beim Dienstleister nachfassen. Nur falls die Antwort ausbleibt, wäre Eingreifen nötig.</p>
             <div class="briefing-facts"><span><b>Zuständig</b> Heidelberger Team</span><span><b>Nächster Schritt</b> Rückmeldung prüfen</span><span><b>Brauchst du</b> Nur bei Klärungsbedarf</span><span><b>Informationen</b> Gmail · Asana</span></div>
           </div>
         </div>
@@ -233,7 +240,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     <div class="compare-caption">Fiktive Zahlen und Abläufe. Ob und wie stark der Aufwand sinkt, müsste ein Pilot zeigen.</div>
       <details class="help-detail" >
       <summary>Wie entstünde dieser Tagesüberblick?</summary>
-      <div class="help-body"><ul><li>Je Vorgang die zuständige Person und die Quellen zeigen.</li><li>Nur Entscheidungen zu dir bringen, die wirklich bei dir liegen.</li><li>Delegierte Aufgaben und überfällige Rückfragen bei Bedarf wieder vorlegen.</li></ul><p>Zuständigkeiten und Eskalationsregeln müssten erst gemeinsam geprüft werden.</p></div>
+      <div class="help-body"><ul><li>Aus Eingang und vorhandenen Unterlagen könnte ein bearbeitbarer Vorgang entstehen.</li><li>Zuständige Personen könnten ihn in ihren Werkzeugen weiterbearbeiten und Rückfragen nachhalten.</li><li>Eine Freigabe oder ungeklärte Ausnahme käme mit den Quellen zu dir zurück.</li></ul><p>Das wäre das Zielbild. Wer übernehmen und wann eskaliert werden darf, ist noch zu klären.</p></div>
     </details>
   </section>
   <section class="stage" data-stage="2" hidden>
@@ -267,6 +274,11 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
         <div id="review-state" hidden>
           <div class="mail-top"><span class="label">Vorgang vorbereitet</span><span class="small-tag">Simulation</span></div>
           <div class="processed-steps"><span>✓ Eingang erkannt</span><span>✓ Kontext zugeordnet</span><span>✓ Quelle gefunden</span></div>
+          <div class="next-flow" aria-label="Mögliche Weiterbearbeitung">
+            <div class="label">So könnte es weitergehen</div>
+            <div class="next-flow-line"><span class="flow-dot" aria-hidden="true">1</span><span id="case-work-step">Die Verwaltung könnte die Rechnung mit den Unterlagen abgleichen.</span></div>
+            <div class="next-flow-line"><span class="flow-dot" aria-hidden="true">2</span><span id="case-user-step">Du würdest nur für eine notwendige Freigabe eingebunden.</span></div>
+          </div>
           <div class="project-chain" id="project-chain" hidden aria-label="Fiktive Dokumentenkette">
             <div class="label" style="margin-bottom:9px">Projektablauf · Fiktive Werte</div>
             <div class="project-chain-list">
@@ -319,18 +331,18 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       <div class="pipe-item middle">
         <div class="label">Im Hintergrund · Idee</div>
         <div class="pipe-title">Property OS</div>
-        <p class="pipe-text">Kontext vorbereiten, Zuständigkeiten anzeigen und Rückfragen im Blick behalten.</p>
+        <p class="pipe-text">Kontext zusammenführen, Weiterbearbeitung vorbereiten, Wiedervorlagen ermöglichen.</p>
       </div>
       <span class="pipe-arrow" aria-hidden="true">→</span>
       <div class="pipe-item">
         <div class="label">Für dich sichtbar</div>
         <div class="pipe-title">Kontext &amp;<br>Entscheidungen</div>
-        <p class="pipe-text">Nur nötige Entscheidungen und verständliche Hinweise mit Quellen.</p>
+        <p class="pipe-text">Nur dort eingreifen, wo eine Entscheidung oder Klärung nötig wird.</p>
       </div>
     </div>
     <details class="help-detail" >
       <summary>Was würde das praktisch bedeuten?</summary>
-      <div class="help-body"><ul><li>Nachrichten und Dokumente bleiben in Google Workspace.</li><li>Aufgaben und Zuständigkeiten bleiben mit Asana verknüpft.</li><li>Die Unterstützung bereitet Hinweise vor, ohne ein neues Cockpit zu verlangen.</li></ul><p>Private und gemeinsame Zugriffe müssten vor einer Umsetzung sauber geklärt werden.</p></div>
+      <div class="help-body"><ul><li>Eine E-Mail könnte mit vorhandenen Drive-Dokumenten und einem Asana-Vorgang verknüpft werden.</li><li>Zuständige Personen könnten dort weiterarbeiten, ohne dass du jeden Schritt koordinierst.</li><li>Nur offene Entscheidungen oder vereinbarte Wiedervorlagen würden bei dir ankommen.</li></ul><p>Bestehende Werkzeuge bleiben. Zugriffsrechte und Regeln wären zuvor zu prüfen.</p></div>
     </details>
     <details class="optional tool-detail" id="technical-details">
       <summary>Wie könnte das technisch funktionieren?</summary>
@@ -354,7 +366,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
         <div class="invitation"><div class="label">Der erste Schritt</div><div class="large">Was soll bei dir bleiben?</div><p>Wir nehmen einen echten Vorgang. Gemeinsam klären wir, wer entscheiden, bearbeiten und nachverfolgen könnte. Dann wählen wir einen kleinen Test.</p></div>
         <details class="help-detail" >
       <summary>Was würden wir als Erstes konkret tun?</summary>
-      <div class="help-body"><ul><li>Eine echte Aufgabe mit ihren Dokumenten und Beteiligten durchgehen.</li><li>Entscheidungsbefugnisse, Bearbeitung, Nachverfolgung und Eingreifpunkte klären.</li><li>Eine kleine Verbesserung auswählen und deren Nutzen gemeinsam prüfen.</li></ul><p>Erst danach Umfang und Aufwand einer Umsetzung schätzen.</p></div>
+      <div class="help-body"><ul><li>Einen realen Vorgang vom Eingang bis zu seiner Erledigung gemeinsam nachvollziehen.</li><li>Festlegen, wo Mitarbeitende weiterarbeiten und wann du selbst eingreifen musst.</li><li>Einen kleinen Teilablauf testen, damit weniger bei dir hängenbleibt.</li></ul><p>Erst danach könnten Umfang und Aufwand einer Umsetzung seriös geschätzt werden.</p></div>
     </details>
         <details class="optional" id="cost-details">
           <summary>Was würde Property OS kosten?</summary>
@@ -412,7 +424,9 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       facts:[['Projekt','Sanierung Musterhof · fiktiv'],['Dokumente','Angebot, Auftrag, Abschlag, Schlussrechnung'],['Offenes Obligo','12.000 € · nur rechnerischer Beispielwert'],['Wer bereitet vor?','Verwaltung · mögliche Zuständigkeit'],['Deine Rolle?','Prüfung oder Freigabe nur nach vereinbarter Befugnis'],['Quellen','Gmail + fiktive Dokumente in Drive']],
       sourceLabel:'▤ Projektunterlagen ansehen',sourceTitle:'Projekt Musterhof · Fiktive Dokumentenkette',
       sourceDetails:'Alle Daten und Beträge sind erfunden. Angebot: 18.000 €. Auftrag: 18.000 €. Zugeordneter und bezahlter Abschlag: 6.000 €. Rechenbeispiel offenes Obligo vor Prüfung: 12.000 €. Schlussrechnung: 12.000 €. Weitere Gewerke: Elektrik in Verhandlung (7.400 € unverbindliches Angebot) und Malerarbeiten zurückgestellt (3.200 € unverbindliches Angebot). Die Zuordnung ist nur eine Simulation. Ob offene Verpflichtungen oder Finanzübersichten aktualisiert werden dürften, hängt von einer erst zu prüfenden Datenbasis und verbindlichen Prüfregeln ab.',
-      helper:['Die Schlussrechnung könnte dem Projekt und seinen Unterlagen zugeordnet werden.','Eine zuständige Person könnte den Abgleich vorbereiten.','Nur die dafür vorgesehene Entscheidung würde Sebastian vorgelegt.'], 
+      helper:['Die Schlussrechnung könnte mit Auftrag, Abschlag und Projektstatus verknüpft werden.','Die Verwaltung könnte Unklarheiten prüfen und beim Dienstleister nachfassen.','Nur falls eine Freigabe nötig ist, käme der vorbereitete Vorgang zu dir.'],
+      workStep:'Die Verwaltung könnte Auftrag, Abschlag und Schlussrechnung abgleichen.',
+      userStep:'Nur eine notwendige Freigabe oder ungeklärte Abweichung käme zu dir.', 
       yes:'Prüfung vormerken',no:'Abgleich anfordern',
       yesResult:['Entscheidung zur Prüfung vorgemerkt.','Angebot, Auftrag, Abschlag und Schlussrechnung wären zur menschlichen Prüfung verknüpft. Keine Zahlung oder Änderung einer Finanzübersicht.'],
       noResult:['Abgleich als Entwurf vorbereitet.','Keine Nachricht versendet und kein Obligo verändert.','Guten Tag, könnten Sie uns bitte den Bezug zwischen Auftrag, Abschlag und Schlussrechnung erläutern?']
@@ -426,7 +440,9 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       facts:[['Bereich','Privat · Versicherungen'],['Zuordnung','Hausratvertrag im Beispiel gefunden'],['Termin','Vertragsprüfung in 21 Tagen · fiktiv'],['Wer bearbeitet?','Nur eine berechtigte Person · zu klären'],['Deine Rolle?','Nur falls eine Vertragsentscheidung erforderlich wird'],['Quellen','Gmail-Anhang + privater Drive-Ordner']],
       sourceLabel:'▤ Versicherungsinfo und Vertrag',sourceTitle:'Versicherungsinformation · Beispiel',
       sourceDetails:'Fiktives Beispiel. Ein privates Versicherungsdokument könnte im geschützten Drive-Bereich mit einem bestehenden Vertrag verknüpft werden. Ein Prüftermin in 21 Tagen wird als Hinweis erkannt, aber nicht automatisch eingetragen.',
-      helper:['Das Dokument könnte im privaten Bereich mit dem Vertrag verknüpft werden.','Nur berechtigte Personen dürften es bearbeiten.','Ein Termin oder eine Vertragsentscheidung würde gezielt vorgelegt.'],
+      helper:['Das Dokument könnte mit dem passenden Vertrag im privaten Bereich verbunden werden.','Eine berechtigte Person könnte Prüftermine vorbereiten und nachhalten.','Nur eine notwendige Vertragsentscheidung würdest du selbst treffen.'],
+      workStep:'Eine berechtigte Person könnte den Vertrag und den Termin prüfen.',
+      userStep:'Nur eine notwendige Vertragsentscheidung würde dir vorgelegt.',
       yes:'Termin vormerken',no:'Details prüfen',
       yesResult:['Hinweis zur Prüfung vorgemerkt.','Ein Mensch entscheidet, ob der Termin übernommen wird. Kein Kalendereintrag erstellt.'],
       noResult:['Vertragsvergleich vorbereitet.','Die Originaldokumente müssten von einer berechtigten Person geprüft werden. Keine automatische Änderung.']
@@ -440,7 +456,9 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       facts:[['Thema','Reparatur · Beispielimmobilie'],['Asana','Bestehende Aufgabe im Beispiel erkannt'],['Status','Rückmeldung steht noch aus'],['Wer verfolgt?','Hausverwaltung oder Team · zu klären'],['Deine Rolle?','Nur bei Entscheidung oder vereinbarter Eskalation'],['Quellen','Gmail-Nachricht + Asana-Aufgabe']],
       sourceLabel:'▤ Nachricht und Asana-Aufgabe',sourceTitle:'Offene Rückfrage · Beispiel',
       sourceDetails:'Fiktives Beispiel. Eine E-Mail verweist auf die Reparatur einer Beispielimmobilie. Eine bereits vorhandene Asana-Aufgabe ist zugeordnet. Der Status wird angezeigt, ohne die Aufgabe automatisch zu ändern.',
-      helper:['Die E-Mail könnte mit einer Asana-Aufgabe verknüpft werden.','Die zuständige Person könnte die Rückfrage nachhalten.','Sebastian würde erst bei Entscheidungsbedarf wieder eingebunden.'],
+      helper:['Die Rückfrage könnte im passenden Asana-Vorgang mit der E-Mail verknüpft werden.','Ein zuständiges Team könnte antworten und eine Wiedervorlage übernehmen.','Nur bei einer offenen Entscheidung oder vereinbarten Eskalation würdest du eingeschaltet.'],
+      workStep:'Das zuständige Team könnte antworten und eine Wiedervorlage übernehmen.',
+      userStep:'Erst bei Klärungsbedarf oder vereinbarter Eskalation wärst du gefragt.',
       yes:'Antwort entwerfen',no:'Zuständigkeit prüfen',
       yesResult:['Antwortentwurf vorbereitet.','Die Nachricht würde erst nach deiner Prüfung versendet. Nichts wurde abgeschickt.','Guten Tag, danke für die Nachfrage. Wir prüfen den Stand und melden uns zurück.'],
       noResult:['Zuständigkeit zur Prüfung vorgemerkt.','Die bestehende Asana-Aufgabe bleibt unverändert. Du entscheidest über die weitere Bearbeitung.']
@@ -478,6 +496,8 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     $('case-filename').textContent=d.file;
     $('case-file-desc').textContent=d.fileDesc;
     $('case-outcome').textContent=d.outcome;
+    $('case-work-step').textContent=d.workStep;
+    $('case-user-step').textContent=d.userStep;
     const bullets=$('case-help').querySelectorAll('li');
     d.helper.forEach((tip,i)=>{bullets[i].textContent=tip});
     $('case-help').open=false;
