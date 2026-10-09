@@ -176,6 +176,19 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
   .process-step{margin:0;font-size:10px}
   .process-arrow{transform:rotate(90deg);font-size:13px;line-height:10px}
 }
+
+/* Discreet personal concept attribution below the existing navigation. */
+footer{flex-direction:column;align-items:stretch;gap:9px}
+.footer-nav{display:flex;align-items:center;justify-content:space-between;gap:15px;width:100%}
+.footer-credit{font-size:10px;line-height:1.45;text-align:center;color:#87998a;font-weight:450;letter-spacing:.06px}
+.footer-credit a{color:#567761;text-decoration:none;text-underline-offset:3px;font-weight:580}
+.footer-credit a:hover,.footer-credit a:focus-visible{text-decoration:underline}
+.footer-credit a:focus-visible{outline:2px solid #7fa68a;outline-offset:3px;border-radius:2px}
+@media(max-width:740px){
+  .shell{padding-bottom:calc(130px + env(safe-area-inset-bottom))}
+  footer{gap:7px;padding-top:11px;padding-bottom:calc(11px + env(safe-area-inset-bottom))}
+  .footer-credit{font-size:9.5px;line-height:1.45}
+}
 </style>
 </head>
 <body>
@@ -434,8 +447,11 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
   </section>
 </main>
 <footer>
-  <div id="counter" class="progress-count" aria-live="polite">1 von 5</div>
-  <div class="foot-buttons"><button type="button" id="back" class="btn secondary" disabled>← Zurück</button><button type="button" id="next" class="btn primary">Weiter →</button></div>
+  <div class="footer-nav">
+    <div id="counter" class="progress-count" aria-live="polite">1 von 5</div>
+    <div class="foot-buttons"><button type="button" id="back" class="btn secondary" disabled>← Zurück</button><button type="button" id="next" class="btn primary">Weiter →</button></div>
+  </div>
+  <div class="footer-credit">Persönlicher Konzeptentwurf für Sebastian <span aria-hidden="true">·</span> <a href="https://marcschraepler.com/" target="_blank" rel="noopener noreferrer" aria-label="Website von Marc Schraepler von Gerlach in neuem Tab öffnen">Marc Schraepler von Gerlach <span aria-hidden="true">↗</span></a></div>
 </footer>
 </div>
 <div id="modal" class="overlay" role="dialog" aria-modal="true" aria-label="Fiktive Dokumentvorschau" hidden>
