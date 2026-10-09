@@ -189,6 +189,22 @@ footer{flex-direction:column;align-items:stretch;gap:9px}
   footer{gap:7px;padding-top:11px;padding-bottom:calc(11px + env(safe-area-inset-bottom))}
   .footer-credit{font-size:9.5px;line-height:1.45}
 }
+
+/* On phones, allow the hands-on simulation to follow the scenario selector directly.
+   Keep the previous two-column presentation on desktop. */
+.stage[data-stage="2"] .story-grid{grid-template-areas:"explain demo"}
+.stage[data-stage="2"] .story-explainer{grid-area:explain;min-width:0}
+.stage[data-stage="2"] .story-card{grid-area:demo;min-width:0}
+.pilot-teaser{margin-top:13px;border:1px solid #dce8dc;border-radius:12px;background:#f2f7f0;padding:14px 16px}
+.pilot-teaser .label{margin-bottom:7px}
+.pilot-teaser strong{display:block;font-size:13px;color:#315c4a;font-weight:800;line-height:1.4}
+.pilot-teaser p{font-size:12px;line-height:1.6;color:#647c69;margin:6px 0 0}
+@media(max-width:740px){
+  .stage[data-stage="2"] .story-grid{grid-template-areas:"demo" "explain";gap:18px}
+  .stage[data-stage="2"] .story-card{margin-top:0}
+  .stage[data-stage="2"] .story-explainer .example-heading{margin-top:4px;font-size:27px}
+  .pilot-teaser{padding:13px 14px}
+}
 </style>
 </head>
 <body>
@@ -296,16 +312,6 @@ footer{flex-direction:column;align-items:stretch;gap:9px}
       <button type="button" class="case-choice" data-case-select="followup" aria-pressed="false"><strong>Offene Rückfrage</strong><small>Gmail &amp; Asana</small></button>
     </div>
     <div class="story-grid">
-      <div>
-        <h3 id="example-title" class="example-heading">Eine Rechnung.<br><span class="green">Weniger Suchen.</span></h3>
-        <p class="case-intro" id="example-intro">Eine Rechnung trifft per Gmail ein. Im Hintergrund könnte das System sie einer Immobilie zuordnen und passende Unterlagen finden.</p>
-        <p class="fine case-help">Wähle ein Beispiel und klicke auf „Vorbereitung simulieren“. Keine echten Daten oder Verbindungen.</p>
-        <div class="note" style="margin-top:19px"><strong>Das Prinzip dahinter:</strong> Immobilien, Privates und später auch Finanzunterlagen könnten auf ähnliche Weise vorbereitet werden. Was tatsächlich sinnvoll ist, müssten wir gemeinsam prüfen.</div>
-        <details class="help-detail" id="case-help">
-      <summary>Was würde bei diesem Beispiel passieren?</summary>
-      <div class="help-body"><ul><li>Eine Schlussrechnung könnte dem richtigen Projekt zugeordnet werden.</li><li>Auftrag, Abschlag und übrige Projektunterlagen könnten verknüpft werden.</li><li>Offenes Obligo und Prüfentscheidung würden als Vorschlag bereitstehen.</li></ul><p>Keine Zahlung oder Buchung. Finanzielle Zuordnungen müssten erst überprüft werden.</p></div>
-    </details>
-      </div>
       <div class="story-card">
         <div id="mail-state">
           <div class="mail-top"><span class="label">Gmail · Neuer Eingang</span><span class="small-tag">Fiktiv</span></div>
@@ -367,7 +373,17 @@ footer{flex-direction:column;align-items:stretch;gap:9px}
           <button type="button" class="docbutton" id="reset-mail" style="margin-top:17px">← Zur eingegangenen E-Mail</button>
         </div>
         <p class="fine" style="margin:14px 0 0">Nur fiktive Beispiele. Keine echten Prüfungen, Änderungen, Zahlungen oder Nachrichten.</p>
+      </div>      <div class="story-explainer">
+        <h3 id="example-title" class="example-heading">Eine Rechnung.<br><span class="green">Weniger Suchen.</span></h3>
+        <p class="case-intro" id="example-intro">Eine Rechnung trifft per Gmail ein. Im Hintergrund könnte das System sie einer Immobilie zuordnen und passende Unterlagen finden.</p>
+        <p class="fine case-help">Wähle ein Beispiel und klicke auf „Vorbereitung simulieren“. Keine echten Daten oder Verbindungen.</p>
+        <div class="note" style="margin-top:19px"><strong>Das Prinzip dahinter:</strong> Immobilien, Privates und später auch Finanzunterlagen könnten auf ähnliche Weise vorbereitet werden. Was tatsächlich sinnvoll ist, müssten wir gemeinsam prüfen.</div>
+        <details class="help-detail" id="case-help">
+      <summary>Was würde bei diesem Beispiel passieren?</summary>
+      <div class="help-body"><ul><li>Eine Schlussrechnung könnte dem richtigen Projekt zugeordnet werden.</li><li>Auftrag, Abschlag und übrige Projektunterlagen könnten verknüpft werden.</li><li>Offenes Obligo und Prüfentscheidung würden als Vorschlag bereitstehen.</li></ul><p>Keine Zahlung oder Buchung. Finanzielle Zuordnungen müssten erst überprüft werden.</p></div>
+    </details>
       </div>
+
     </div>
   </section>
   <section class="stage" data-stage="3" hidden>
@@ -413,6 +429,11 @@ footer{flex-direction:column;align-items:stretch;gap:9px}
           <div class="mini-step"><div class="step-num">01</div><div><strong>Echten Vorgang ansehen</strong><span>Unterlagen, beteiligte Personen und heutige Zuständigkeiten verstehen.</span></div></div>
           <div class="mini-step"><div class="step-num">02</div><div><strong>Rollen klären</strong><span>Wer entscheidet, wer bearbeitet, wer verfolgt nach und wann wirst du eingebunden?</span></div></div>
           <div class="mini-step"><div class="step-num">03</div><div><strong>Kleine Verbesserung testen</strong><span>Nur das ausprobieren, was spürbar entlasten könnte.</span></div></div>
+        </div>
+        <div class="pilot-teaser">
+          <div class="label">Ein möglicher erster Test</div>
+          <strong>Briefpost per iPhone erfassen</strong>
+          <p>Brief scannen, Absender, Thema und mögliche Fristen zur Prüfung vorbereiten. Du entscheidest, was danach passiert.</p>
         </div>
       </div>
       <div>
