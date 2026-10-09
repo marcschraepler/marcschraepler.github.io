@@ -7,6 +7,7 @@
 <meta name="robots" content="noindex">
 <meta name="description" content="SYSTEM. Der Weg zur Meta-Ebene. Eine Ideenskizze.">
 <title>SYSTEM · Die Meta-Ebene</title>
+<script defer src="https://stats.msvg.eu/script.js" data-website-id="f0f61f06-4b46-403a-8381-d1aa2ea94a38" data-domains="marcschraepler.github.io" data-exclude-hash="true"></script>
 <style>
 :root{--ink:#223a34;--muted:#5f7367;--soft:#7b9181;--dark:#2c584a;--line:#dce7de;--bg:#f9fbf7;--me:#305d4c;--team:#e7f1e5;--follow:#f4f3ec}
 *{box-sizing:border-box}
@@ -216,7 +217,8 @@ footer a{color:#476854}
   var stages=[].slice.call(document.querySelectorAll('.stage'));
   var dots=[].slice.call(document.querySelectorAll('.dots button'));
   var prev=document.getElementById('prev'),next=document.getElementById('next');
-  var cur=0;
+  var cur=0,seen={};
+  function track(n){try{if(window.umami)window.umami.track(n);}catch(e){}}
   function go(i){
     cur=Math.max(0,Math.min(stages.length-1,i));
     stages.forEach(function(s,k){s.hidden=k!==cur;});
@@ -224,15 +226,16 @@ footer a{color:#476854}
     prev.disabled=cur===0;
     next.disabled=cur===stages.length-1;
     window.scrollTo(0,0);
+    if(!seen[cur]){seen[cur]=1;if(cur>0)track('bildschirm-'+(cur+1));}
   }
   dots.forEach(function(d){d.addEventListener('click',function(){go(+d.dataset.go);});});
   prev.addEventListener('click',function(){go(cur-1);});
   next.addEventListener('click',function(){go(cur+1);});
   document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
   var detail=document.getElementById('detail'),fb=document.getElementById('feedback');
-  document.getElementById('open').addEventListener('click',function(){detail.classList.toggle('on');});
+  document.getElementById('open').addEventListener('click',function(){detail.classList.toggle('on');track('weiher-geoeffnet');});
   [].slice.call(document.querySelectorAll('[data-say]')).forEach(function(b){
-    b.addEventListener('click',function(){fb.textContent=b.dataset.say;});
+    b.addEventListener('click',function(){fb.textContent=b.dataset.say;track(b.classList.contains('yes')?'klick-freigeben':'klick-rueckfrage');});
   });
 })();
 </script>
