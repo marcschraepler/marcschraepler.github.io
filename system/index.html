@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
 <meta name="robots" content="noindex">
-<meta name="description" content="SYSTEM. Drei Fragen, ein Blick. Eine Ideenskizze.">
-<title>SYSTEM · Drei Fragen</title>
+<meta name="description" content="SYSTEM. Der Weg zur Meta-Ebene. Eine Ideenskizze.">
+<title>SYSTEM · Die Meta-Ebene</title>
 <style>
 :root{--ink:#223a34;--muted:#5f7367;--soft:#7b9181;--dark:#2c584a;--line:#dce7de;--bg:#f9fbf7;--me:#305d4c;--team:#e7f1e5;--follow:#f4f3ec}
 *{box-sizing:border-box}
@@ -14,56 +14,73 @@ html{background:#e9efe7}
 body{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
 button{font:inherit;cursor:pointer;color:inherit}
 button:focus-visible{outline:3px solid #7fa68a;outline-offset:3px}
-.shell{width:min(860px,100%);background:var(--bg);border:1px solid #d6e3d6;border-radius:22px;overflow:hidden;box-shadow:0 22px 74px #163c2810;display:flex;flex-direction:column;min-height:620px}
+.shell{width:min(880px,100%);background:var(--bg);border:1px solid #d6e3d6;border-radius:22px;overflow:hidden;box-shadow:0 22px 74px #163c2810;display:flex;flex-direction:column;min-height:640px}
 header{padding:18px 28px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px;font-size:18px;letter-spacing:-.6px;font-weight:810}.brand svg{width:30px;height:30px}
 .dots{display:flex;gap:8px}
 .dots button{width:10px;height:10px;border-radius:100px;border:0;background:#cfdccf;padding:0}
 .dots button[aria-current="step"]{background:var(--dark);width:26px}
 main{flex:1;display:flex}
-.stage{flex:1;padding:24px 40px 32px;display:flex;flex-direction:column;justify-content:center}
+.stage{flex:1;padding:20px 40px 30px;display:flex;flex-direction:column;justify-content:center}
 .stage[hidden]{display:none}
 .kicker{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:840;color:#6b9177;margin-bottom:16px}
 h1,h2,p{margin-top:0}
-h1{font-size:clamp(30px,5vw,48px);line-height:1.12;letter-spacing:-1.8px;font-weight:815;margin-bottom:22px}
-h2{font-size:clamp(26px,4vw,38px);line-height:1.15;letter-spacing:-1.4px;font-weight:815;margin-bottom:22px}
-.lead{font-size:18px;line-height:1.6;color:var(--muted);max-width:520px;margin-bottom:0}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.12;letter-spacing:-1.8px;font-weight:815;margin-bottom:20px}
+h2{font-size:clamp(26px,4vw,38px);line-height:1.15;letter-spacing:-1.4px;font-weight:815;margin-bottom:20px}
 .green{color:#729a7e}
-/* Station 1: seine Fragen */
-.questions{list-style:none;padding:0;margin:0 0 30px}
-.questions li{font-size:clamp(20px,2.8vw,26px);line-height:1.35;font-weight:700;letter-spacing:-.5px;padding:16px 0 16px 22px;border-left:4px solid #b9d1bd;margin-bottom:10px}
-.questions li span{display:block;font-size:13px;font-weight:700;color:var(--soft);letter-spacing:0;margin-bottom:4px}
-.quote-note{font-size:13px;color:var(--soft);margin:0}
-/* Station 2: drei Felder */
-.lanes{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:14px}
-.lane{border-radius:18px;padding:18px}
-.lane h3{margin:0 0 4px;font-size:15px;font-weight:800}
-.lane .sub{font-size:12px;margin-bottom:14px}
+.lead{font-size:17px;line-height:1.6;color:var(--muted);max-width:560px;margin-bottom:0}
+.quote{font-size:clamp(19px,2.6vw,24px);line-height:1.4;font-weight:650;border-left:4px solid #b9d1bd;padding:6px 0 6px 20px;margin:0 0 26px;max-width:620px}
+.quote small{display:block;font-size:12px;color:var(--soft);font-weight:600;margin-top:6px}
+.label{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:840;color:var(--soft);margin-bottom:10px}
+.worlds{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.world{background:#fff;border:1px solid #dfe9df;border-radius:14px;padding:14px 15px;font-weight:760;font-size:15px}
+.world small{display:block;font-weight:500;font-size:12px;color:var(--soft);margin-top:3px}
+.note{font-size:14px;color:var(--muted);margin:0}
+/* Weg */
+.path{list-style:none;padding:0;margin:0;counter-reset:p}
+.path li{counter-increment:p;display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #e6ece4}
+.path li:last-child{border:0}
+.path li::before{content:counter(p);width:32px;height:32px;flex-shrink:0;border-radius:100px;background:var(--dark);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.path b{display:block;font-size:17px;margin-bottom:3px}
+.path span{font-size:14px;line-height:1.5;color:var(--muted)}
+.path li.goal::before{content:"↑";background:#729a7e}
+/* Meta-Ebene */
+.sorter{display:inline-flex;gap:8px;align-items:center;background:#eef4ed;border-radius:100px;padding:7px 13px;font-size:12px;font-weight:750;color:#476854;margin-bottom:14px}
+.lanes{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}
+.lane{border-radius:18px;padding:16px}
+.lane h3{margin:0 0 3px;font-size:15px;font-weight:800}
+.lane .sub{font-size:12px;margin-bottom:12px}
 .lane.me{background:var(--me);color:#fff}.lane.me .sub{color:#c9dfcf}
 .lane.team{background:var(--team);border:1px solid #c6dbc8}.lane.team .sub{color:var(--soft)}
 .lane.follow{background:var(--follow);border:1px solid #e3e3d6}.lane.follow .sub{color:var(--soft)}
-.item{display:block;width:100%;text-align:left;border-radius:12px;padding:12px 13px;margin-bottom:8px;font-size:14px;line-height:1.4;border:0}
+.item{display:block;width:100%;text-align:left;border-radius:12px;padding:11px 12px;margin-bottom:8px;font-size:14px;line-height:1.4;border:0}
 .item:last-child{margin-bottom:0}
 .item small{display:block;font-size:12px;margin-top:3px;opacity:.75}
 .me .item{background:#fff;color:var(--ink);font-weight:700;box-shadow:0 6px 18px #0002}
 .me .item small{color:var(--muted);opacity:1;font-weight:500}
-.team .item,.follow .item{background:#ffffffb3;font-weight:600;cursor:default}
-.tap{display:inline-block;margin-top:8px;font-size:12px;color:#2c584a;font-weight:800}
-.detail{margin-top:16px;background:#fff;border:1px solid #dfe9df;border-radius:16px;padding:18px;display:none}
+.team .item,.follow .item{background:#ffffffb3;font-weight:600}
+.tap{display:inline-block;margin-top:6px;font-size:12px;color:#2c584a;font-weight:800}
+.detail{margin-top:14px;background:#fff;border:1px solid #dfe9df;border-radius:16px;padding:16px 18px;display:none}
 .detail.on{display:block}
-.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0 14px;font-size:13px;font-weight:700}
+.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 12px;font-size:13px;font-weight:700}
 .chain span{background:#eef4ed;border-radius:8px;padding:6px 9px}
+.chain span.now{background:var(--dark);color:#fff}
 .chain i{font-style:normal;color:var(--soft)}
-.detail p{font-size:14px;line-height:1.5;color:var(--muted);margin-bottom:14px}
+.detail p{font-size:14px;line-height:1.5;color:var(--muted);margin-bottom:12px}
 .actions{display:flex;gap:10px;flex-wrap:wrap}
 .actions button{border-radius:11px;padding:10px 16px;font-weight:760;font-size:14px;border:1px solid #cfdccf;background:#fff}
 .actions .yes{background:var(--dark);border-color:var(--dark);color:#fff}
-.feedback{font-size:13px;color:var(--dark);font-weight:700;margin:12px 0 0;min-height:1em}
-/* Station 3 */
-.steps{list-style:none;padding:0;margin:0 0 26px;counter-reset:s}
-.steps li{counter-increment:s;display:flex;gap:14px;align-items:flex-start;font-size:18px;line-height:1.45;font-weight:650;padding:12px 0}
-.steps li::before{content:counter(s);width:30px;height:30px;flex-shrink:0;border-radius:100px;background:var(--dark);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;margin-top:-1px}
-.promise{background:#eef4ed;border-radius:14px;padding:16px 18px;font-size:15px;line-height:1.55;color:var(--ink);max-width:560px}
+.feedback{font-size:13px;color:var(--dark);font-weight:700;margin:10px 0 0;min-height:1em}
+/* Horizont */
+.rings{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+.ring{border-radius:16px;padding:18px;border:1px solid #dfe9df;background:#fff}
+.ring.now{background:var(--me);color:#fff;border-color:var(--me)}
+.ring .when{font-size:11px;letter-spacing:1.1px;text-transform:uppercase;font-weight:840;margin-bottom:8px;color:var(--soft)}
+.ring.now .when{color:#c9dfcf}
+.ring b{display:block;font-size:17px;margin-bottom:4px}
+.ring span{font-size:13px;line-height:1.45;opacity:.85}
+/* Start */
+.promise{background:#eef4ed;border-radius:14px;padding:15px 18px;font-size:15px;line-height:1.55;max-width:600px;margin-top:20px}
 /* Navigation */
 .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-top:1px solid var(--line)}
 .nav button{border:1px solid #cfdccf;background:#fff;border-radius:11px;padding:11px 18px;font-weight:730;font-size:15px}
@@ -74,8 +91,9 @@ footer a{color:#476854}
 @media (max-width:760px){
  body{padding:0}.shell{border-radius:0;border:0;min-height:100vh}
  header,.nav,footer{padding-left:16px;padding-right:16px}
- .stage{padding:16px 16px 24px;justify-content:flex-start}
- .lanes{grid-template-columns:1fr}
+ .stage{padding:14px 16px 24px;justify-content:flex-start}
+ .lanes,.rings{grid-template-columns:1fr}
+ .worlds{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -84,68 +102,102 @@ footer a{color:#476854}
 <header>
   <div class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#315e4e"/><rect x="10" y="10" width="8" height="8" rx="1" fill="#e2ecdf"/><rect x="22" y="10" width="8" height="8" rx="1" fill="none" stroke="#d9e7d9" stroke-width="2"/><rect x="10" y="22" width="8" height="8" rx="1" fill="none" stroke="#d9e7d9" stroke-width="2"/><path d="M22 22v8h8" fill="none" stroke="#e2ecdf" stroke-width="2.4" stroke-linecap="square"/></svg><span>SYSTEM</span></div>
   <nav class="dots" aria-label="Schritte">
-    <button type="button" data-go="0" aria-label="Schritt 1: Deine Fragen" aria-current="step"></button>
-    <button type="button" data-go="1" aria-label="Schritt 2: Ein Blick"></button>
-    <button type="button" data-go="2" aria-label="Schritt 3: Erster Schritt"></button>
+    <button type="button" data-go="0" aria-label="Was ich verstanden habe" aria-current="step"></button>
+    <button type="button" data-go="1" aria-label="Dein Weg"></button>
+    <button type="button" data-go="2" aria-label="Die Meta-Ebene"></button>
+    <button type="button" data-go="3" aria-label="Wohin es wachsen kann"></button>
+    <button type="button" data-go="4" aria-label="Erster Schritt"></button>
   </nav>
 </header>
 
 <main>
-  <!-- 1 · Seine Fragen -->
+  <!-- 1 · Verstanden -->
   <section class="stage" data-stage="0">
-    <div class="kicker">Deine drei Fragen</div>
-    <ul class="questions">
-      <li><span>1</span>Was braucht wirklich meine Entscheidung?</li>
-      <li><span>2</span>Was kann ich delegieren?</li>
-      <li><span>3</span>Welche Rückfrage wird bereits nachverfolgt?</li>
-    </ul>
-    <p class="quote-note">Aus deiner Nachricht. Auf genau diese drei Fragen ist SYSTEM gebaut, auf sonst nichts.</p>
+    <div class="kicker">Was ich verstanden habe</div>
+    <h1>Du willst auf die <span class="green">Meta-Ebene.</span></h1>
+    <p class="quote">„Muss mir dabei sicher sein, dass der Kleinscheiß funktioniert, dass ich delegieren kann, vertrauen kann und auch überwachen kann.“<small>Du, per WhatsApp</small></p>
+    <div class="label">Deine Welten</div>
+    <div class="worlds">
+      <div class="world">Weiher<small>drei Grundstücke, ein Projekt</small></div>
+      <div class="world">Sylt<small>Immobiliengesellschaft</small></div>
+      <div class="world">Lottumstraße<small>Vermietungsbetrieb</small></div>
+      <div class="world">Arianes Vermietung<small>fünf Wohnungen</small></div>
+      <div class="world">Eigenheim<small>privat</small></div>
+      <div class="world">Brunnenstraße<small>Mietwohnung</small></div>
+    </div>
+    <p class="note">Jede Welt hat ihre eigenen Leute und eigenen Abläufe. Das System muss das abbilden, nicht glattbügeln.</p>
   </section>
 
-  <!-- 2 · Ein Blick -->
+  <!-- 2 · Sein Weg -->
   <section class="stage" data-stage="1" hidden>
-    <div class="kicker">Ein Blick am Morgen · Beispiel</div>
-    <h2>Drei Felder. <span class="green">Mehr nicht.</span></h2>
+    <div class="kicker">Dein Weg · in deiner Reihenfolge</div>
+    <h2>Erst die Basis. <span class="green">Dann läuft es von allein.</span></h2>
+    <ol class="path">
+      <li><div><b>Daten sauber, pro Welt</b><span>Jede Immobilie mit ihren Unterlagen, an einem Ort.</span></div></li>
+      <li><div><b>Mails landen in der richtigen Gruppe</b><span>Die Google-Gruppen gibt es schon. Was heute in deinem Postfach aufschlägt, wird der Immobilie zugeordnet.</span></div></li>
+      <li><div><b>Rechnungen: freigeben, weitergeben, bezahlt</b><span>Wer freigibt, legen wir fest. Danach überweist die Hausverwaltung vom richtigen Konto.</span></div></li>
+      <li><div><b>Alles Neue sofort auffindbar</b><span>Angebot, Auftrag, Abschlag, Nachtrag, Schlussrechnung: verlinkt, nicht gesucht.</span></div></li>
+      <li class="goal"><div><b>Du überwachst nur noch</b><span>Team und Hausverwaltung erledigen das Einfache. Du hast Kopf für die wichtigen Dinge.</span></div></li>
+    </ol>
+  </section>
+
+  <!-- 3 · Meta-Ebene -->
+  <section class="stage" data-stage="2" hidden>
+    <div class="kicker">So sieht die Meta-Ebene aus · Beispiel</div>
+    <h2>Siebenstellig zu dir. <span class="green">Zweistellig zum Team.</span></h2>
+    <div class="sorter">⇅ Sortiert nach Betrag und deinen Jahreszielen</div>
     <div class="lanes">
       <div class="lane me">
         <h3>Braucht dich</h3>
-        <div class="sub">Nur das hier.</div>
-        <button type="button" class="item" id="open">Weihe: Schlussrechnung Haustechnik freigeben<small>Verwaltung hat geprüft</small><span class="tap">Ansehen →</span></button>
+        <div class="sub">Nur das Wichtige.</div>
+        <button type="button" class="item" id="open">Weiher: Nachtrag Haustechnik<small>sechsstellig · Verwaltung hat geprüft</small><span class="tap">Ansehen →</span></button>
       </div>
       <div class="lane team">
-        <h3>Läuft bei anderen</h3>
+        <h3>Läuft beim Team</h3>
         <div class="sub">Du musst nichts tun.</div>
-        <div class="item">Hausverwaltung Berlin<small>Reparatur, Termin wird abgestimmt</small></div>
-        <div class="item">Heidelberger Team<small>Zweites Angebot Elektrik</small></div>
+        <div class="item">Lottumstraße<small>Handwerkerrechnung, 85 €, Hausverwaltung zahlt</small></div>
+        <div class="item">Sylt<small>Wartungstermin wird abgestimmt</small></div>
       </div>
       <div class="lane follow">
         <h3>Wird nachverfolgt</h3>
         <div class="sub">Meldet sich, wenn es hängt.</div>
-        <div class="item">Rückfrage an Malerbetrieb<small>Erinnerung geht Freitag raus</small></div>
-        <div class="item">Versicherung Sylt<small>Antwort steht aus</small></div>
+        <div class="item">Weiher: Angebot Elektrik<small>Erinnerung geht Freitag raus</small></div>
+        <div class="item">Arianes Vermietung<small>Rückfrage zur Nebenkostenabrechnung</small></div>
       </div>
     </div>
     <div class="detail" id="detail" aria-live="polite">
-      <div class="chain"><span>Angebot</span><i>→</i><span>Auftrag</span><i>→</i><span>Abschlag</span><i>→</i><span>Schlussrechnung</span></div>
-      <p>Alle vier Belege liegen verknüpft in Drive. Die Verwaltung hat Rechnung und Auftrag abgeglichen. Du entscheidest nur noch.</p>
+      <div class="chain"><span>Angebot</span><i>→</i><span>Auftrag</span><i>→</i><span>Abschlag</span><i>→</i><span class="now">Nachtrag</span><i>→</i><span>Schlussrechnung</span></div>
+      <p>Alle Belege liegen verlinkt im Drive, das offene Obligo ist mitgerechnet. Die Verwaltung hat geprüft. Du entscheidest nur noch.</p>
       <div class="actions">
-        <button type="button" class="yes" data-say="Freigegeben. Die Verwaltung übernimmt die Zahlung.">Freigeben</button>
-        <button type="button" data-say="Rückfrage geht an die Verwaltung. Sie landet unter „Wird nachverfolgt“.">Rückfrage</button>
+        <button type="button" class="yes" data-say="Freigegeben. Die Hausverwaltung übernimmt die Zahlung vom Weiher-Konto.">Freigeben</button>
+        <button type="button" data-say="Rückfrage geht raus. Sie landet unter „Wird nachverfolgt“.">Rückfrage</button>
       </div>
       <p class="feedback" id="feedback"></p>
     </div>
   </section>
 
-  <!-- 3 · Erster Schritt -->
-  <section class="stage" data-stage="2" hidden>
+  <!-- 4 · Horizont -->
+  <section class="stage" data-stage="3" hidden>
+    <div class="kicker">Wohin es wachsen kann</div>
+    <h2>Dein digitales <span class="green">Family Office.</span></h2>
+    <div class="rings">
+      <div class="ring now"><div class="when">Jetzt</div><b>Immobilien</b><span>Deine sechs Welten, mit Verwaltung und Team.</span></div>
+      <div class="ring"><div class="when">Danach</div><b>Familie</b><span>Verträge, Versicherungen, Post. Gleiche Logik.</span></div>
+      <div class="ring"><div class="when">Später</div><b>Finanzen und Depot</b><span>Wenn die Basis trägt, kommt dieser Bereich dazu.</span></div>
+    </div>
+    <p class="lead">Was ein Family Office mit großem Backoffice macht, lässt sich zu einem guten Teil automatisieren. Da hast du recht. Wir bauen es Stück für Stück, jedes Stück muss für sich laufen.</p>
+  </section>
+
+  <!-- 5 · Erster Schritt -->
+  <section class="stage" data-stage="4" hidden>
     <div class="kicker">Der erste Schritt</div>
-    <h2>Ein echter Vorgang. <span class="green">Einer.</span></h2>
-    <ol class="steps">
-      <li>Wir nehmen einen Weihe-Vorgang, vom Angebot bis zur Rechnung.</li>
-      <li>Wir legen fest: Wer entscheidet, wer bearbeitet, wer fasst nach?</li>
-      <li>Wir testen nur diesen einen Ablauf.</li>
+    <h2>Wir fangen beim <span class="green">Weiher</span> an.</h2>
+    <ol class="path">
+      <li><div><b>Deine Obligo-Tabelle als Startpunkt</b><span>Ein echter Vorgang, vom Angebot bis zur Schlussrechnung.</span></div></li>
+      <li><div><b>Rollen klären</b><span>Was entscheidest du, was macht die Verwaltung, was das Team?</span></div></li>
+      <li><div><b>Einen Ablauf zum Laufen bringen</b><span>Erst wenn er hält, kommt die nächste Welt dazu.</span></div></li>
     </ol>
-    <div class="promise">Dabei wird nichts verschoben oder umbenannt. Drive, Gmail und Asana bleiben, wie sie sind.</div>
+    <div class="promise">Dabei wird nichts verschoben oder umbenannt. Drive, Gmail, die Google-Gruppen und Asana bleiben, wie sie sind.</div>
   </section>
 </main>
 
@@ -154,7 +206,7 @@ footer a{color:#476854}
   <button type="button" class="next" id="next">Weiter →</button>
 </div>
 <footer>
-  <span>Ideenskizze für Sebastian. Beispiele erfunden.</span>
+  <span>Ideenskizze für Sebastian. Beispiele und Beträge erfunden.</span>
   <a href="https://marcschraepler.com/" target="_blank" rel="noopener">Marc Schraepler von Gerlach</a>
 </footer>
 </div>
