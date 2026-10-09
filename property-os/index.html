@@ -145,12 +145,43 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
 .next-flow-line{display:flex;align-items:flex-start;gap:9px;margin-top:7px;font-size:11px;line-height:1.5;color:#55725e}
 .flow-dot{display:grid;place-items:center;flex-shrink:0;background:#e2ede0;color:#3d7653;border-radius:7px;width:20px;height:20px;font-size:11px;font-weight:800}
 @media(max-width:740px){.next-flow-line{font-size:12px;line-height:1.6}}
+
+/* Structured OS: restrained architectural mark, uppercase wordmark */
+.brand{font-size:18px;letter-spacing:2px;font-weight:790;gap:12px}
+.brand-name{display:block;white-space:nowrap}
+.brand .brand-mark{width:39px;height:39px}
+.process-visual{margin:17px 0 7px}
+.process-visual>.label{margin-bottom:9px}
+.process-rail{display:grid;grid-template-columns:minmax(0,1fr) 12px minmax(0,1fr) 12px minmax(0,1fr);align-items:stretch;gap:5px}
+.process-node{border:1px solid #dce8dc;background:#f5f9f3;border-radius:10px;padding:12px 9px;min-width:0}
+.process-step{display:block;color:#718d79;text-transform:uppercase;font-weight:780;letter-spacing:.45px;font-size:9px;margin-bottom:7px;line-height:1.35}
+.process-node strong{color:#315c4a;display:block;font-size:11px;line-height:1.4;font-weight:790;overflow-wrap:anywhere}
+.process-arrow{align-self:center;justify-self:center;color:#81a18b;font-weight:800;font-size:15px}
+@media(max-width:740px){
+  .brand{font-size:14px;letter-spacing:1.2px;gap:8px}
+  .brand .brand-mark{width:32px;height:32px}
+  .process-node{padding:10px 7px}
+}
+@media(max-width:520px){
+  .pill{white-space:normal;text-align:center;max-width:145px;line-height:1.3;letter-spacing:.6px;font-size:8.4px}
+}
+@media(max-width:380px){
+  header{gap:7px;padding:14px 13px}
+  .brand{font-size:12.5px;letter-spacing:.9px;gap:7px}
+  .brand .brand-mark{width:30px;height:30px}
+  .pill{max-width:128px;min-width:0;padding:6px 7px;font-size:8px;letter-spacing:.4px}
+  .process-rail{grid-template-columns:1fr;gap:4px}
+  .process-node{padding:9px 11px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .process-node strong{text-align:right;font-size:12px}
+  .process-step{margin:0;font-size:10px}
+  .process-arrow{transform:rotate(90deg);font-size:13px;line-height:10px}
+}
 </style>
 </head>
 <body>
 <div class="shell" id="app">
 <header>
-  <div class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#315e4e"/><path d="M9 18.5 20 9.5l11 9v12H9z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M16.5 30.5v-9h7v9" fill="none" stroke="#fff" stroke-width="2"/></svg><span>property os<span class="period">.</span></span></div>
+  <div class="brand"><svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-label="Modulares Property OS Signet"><rect width="40" height="40" rx="10" fill="#315e4e"/><rect x="10" y="10" width="8" height="8" rx="1" fill="#e2ecdf"/><rect x="22" y="10" width="8" height="8" rx="1" fill="none" stroke="#d9e7d9" stroke-width="2"/><rect x="10" y="22" width="8" height="8" rx="1" fill="none" stroke="#d9e7d9" stroke-width="2"/><path d="M22 22v8h8" fill="none" stroke="#e2ecdf" stroke-width="2.4" stroke-linecap="square"/><path d="M18.6 14h2.8M14 18.6v2.8" fill="none" stroke="#8eb6a0" stroke-width="1.5"/></svg><span class="brand-name">PROPERTY OS</span></div>
   <span class="pill">Eine Idee · Keine fertige Lösung</span>
 </header>
 <nav class="progress" aria-label="Die fünf Stationen">
@@ -273,7 +304,16 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
         </div>
         <div id="review-state" hidden>
           <div class="mail-top"><span class="label">Vorgang vorbereitet</span><span class="small-tag">Simulation</span></div>
-          <div class="processed-steps"><span>✓ Eingang erkannt</span><span>✓ Kontext zugeordnet</span><span>✓ Quelle gefunden</span></div>
+          <div class="process-visual" aria-label="Möglicher Ablauf, fiktive Simulation">
+            <div class="label">Vom Eingang bis zur Entscheidung · fiktiv</div>
+            <div class="process-rail">
+              <div class="process-node"><span class="process-step">01 · Eingang</span><strong id="process-source">Auftrag &amp; Belege</strong></div>
+              <span class="process-arrow" aria-hidden="true">→</span>
+              <div class="process-node"><span class="process-step">02 · Bearbeitung</span><strong id="process-work">Abgleich</strong></div>
+              <span class="process-arrow" aria-hidden="true">→</span>
+              <div class="process-node"><span class="process-step">03 · Entscheidung</span><strong id="process-decision">Freigabe prüfen</strong></div>
+            </div>
+          </div>
           <div class="next-flow" aria-label="Mögliche Weiterbearbeitung">
             <div class="label">So könnte es weitergehen</div>
             <div class="next-flow-line"><span class="flow-dot" aria-hidden="true">1</span><span id="case-work-step">Die Verwaltung könnte die Rechnung mit den Unterlagen abgleichen.</span></div>
@@ -425,6 +465,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       sourceLabel:'▤ Projektunterlagen ansehen',sourceTitle:'Projekt Musterhof · Fiktive Dokumentenkette',
       sourceDetails:'Alle Daten und Beträge sind erfunden. Angebot: 18.000 €. Auftrag: 18.000 €. Zugeordneter und bezahlter Abschlag: 6.000 €. Rechenbeispiel offenes Obligo vor Prüfung: 12.000 €. Schlussrechnung: 12.000 €. Weitere Gewerke: Elektrik in Verhandlung (7.400 € unverbindliches Angebot) und Malerarbeiten zurückgestellt (3.200 € unverbindliches Angebot). Die Zuordnung ist nur eine Simulation. Ob offene Verpflichtungen oder Finanzübersichten aktualisiert werden dürften, hängt von einer erst zu prüfenden Datenbasis und verbindlichen Prüfregeln ab.',
       helper:['Die Schlussrechnung könnte mit Auftrag, Abschlag und Projektstatus verknüpft werden.','Die Verwaltung könnte Unklarheiten prüfen und beim Dienstleister nachfassen.','Nur falls eine Freigabe nötig ist, käme der vorbereitete Vorgang zu dir.'],
+      process:['Auftrag & Belege','Abgleich Verwaltung','Freigabe prüfen'],
       workStep:'Die Verwaltung könnte Auftrag, Abschlag und Schlussrechnung abgleichen.',
       userStep:'Nur eine notwendige Freigabe oder ungeklärte Abweichung käme zu dir.', 
       yes:'Prüfung vormerken',no:'Abgleich anfordern',
@@ -441,6 +482,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       sourceLabel:'▤ Versicherungsinfo und Vertrag',sourceTitle:'Versicherungsinformation · Beispiel',
       sourceDetails:'Fiktives Beispiel. Ein privates Versicherungsdokument könnte im geschützten Drive-Bereich mit einem bestehenden Vertrag verknüpft werden. Ein Prüftermin in 21 Tagen wird als Hinweis erkannt, aber nicht automatisch eingetragen.',
       helper:['Das Dokument könnte mit dem passenden Vertrag im privaten Bereich verbunden werden.','Eine berechtigte Person könnte Prüftermine vorbereiten und nachhalten.','Nur eine notwendige Vertragsentscheidung würdest du selbst treffen.'],
+      process:['Versicherungsbrief','Vertrag & Termin','Prüfung nötig?'],
       workStep:'Eine berechtigte Person könnte den Vertrag und den Termin prüfen.',
       userStep:'Nur eine notwendige Vertragsentscheidung würde dir vorgelegt.',
       yes:'Termin vormerken',no:'Details prüfen',
@@ -457,6 +499,7 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
       sourceLabel:'▤ Nachricht und Asana-Aufgabe',sourceTitle:'Offene Rückfrage · Beispiel',
       sourceDetails:'Fiktives Beispiel. Eine E-Mail verweist auf die Reparatur einer Beispielimmobilie. Eine bereits vorhandene Asana-Aufgabe ist zugeordnet. Der Status wird angezeigt, ohne die Aufgabe automatisch zu ändern.',
       helper:['Die Rückfrage könnte im passenden Asana-Vorgang mit der E-Mail verknüpft werden.','Ein zuständiges Team könnte antworten und eine Wiedervorlage übernehmen.','Nur bei einer offenen Entscheidung oder vereinbarten Eskalation würdest du eingeschaltet.'],
+      process:['Rückfrage','Team / Asana','Nur bei Bedarf'],
       workStep:'Das zuständige Team könnte antworten und eine Wiedervorlage übernehmen.',
       userStep:'Erst bei Klärungsbedarf oder vereinbarter Eskalation wärst du gefragt.',
       yes:'Antwort entwerfen',no:'Zuständigkeit prüfen',
@@ -496,6 +539,9 @@ footer{display:flex;align-items:center;justify-content:space-between;gap:15px;pa
     $('case-filename').textContent=d.file;
     $('case-file-desc').textContent=d.fileDesc;
     $('case-outcome').textContent=d.outcome;
+    $('process-source').textContent=d.process[0];
+    $('process-work').textContent=d.process[1];
+    $('process-decision').textContent=d.process[2];
     $('case-work-step').textContent=d.workStep;
     $('case-user-step').textContent=d.userStep;
     const bullets=$('case-help').querySelectorAll('li');
