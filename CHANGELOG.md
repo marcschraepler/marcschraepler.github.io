@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Changed
+
+- SYSTEM-Demo: Station „Vertraute Werkzeuge“ zeigt den möglichen Weg von Gmail und Drive über die vorbereitende SYSTEM-Schicht zu Asana, Team und erforderlichen Entscheidungen.
+- Optionale technische Vertiefung ergänzt um n8n, Google Sites, strukturierte Datenhaltung und intelligente Dokumentensuche. Alles ausdrücklich als offener Lösungsraum formuliert.
+- Spätere Family-Office-Erweiterung als Perspektive kenntlich gemacht; Pilotkosten als unverbindliches Cloud-Beispiel präzisiert.
+- Bestehende fünf Stationen, Simulationen, Navigation und mobile Gestaltung beibehalten.
+
 ## [2.1.0] - 2026-08-03
 
 ### Added
