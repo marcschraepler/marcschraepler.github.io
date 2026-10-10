@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="light">
 <meta name="robots" content="noindex">
-<meta name="description" content="SYSTEM. Das Fundament für dein Family Office. Antwort auf deinen Projektsteckbrief.">
-<title>SYSTEM · Das Fundament</title>
+<meta name="description" content="SYSTEM. Dein Plan und meine Lösung für dein digitales Family Office.">
+<title>SYSTEM · Dein Plan, meine Lösung</title>
 <script defer src="https://stats.msvg.eu/script.js" data-website-id="f0f61f06-4b46-403a-8381-d1aa2ea94a38" data-domains="marcschraepler.github.io" data-exclude-hash="true"></script>
 <style>
 :root{--ink:#223a34;--muted:#5f7367;--soft:#7b9181;--dark:#2c584a;--line:#dce7de;--bg:#f9fbf7;--me:#305d4c;--team:#e7f1e5}
@@ -78,6 +78,35 @@ h2{font-size:clamp(26px,4vw,38px);line-height:1.15;letter-spacing:-1.4px;font-we
 .pledge{margin-top:20px;border:2px solid var(--dark);border-radius:18px;padding:18px 22px;max-width:640px;background:#fff}
 .pledge-head{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:clamp(22px,3.2vw,30px);font-weight:830;letter-spacing:-1px;line-height:1.2;margin-bottom:8px}
 .pledge p{margin:0;font-size:15px;line-height:1.55;color:var(--muted)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:12px}
+.side{border-radius:18px;padding:18px 20px}
+.side.his{background:#fff;border:1px solid #dfe9df}
+.side.mine{background:var(--me);color:#fff}
+.side .label{margin-bottom:6px}.side.mine .label{color:#c9dfcf}
+.side b{display:block;font-size:19px;letter-spacing:-.4px;margin-bottom:8px}
+.side ul{margin:0;padding-left:18px;font-size:14px;line-height:1.6}
+.side.mine ul{color:#e3efe6}
+.map{width:100%;border-collapse:separate;border-spacing:0 8px;max-width:760px}
+.map td{background:#fff;border:1px solid #dfe9df;padding:12px 14px;font-size:14px;line-height:1.45;vertical-align:top}
+.map td:first-child{border-radius:12px 0 0 12px;width:46%}
+.map td:last-child{border-radius:0 12px 12px 0;background:var(--team);border-color:#c6dbc8}
+.map td.mid{width:34px;text-align:center;color:var(--soft);font-weight:800;background:transparent;border:0;padding:12px 0}
+.map th{text-align:left;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:840;color:var(--soft);padding:0 14px}
+.tech{font-size:12px;color:var(--soft);margin:10px 0 0}
+.flow{list-style:none;padding:0;margin:0 0 14px;max-width:680px}
+.flow li{display:flex;gap:14px;padding:12px 14px;border-radius:14px;margin-bottom:8px;background:#fff;border:1px solid #dfe9df;opacity:.28;transition:opacity .3s}
+.flow li.on{opacity:1}
+.flow .n{width:28px;height:28px;flex-shrink:0;border-radius:100px;background:var(--dark);color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}
+.flow b{display:block;font-size:15px;margin-bottom:2px}
+.flow span{font-size:13px;line-height:1.45;color:var(--muted)}
+.flow em{font-style:normal;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:#6b9177;margin-left:6px}
+.step-btn{border:0;border-radius:12px;background:var(--dark);color:#fff;padding:12px 18px;font-weight:760;font-size:14px}
+.chat{margin-top:12px;max-width:640px}
+.ask{display:inline-block;background:#eef4ed;border-radius:14px 14px 14px 4px;padding:10px 14px;font-size:14px;font-weight:650;margin-bottom:8px}
+.ans{background:#fff;border:1px solid #dfe9df;border-radius:14px 14px 4px 14px;padding:12px 14px;font-size:14px;line-height:1.5;color:var(--muted)}
+.ans strong{color:var(--ink)}
+.ans small{display:block;margin-top:6px;font-size:12px;color:var(--soft)}
+@media (max-width:760px){.pair{grid-template-columns:1fr}.map td.mid{display:none}.map td:first-child{border-radius:12px 12px 0 0;width:auto}.map td:last-child{border-radius:0 0 12px 12px}.map tr{display:grid}.map th{display:none}}
 /* Navigation */
 .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-top:1px solid var(--line)}
 .nav button{border:1px solid #cfdccf;background:#fff;border-radius:11px;padding:11px 18px;font-weight:730;font-size:15px}
@@ -99,54 +128,74 @@ footer a{color:#476854}
 <header>
   <div class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#315e4e"/><rect x="10" y="10" width="8" height="8" rx="1" fill="#e2ecdf"/><rect x="22" y="10" width="8" height="8" rx="1" fill="none" stroke="#d9e7d9" stroke-width="2"/><rect x="10" y="22" width="8" height="8" rx="1" fill="none" stroke="#d9e7d9" stroke-width="2"/><path d="M22 22v8h8" fill="none" stroke="#e2ecdf" stroke-width="2.4" stroke-linecap="square"/></svg><span>SYSTEM</span></div>
   <nav class="dots" aria-label="Schritte">
-    <button type="button" data-go="0" aria-label="Dein Konzept" aria-current="step"></button>
-    <button type="button" data-go="1" aria-label="Was noch fehlt"></button>
-    <button type="button" data-go="2" aria-label="Wer sieht was"></button>
-    <button type="button" data-go="3" aria-label="Deine drei Fragen"></button>
-    <button type="button" data-go="4" aria-label="Der erste Schritt"></button>
+    <button type="button" data-go="0" aria-label="Dein Plan, meine Lösung" aria-current="step"></button>
+    <button type="button" data-go="1" aria-label="Wie es ineinandergreift"></button>
+    <button type="button" data-go="2" aria-label="Konkret: eine Rechnung"></button>
+    <button type="button" data-go="3" aria-label="Wer sieht was"></button>
+    <button type="button" data-go="4" aria-label="Deine drei Fragen"></button>
+    <button type="button" data-go="5" aria-label="Der erste Schritt"></button>
   </nav>
 </header>
 
 <main>
-  <!-- 1 · Sein Konzept -->
+  <!-- 1 · Zwei Hälften -->
   <section class="stage" data-stage="0">
-    <div class="kicker">Dein Projektsteckbrief</div>
-    <h1>Ich kann das technisch abbilden. <span class="green">Für dich und dein Team.</span></h1>
-    <p class="quote">„Agenten sind nur so gut wie die Datenbasis, auf der sie arbeiten.“<small>Aus deinem Projektsteckbrief</small></p>
-    <div class="layers">
-      <div class="layer"><b>Belege</b><span>Unveränderlich, mit Dok-ID und Quellenregister.</span><div class="where">Drive · bleibt</div></div>
-      <div class="arrow">→</div>
-      <div class="layer core"><b>Stammdaten</b><span>Eine Quelle der Wahrheit, mit Owner je Kategorie.</span><div class="where">Hier setze ich an</div></div>
-      <div class="arrow">→</div>
-      <div class="layer"><b>Outcome</b><span>Briefings, Berichte, Entwürfe. Jederzeit neu erzeugbar.</span><div class="where">Claude · läuft</div></div>
+    <div class="kicker">Dein digitales Family Office</div>
+    <h1>Du hast den Plan. <span class="green">Ich habe die Lösung dafür.</span></h1>
+    <div class="pair">
+      <div class="side his">
+        <div class="label">Dein Part</div>
+        <b>Wissen, was du willst</b>
+        <ul>
+          <li>Drei Schichten: Belege, Stammdaten, Outcome</li>
+          <li>Heidelberg migriert, Dossier-Standard steht</li>
+          <li>Morgenbriefing, Posteingang und Vertrieb laufen</li>
+        </ul>
+      </div>
+      <div class="side mine">
+        <div class="label">Mein Part</div>
+        <b>Das technisch umsetzen</b>
+        <ul>
+          <li>Eine Datenbank für deine Stammdaten</li>
+          <li>Eigene Zugänge für dich und dein Team</li>
+          <li>Routinen, die ohne Klick laufen</li>
+        </ul>
+      </div>
     </div>
-    <p class="note">Dein Drei-Schichten-Modell gibt die Richtung vor. Ich liefere die Technik darunter: Datenbank, Zugänge, Routinen.</p>
+    <p class="note">Ich habe mir dazu konkrete Gedanken gemacht. Auf den nächsten Seiten zeige ich dir, wie das aussieht.</p>
   </section>
 
-  <!-- 2 · Was fehlt -->
+  <!-- 2 · Mapping -->
   <section class="stage" data-stage="1" hidden>
-    <div class="kicker">Was noch fehlt</div>
-    <h2>Heute hängt alles an deinem Konto.</h2>
-    <div class="compare">
-      <div class="box before">
-        <div class="label">Heute</div>
-        <div class="box-title">Du bist der Zugang</div>
-        <div class="row"><i>·</i>Skills, Projekte und Agenten laufen über dein persönliches Claude.</div>
-        <div class="row"><i>·</i>Jeder Agentenlauf wartet auf deinen Klick.</div>
-        <div class="row"><i>·</i>Dein Team kommt an die Daten nur über dich.</div>
-      </div>
-      <div class="box after">
-        <div class="label">Mit Fundament</div>
-        <div class="box-title">Das Family Office ist der Zugang</div>
-        <div class="row"><i>✓</i>Stammdaten liegen in einer eigenen Datenbank, gespeist aus deinem Drive.</div>
-        <div class="row"><i>✓</i>Routine läuft im Hintergrund, mit Protokoll. Du prüfst einmal am Tag.</div>
-        <div class="row"><i>✓</i>Jede Rolle hat ihren eigenen Zugang zu genau ihren Daten.</div>
-      </div>
-    </div>
+    <div class="kicker">Wie es ineinandergreift</div>
+    <h2>Deine nächsten Schritte. <span class="green">Was ich dafür baue.</span></h2>
+    <table class="map">
+      <tr><th>Aus deinem Steckbrief</th><th></th><th>Mein Baustein</th></tr>
+      <tr><td>Zentrales Fristen- und Vorgangsregister als einzige Quelle</td><td class="mid">→</td><td>Die Datenbank ist das Register. Kalender und Briefing lesen daraus.</td></tr>
+      <tr><td>Prozesse auf eine strukturierte Datenbank stellen</td><td class="mid">→</td><td>Stammdaten aus deinen Dossiers fließen jede Nacht automatisch hinein. Gepflegt wird weiter im Drive.</td></tr>
+      <tr><td>Inbox-Agenten und Belegsuche produktiv setzen</td><td class="mid">→</td><td>Routinen im Hintergrund, mit Protokoll. Kein Klick pro Lauf.</td></tr>
+      <tr><td>Skills fürs Team ausrollen</td><td class="mid">→</td><td>Ein Zugang pro Rolle, mit genau den Daten dieser Rolle.</td></tr>
+      <tr><td>Migration der übrigen Bereiche</td><td class="mid">→</td><td>Jeder neue Bereich nach Heidelberger Muster wird angeschlossen, ohne Umbau.</td></tr>
+    </table>
+    <p class="tech">Bausteine: n8n für Automatisierung und KI-Zugänge (MCP), Supabase als Datenbank in der EU. Beides als fertiger Cloud-Dienst auf deinem Konto.</p>
   </section>
 
-  <!-- 3 · Rollen -->
+  <!-- 3 · Konkret -->
   <section class="stage" data-stage="2" hidden>
+    <div class="kicker">Konkret · eine Rechnung in Heidelberg</div>
+    <h2>Was im Hintergrund passiert.</h2>
+    <ol class="flow" id="flow">
+      <li><span class="n">1</span><div><b>Die Rechnung kommt an die Objektadresse</b><span>Haustechnik, 1.280,00 €, als PDF. Wie heute.</span></div></li>
+      <li><span class="n">2</span><div><b>Sie wird abgelegt und registriert<em>ohne Klick</em></b><span>Beleg in den Eingangsordner, Dok-ID Q-2026-118, Eintrag im Quellenregister.</span></div></li>
+      <li><span class="n">3</span><div><b>Die Stammdaten wissen Bescheid<em>ohne Klick</em></b><span>Offene Rechnung, verknüpft mit Objekt, Auftrag und Fälligkeit.</span></div></li>
+      <li><span class="n">4</span><div><b>Die Hausverwaltung sieht sie in ihrem Zugang</b><span>Sie prüft gegen den Auftrag, ohne dich zu fragen.</span></div></li>
+      <li><span class="n">5</span><div><b>Du siehst sie einmal: im Morgenbriefing</b><span>„1 Freigabe: Haustechnik Heidelberg, geprüft.“ Ein Klick, erledigt.</span></div></li>
+    </ol>
+    <button type="button" class="step-btn" id="stepper">Ablauf starten →</button>
+  </section>
+
+  <!-- 4 · Rollen -->
+  <section class="stage" data-stage="3" hidden>
     <div class="kicker">Wer sieht was · Beispiel</div>
     <h2>Gleiche Daten. <span class="green">Eigene Zugänge.</span></h2>
     <div class="roles" role="group" aria-label="Rolle wählen">
@@ -154,13 +203,13 @@ footer a{color:#476854}
       <button type="button" data-role="1" aria-pressed="false">Hausverwaltung</button>
       <button type="button" data-role="2" aria-pressed="false">Heidelberger Team</button>
     </div>
-    <div class="view" id="view" aria-live="polite"></div>
+    <div class="chat" id="view" aria-live="polite"></div>
     <div class="motto">Die KI ist austauschbar. <span class="green">Die Daten und Rechte gehören dir.</span></div>
     <p class="note" style="margin-top:6px">Ob jemand mit Claude, ChatGPT oder Gemini arbeitet: Die Rechte liegen im Fundament, nicht im Chatfenster.</p>
   </section>
 
-  <!-- 4 · Seine Fragen -->
-  <section class="stage" data-stage="3" hidden>
+  <!-- 5 · Fragen -->
+  <section class="stage" data-stage="4" hidden>
     <div class="kicker">Deine drei Fragen an mich</div>
     <h2>Meine Antworten.</h2>
     <div class="qa">
@@ -173,14 +222,14 @@ footer a{color:#476854}
     </div>
   </section>
 
-  <!-- 5 · Start -->
-  <section class="stage" data-stage="4" hidden>
+  <!-- 6 · Start -->
+  <section class="stage" data-stage="5" hidden>
     <div class="kicker">Der erste Schritt</div>
     <h2>Wir fangen in <span class="green">Heidelberg</span> an.</h2>
     <ol class="path">
-      <li><div><b>Stammdaten in die Datenbank</b><span>Heidelberg ist migriert und hat deinen Dossier-Standard. Besser kann ein Start nicht sein.</span></div></li>
+      <li><div><b>Stammdaten in die Datenbank</b><span>Heidelberg ist migriert und hat deinen Dossier-Standard. Damit starten wir.</span></div></li>
       <li><div><b>Zwei Zugänge</b><span>Einer für dich, einer für die Hausverwaltung. Jeder sieht nur seinen Teil.</span></div></li>
-      <li><div><b>Eine Routine ohne Klick</b><span>Zum Beispiel die Ablage aus dem Eingangsordner, mit Protokoll.</span></div></li>
+      <li><div><b>Eine Routine ohne Klick</b><span>Die Ablage aus dem Eingangsordner, mit Protokoll.</span></div></li>
     </ol>
     <div class="pledge">
       <div class="pledge-head"><span>Keine neuen Systeme.</span><span class="green">Deine Systeme.</span></div>
@@ -194,7 +243,7 @@ footer a{color:#476854}
   <button type="button" class="next" id="next">Weiter →</button>
 </div>
 <footer>
-  <span>Antwort auf deinen Projektsteckbrief. Beispiele vereinfacht.</span>
+  <span>Antwort auf deinen Projektsteckbrief. Beispiele und Beträge erfunden.</span>
   <a href="https://marcschraepler.com/" target="_blank" rel="noopener">Marc Schraepler von Gerlach</a>
 </footer>
 </div>
@@ -220,15 +269,24 @@ footer a{color:#476854}
   next.addEventListener('click',function(){go(cur+1);});
   document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
 
+  var flow=[].slice.call(document.querySelectorAll('#flow li')),sb=document.getElementById('stepper'),fi=0;
+  sb.addEventListener('click',function(){
+    if(fi===0)track('fundament-ablauf');
+    if(fi<flow.length){flow[fi].classList.add('on');fi++;}
+    sb.textContent=fi<flow.length?'Nächster Schritt →':'Neu starten ↺';
+    if(fi>=flow.length&&sb.dataset.done){flow.forEach(function(l){l.classList.remove('on');});fi=0;sb.textContent='Ablauf starten →';delete sb.dataset.done;return;}
+    if(fi>=flow.length)sb.dataset.done='1';
+  });
+
   var roles=[
-    {sees:'Alle Bereiche, alle Stammdaten, alle Freigaben.',not:'Nichts ausgeblendet. Du siehst zusätzlich, wer wann was abgefragt hat.'},
-    {sees:'Nur ihre Objekte: offene Rechnungen, Fristen, Stammdaten der Einheiten.',not:'Keine Gesellschaften, keine anderen Objekte, nichts Privates.'},
-    {sees:'Das Weiher-Projekt: Angebote, Aufträge, Abschläge, offenes Obligo.',not:'Keine Mietverträge, keine Familie, keine Finanzen.'}
+    {q:'Wie hoch ist das offene Obligo im Weiher-Projekt?',a:'<strong>212.400 €</strong>, verteilt auf 7 Aufträge. Größter Posten: Haustechnik mit 84.000 €.',s:'Quellen: 7 Belege mit Dok-ID, direkt verlinkt'},
+    {q:'Welche Rechnungen für unsere Objekte sind offen?',a:'<strong>3 offene Rechnungen.</strong> Eine wartet auf Freigabe durch Sebastian, zwei kannst du prüfen.',s:'Nur Objekte der Hausverwaltung. Gesellschaften und Privates sind für diesen Zugang nicht sichtbar.'},
+    {q:'Welche Angebote für die Elektrik liegen vor?',a:'<strong>2 Angebote</strong>, 7.400 € und 8.150 €. Das günstigere hat die längere Ausführungszeit.',s:'Nur das Weiher-Projekt. Mietverträge und Finanzen sind für diesen Zugang nicht sichtbar.'}
   ];
   var view=document.getElementById('view'),rb=[].slice.call(document.querySelectorAll('[data-role]'));
   function show(i){
     rb.forEach(function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false');});
-    view.innerHTML='<p class="sees"><b>Sieht</b>'+roles[i].sees+'</p><p class="not"><b>Sieht nicht</b>'+roles[i].not+'</p>';
+    view.innerHTML='<div class="ask">'+roles[i].q+'</div><div class="ans">'+roles[i].a+'<small>'+roles[i].s+'</small></div>';
   }
   rb.forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.role);track('fundament-rolle-'+b.dataset.role);});});
   show(0);
