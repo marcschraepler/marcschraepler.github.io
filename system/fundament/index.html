@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex">
+<meta name="description" content="SYSTEM. Das Fundament für dein Family Office. Antwort auf deinen Projektsteckbrief.">
+<title>SYSTEM · Das Fundament</title>
+<script defer src="https://stats.msvg.eu/script.js" data-website-id="f0f61f06-4b46-403a-8381-d1aa2ea94a38" data-domains="marcschraepler.github.io" data-exclude-hash="true"></script>
+<style>
+:root{--ink:#223a34;--muted:#5f7367;--soft:#7b9181;--dark:#2c584a;--line:#dce7de;--bg:#f9fbf7;--me:#305d4c;--team:#e7f1e5}
+*{box-sizing:border-box}
+html{background:#e9efe7}
+body{font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+button{font:inherit;cursor:pointer;color:inherit}
+button:focus-visible{outline:3px solid #7fa68a;outline-offset:3px}
+.shell{width:min(880px,100%);background:var(--bg);border:1px solid #d6e3d6;border-radius:22px;overflow:hidden;box-shadow:0 22px 74px #163c2810;display:flex;flex-direction:column;min-height:640px}
+header{padding:18px 28px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-size:18px;letter-spacing:-.6px;font-weight:810}.brand svg{width:30px;height:30px}
+.dots{display:flex;gap:8px}
+.dots button{width:10px;height:10px;border-radius:100px;border:0;background:#cfdccf;padding:0}
+.dots button[aria-current="step"]{background:var(--dark);width:26px}
+main{flex:1;display:flex}
+.stage{flex:1;padding:20px 40px 30px;display:flex;flex-direction:column;justify-content:center}
+.stage[hidden]{display:none}
+.kicker{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;font-weight:840;color:#6b9177;margin-bottom:16px}
+h1,h2,p{margin-top:0}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.12;letter-spacing:-1.8px;font-weight:815;margin-bottom:20px}
+h2{font-size:clamp(26px,4vw,38px);line-height:1.15;letter-spacing:-1.4px;font-weight:815;margin-bottom:20px}
+.green{color:#729a7e}
+.lead{font-size:17px;line-height:1.6;color:var(--muted);max-width:580px;margin-bottom:0}
+.quote{font-size:clamp(19px,2.6vw,24px);line-height:1.4;font-weight:650;border-left:4px solid #b9d1bd;padding:6px 0 6px 20px;margin:0 0 24px;max-width:640px}
+.quote small{display:block;font-size:12px;color:var(--soft);font-weight:600;margin-top:6px}
+/* Schichten */
+.layers{display:grid;grid-template-columns:1fr auto 1.15fr auto 1fr;gap:10px;align-items:stretch;margin-bottom:14px}
+.layer{border-radius:16px;padding:16px;border:1px solid #dfe9df;background:#fff}
+.layer b{display:block;font-size:16px;margin-bottom:4px}
+.layer span{display:block;font-size:13px;line-height:1.45;color:var(--muted)}
+.layer .where{margin-top:10px;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:840;color:var(--soft)}
+.layer.core{background:var(--me);color:#fff;border-color:var(--me)}
+.layer.core span{color:#d2e5d7}.layer.core .where{color:#c9dfcf}
+.arrow{display:grid;place-items:center;color:var(--soft);font-weight:800}
+.note{font-size:14px;color:var(--muted);margin:0}
+/* Vergleich */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.box{border-radius:18px;padding:20px}
+.before{border:1px solid #e3e6dc;background:#f5f6f0}.after{border:1px solid #bed6c1;background:var(--team)}
+.box-title{font-size:18px;font-weight:805;letter-spacing:-.5px;margin:6px 0 12px}
+.label{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:840;color:var(--soft)}
+.row{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid #dfe7dd;font-size:14px;line-height:1.45}.row:last-child{border:0}
+.row i{font-style:normal;font-weight:800;width:18px;flex-shrink:0}
+/* Rollen */
+.roles{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.roles button{border:1px solid #cfdccf;background:#fff;border-radius:100px;padding:9px 16px;font-weight:750;font-size:14px}
+.roles button[aria-pressed="true"]{background:var(--dark);border-color:var(--dark);color:#fff}
+.view{background:#fff;border:1px solid #dfe9df;border-radius:18px;padding:18px 20px;max-width:640px}
+.view .sees,.view .not{font-size:14px;line-height:1.55;margin:0 0 8px}
+.view .not{color:var(--soft);margin:0}
+.view b{display:inline-block;min-width:92px}
+.motto{margin-top:18px;font-size:clamp(18px,2.4vw,22px);font-weight:780;letter-spacing:-.5px}
+/* Fragen */
+.qa{max-width:680px}
+.q{width:100%;text-align:left;border:1px solid #dfe9df;background:#fff;border-radius:14px;padding:15px 18px;margin-bottom:10px;font-size:16px;font-weight:720;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.q span.plus{font-size:20px;color:var(--soft);transition:transform .2s}
+.q[aria-expanded="true"]{border-color:var(--dark);border-bottom-left-radius:0;border-bottom-right-radius:0;margin-bottom:0}
+.q[aria-expanded="true"] span.plus{transform:rotate(45deg)}
+.a{display:none;border:1px solid var(--dark);border-top:0;border-radius:0 0 14px 14px;padding:4px 18px 16px;margin-bottom:10px;background:#fff;font-size:15px;line-height:1.55;color:var(--muted)}
+.a.on{display:block}
+.a strong{color:var(--ink)}
+/* Start */
+.path{list-style:none;padding:0;margin:0;counter-reset:p}
+.path li{counter-increment:p;display:flex;gap:16px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #e6ece4}
+.path li:last-child{border:0}
+.path li::before{content:counter(p);width:32px;height:32px;flex-shrink:0;border-radius:100px;background:var(--dark);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px}
+.path b{display:block;font-size:17px;margin-bottom:3px}
+.path span{font-size:14px;line-height:1.5;color:var(--muted)}
+.pledge{margin-top:20px;border:2px solid var(--dark);border-radius:18px;padding:18px 22px;max-width:640px;background:#fff}
+.pledge-head{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:clamp(22px,3.2vw,30px);font-weight:830;letter-spacing:-1px;line-height:1.2;margin-bottom:8px}
+.pledge p{margin:0;font-size:15px;line-height:1.55;color:var(--muted)}
+/* Navigation */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-top:1px solid var(--line)}
+.nav button{border:1px solid #cfdccf;background:#fff;border-radius:11px;padding:11px 18px;font-weight:730;font-size:15px}
+.nav .next{background:var(--dark);border-color:var(--dark);color:#fff}
+.nav button[disabled]{visibility:hidden}
+footer{padding:12px 28px 16px;font-size:12px;color:#72877a;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+footer a{color:#476854}
+@media (max-width:760px){
+ body{padding:0}.shell{border-radius:0;border:0;min-height:100vh}
+ header,.nav,footer{padding-left:16px;padding-right:16px}
+ .stage{padding:14px 16px 24px;justify-content:flex-start}
+ .layers{grid-template-columns:1fr}.arrow{transform:rotate(90deg);height:18px}
+ .compare{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+<header>
+  <div class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#315e4e"/><rect x="10" y="10" width="8" height="8" rx="1" fill="#e2ecdf"/><rect x="22" y="10" width="8" height="8" rx="1" fill="none" stroke="#d9e7d9" stroke-width="2"/><rect x="10" y="22" width="8" height="8" rx="1" fill="none" stroke="#d9e7d9" stroke-width="2"/><path d="M22 22v8h8" fill="none" stroke="#e2ecdf" stroke-width="2.4" stroke-linecap="square"/></svg><span>SYSTEM</span></div>
+  <nav class="dots" aria-label="Schritte">
+    <button type="button" data-go="0" aria-label="Dein Konzept" aria-current="step"></button>
+    <button type="button" data-go="1" aria-label="Was noch fehlt"></button>
+    <button type="button" data-go="2" aria-label="Wer sieht was"></button>
+    <button type="button" data-go="3" aria-label="Deine drei Fragen"></button>
+    <button type="button" data-go="4" aria-label="Der erste Schritt"></button>
+  </nav>
+</header>
+
+<main>
+  <!-- 1 · Sein Konzept -->
+  <section class="stage" data-stage="0">
+    <div class="kicker">Dein Steckbrief, gelesen</div>
+    <h1>Du bist weiter, als ich dachte. <span class="green">Das Modell steht.</span></h1>
+    <p class="quote">„Agenten sind nur so gut wie die Datenbasis, auf der sie arbeiten.“<small>Aus deinem Projektsteckbrief</small></p>
+    <div class="layers">
+      <div class="layer"><b>Belege</b><span>Unveränderlich, mit Dok-ID und Quellenregister.</span><div class="where">Drive · bleibt</div></div>
+      <div class="arrow">→</div>
+      <div class="layer core"><b>Stammdaten</b><span>Eine Quelle der Wahrheit, mit Owner je Kategorie.</span><div class="where">Hier setze ich an</div></div>
+      <div class="arrow">→</div>
+      <div class="layer"><b>Outcome</b><span>Briefings, Berichte, Entwürfe. Jederzeit neu erzeugbar.</span><div class="where">Claude · läuft</div></div>
+    </div>
+    <p class="note">Dein Drei-Schichten-Modell ist richtig. Ich baue nichts daneben, sondern das Fundament darunter.</p>
+  </section>
+
+  <!-- 2 · Was fehlt -->
+  <section class="stage" data-stage="1" hidden>
+    <div class="kicker">Was noch fehlt</div>
+    <h2>Heute hängt alles an deinem Konto.</h2>
+    <div class="compare">
+      <div class="box before">
+        <div class="label">Heute</div>
+        <div class="box-title">Du bist der Zugang</div>
+        <div class="row"><i>·</i>Skills, Projekte und Agenten laufen über dein persönliches Claude.</div>
+        <div class="row"><i>·</i>Jeder Agentenlauf wartet auf deinen Klick.</div>
+        <div class="row"><i>·</i>Dein Team kommt an die Daten nur über dich.</div>
+      </div>
+      <div class="box after">
+        <div class="label">Mit Fundament</div>
+        <div class="box-title">Das Family Office ist der Zugang</div>
+        <div class="row"><i>✓</i>Stammdaten liegen in einer eigenen Datenbank, gespeist aus deinem Drive.</div>
+        <div class="row"><i>✓</i>Routine läuft im Hintergrund, mit Protokoll. Du prüfst einmal am Tag.</div>
+        <div class="row"><i>✓</i>Jede Rolle hat ihren eigenen Zugang zu genau ihren Daten.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Rollen -->
+  <section class="stage" data-stage="2" hidden>
+    <div class="kicker">Wer sieht was · Beispiel</div>
+    <h2>Gleiche Daten. <span class="green">Eigene Zugänge.</span></h2>
+    <div class="roles" role="group" aria-label="Rolle wählen">
+      <button type="button" data-role="0" aria-pressed="true">Du</button>
+      <button type="button" data-role="1" aria-pressed="false">Hausverwaltung</button>
+      <button type="button" data-role="2" aria-pressed="false">Heidelberger Team</button>
+    </div>
+    <div class="view" id="view" aria-live="polite"></div>
+    <div class="motto">Die KI ist austauschbar. <span class="green">Die Daten und Rechte gehören dir.</span></div>
+    <p class="note" style="margin-top:6px">Ob jemand mit Claude, ChatGPT oder Gemini arbeitet: Die Rechte liegen im Fundament, nicht im Chatfenster.</p>
+  </section>
+
+  <!-- 4 · Seine Fragen -->
+  <section class="stage" data-stage="3" hidden>
+    <div class="kicker">Deine drei Fragen an mich</div>
+    <h2>Meine Antworten.</h2>
+    <div class="qa">
+      <button type="button" class="q" aria-expanded="false" data-q="1">Wie viel Autonomie bei Routine-Ablage?<span class="plus">+</span></button>
+      <div class="a"><strong>Nach Umkehrbarkeit trennen.</strong> Was sich rückgängig machen lässt, läuft ohne Klick: ablegen, benennen, zuordnen, ins Quellenregister eintragen. Was Geld bewegt oder nach außen geht, wartet weiter auf dich. Statt vieler Klicks prüfst du einmal am Tag eine kurze Liste.</div>
+      <button type="button" class="q" aria-expanded="false" data-q="2">Ab wann lohnt eine echte Datenbank?<span class="plus">+</span></button>
+      <div class="a"><strong>Bei dir: jetzt.</strong> Sobald Fragen über mehrere Bereiche gehen, mehrere Agenten gleichzeitig arbeiten und Objekte, Mieter und Verträge zusammenhängen, kippen Tabellen. Belege bleiben im Drive. Die Stammdaten kommen in die Datenbank, und gepflegt wird weiter dort, wo ihr heute pflegt.</div>
+      <button type="button" class="q" aria-expanded="false" data-q="3">Wie verteilt man Skills und Agenten im kleinen Team?<span class="plus">+</span></button>
+      <div class="a"><strong>Rollen statt Personen.</strong> Jede Rolle bekommt einen Zugang, wenige Skills und einen Owner. Dazu eine Vertretung, damit nichts an einer Person hängt. Deine Trennung in Workspace-Skills und persönliche Skills ist genau richtig.</div>
+    </div>
+  </section>
+
+  <!-- 5 · Start -->
+  <section class="stage" data-stage="4" hidden>
+    <div class="kicker">Der erste Schritt</div>
+    <h2>Wir fangen in <span class="green">Heidelberg</span> an.</h2>
+    <ol class="path">
+      <li><div><b>Stammdaten in die Datenbank</b><span>Heidelberg ist migriert und hat deinen Dossier-Standard. Besser kann ein Start nicht sein.</span></div></li>
+      <li><div><b>Zwei Zugänge</b><span>Einer für dich, einer für die Hausverwaltung. Jeder sieht nur seinen Teil.</span></div></li>
+      <li><div><b>Eine Routine ohne Klick</b><span>Zum Beispiel die Ablage aus dem Eingangsordner, mit Protokoll.</span></div></li>
+    </ol>
+    <div class="pledge">
+      <div class="pledge-head"><span>Keine neuen Systeme.</span><span class="green">Deine Systeme.</span></div>
+      <p>Drive, Gmail, Kalender, Asana und Claude bleiben. Was dazukommt, läuft als fertiger Cloud-Dienst auf deinen Konten. Kein Server, um den sich jemand kümmern muss.</p>
+    </div>
+  </section>
+</main>
+
+<div class="nav">
+  <button type="button" id="prev" disabled>← Zurück</button>
+  <button type="button" class="next" id="next">Weiter →</button>
+</div>
+<footer>
+  <span>Antwort auf deinen Projektsteckbrief. Beispiele vereinfacht.</span>
+  <a href="https://marcschraepler.com/" target="_blank" rel="noopener">Marc Schraepler von Gerlach</a>
+</footer>
+</div>
+
+<script>
+(function(){
+  function track(n){try{if(window.umami)window.umami.track(n);}catch(e){}}
+  var stages=[].slice.call(document.querySelectorAll('.stage'));
+  var dots=[].slice.call(document.querySelectorAll('.dots button'));
+  var prev=document.getElementById('prev'),next=document.getElementById('next');
+  var cur=0,seen={};
+  function go(i){
+    cur=Math.max(0,Math.min(stages.length-1,i));
+    stages.forEach(function(s,k){s.hidden=k!==cur;});
+    dots.forEach(function(d,k){if(k===cur)d.setAttribute('aria-current','step');else d.removeAttribute('aria-current');});
+    prev.disabled=cur===0;
+    next.disabled=cur===stages.length-1;
+    window.scrollTo(0,0);
+    if(!seen[cur]){seen[cur]=1;if(cur>0)track('fundament-bildschirm-'+(cur+1));}
+  }
+  dots.forEach(function(d){d.addEventListener('click',function(){go(+d.dataset.go);});});
+  prev.addEventListener('click',function(){go(cur-1);});
+  next.addEventListener('click',function(){go(cur+1);});
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);});
+
+  var roles=[
+    {sees:'Alle Bereiche, alle Stammdaten, alle Freigaben.',not:'Nichts ausgeblendet. Du siehst zusätzlich, wer wann was abgefragt hat.'},
+    {sees:'Nur ihre Objekte: offene Rechnungen, Fristen, Stammdaten der Einheiten.',not:'Keine Gesellschaften, keine anderen Objekte, nichts Privates.'},
+    {sees:'Das Weiher-Projekt: Angebote, Aufträge, Abschläge, offenes Obligo.',not:'Keine Mietverträge, keine Familie, keine Finanzen.'}
+  ];
+  var view=document.getElementById('view'),rb=[].slice.call(document.querySelectorAll('[data-role]'));
+  function show(i){
+    rb.forEach(function(b,k){b.setAttribute('aria-pressed',k===i?'true':'false');});
+    view.innerHTML='<p class="sees"><b>Sieht</b>'+roles[i].sees+'</p><p class="not"><b>Sieht nicht</b>'+roles[i].not+'</p>';
+  }
+  rb.forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.role);track('fundament-rolle-'+b.dataset.role);});});
+  show(0);
+
+  [].slice.call(document.querySelectorAll('.q')).forEach(function(q){
+    q.addEventListener('click',function(){
+      var open=q.getAttribute('aria-expanded')==='true';
+      q.setAttribute('aria-expanded',open?'false':'true');
+      q.nextElementSibling.classList.toggle('on',!open);
+      if(!open)track('fundament-frage-'+q.dataset.q);
+    });
+  });
+})();
+</script>
+</body>
+</html>
