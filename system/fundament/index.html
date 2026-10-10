@@ -74,6 +74,18 @@ h2{font-size:clamp(24px,3.6vw,34px);line-height:1.15;letter-spacing:-1.2px;font-
 .pledge{margin-top:22px;border:2px solid var(--dark);border-radius:18px;padding:16px 20px;max-width:580px;background:#fff}
 .pledge-head{display:flex;flex-wrap:wrap;gap:2px 12px;font-size:clamp(21px,3vw,27px);font-weight:830;letter-spacing:-1px;line-height:1.2}
 .pledge p{margin:8px 0 0;font-size:14px;color:var(--muted);line-height:1.5}
+.groups{display:inline-flex;flex-wrap:wrap;background:#eef4ed;border-radius:100px;padding:4px;margin-bottom:14px;gap:2px}
+.groups button{border:0;background:none;border-radius:100px;padding:8px 14px;font-weight:760;font-size:13px;color:var(--muted)}
+.groups button[aria-pressed="true"]{background:var(--dark);color:#fff}
+.req{list-style:none;padding:0;margin:0;max-width:760px}
+.req li{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:8px;border-radius:14px;overflow:hidden;border:1px solid #dfe9df}
+.req .need{background:#fff;padding:12px 14px;font-size:14px;line-height:1.45;font-weight:680}
+.req .need small{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--soft);font-weight:840;margin-bottom:3px}
+.req .do{background:var(--add);padding:12px 14px;font-size:14px;line-height:1.45;color:#2c584a}
+.req .do small{display:block;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#6b9177;font-weight:840;margin-bottom:3px}
+.tag{display:inline-block;margin-top:6px;font-size:11px;font-weight:800;color:#fff;background:#4c7a64;border-radius:6px;padding:2px 7px}
+.req[hidden]{display:none}
+@media (max-width:760px){.req li{grid-template-columns:1fr}}
 /* Navigation */
 .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-top:1px solid var(--line)}
 .nav button{border:1px solid #cfdccf;background:#fff;border-radius:11px;padding:11px 18px;font-weight:730;font-size:15px}
@@ -99,9 +111,10 @@ footer a{color:#476854}
   <nav class="dots" aria-label="Schritte">
     <button type="button" data-go="0" aria-label="Dein System" aria-current="step"></button>
     <button type="button" data-go="1" aria-label="Deine Architektur, umgesetzt"></button>
-    <button type="button" data-go="2" aria-label="Deine Bausteine"></button>
-    <button type="button" data-go="3" aria-label="Deine Fragen"></button>
-    <button type="button" data-go="4" aria-label="Der Start"></button>
+    <button type="button" data-go="2" aria-label="Punkt für Punkt"></button>
+    <button type="button" data-go="3" aria-label="Deine Arbeitsregeln"></button>
+    <button type="button" data-go="4" aria-label="Deine Fragen"></button>
+    <button type="button" data-go="5" aria-label="Der Start"></button>
   </nav>
 </header>
 
@@ -136,22 +149,49 @@ footer a{color:#476854}
     <p class="cap" id="cap">Dein Diagramm aus dem Steckbrief. Tippe auf „Technisch umgesetzt“.</p>
   </section>
 
-  <!-- 3 Bausteine -->
+  <!-- 3 Punkt für Punkt -->
   <section class="stage" data-stage="2" hidden>
-    <div class="kicker">Deine Bausteine</div>
-    <h2>Was du begonnen hast. <span class="green">Wie es weiterläuft.</span></h2>
-    <table class="map">
-      <tr><th>Baustein</th><th>Stand</th><th>Mit Fundament</th></tr>
-      <tr><td>Posteingang-Skill</td><td class="st">läuft in Heidelberg</td><td>läuft als Routine für alle Vermögensbereiche</td></tr>
-      <tr><td>Inbox-Agenten, Belegsuche</td><td class="st">in Arbeit</td><td>nächtlicher Abgleich mit dem Quellenregister</td></tr>
-      <tr><td>Fristen- und Vorgangsregister</td><td class="st">nächster Schritt</td><td>eine Tabelle in der Datenbank, Kalender und Briefing lesen daraus</td></tr>
-      <tr><td>Morgenbriefing</td><td class="st">läuft</td><td>liest aus verifizierten Stammdaten</td></tr>
-      <tr><td>Skills fürs Team</td><td class="st">geplant</td><td>Zugang je Rolle, unabhängig vom KI-Anbieter</td></tr>
-    </table>
+    <div class="kicker">Punkt für Punkt</div>
+    <h2>Was du brauchst. <span class="green">Wie ich es umsetze.</span></h2>
+    <div class="groups" role="group" aria-label="Schicht wählen">
+      <button type="button" data-g="0" aria-pressed="true">Eingang und Belege</button>
+      <button type="button" data-g="1" aria-pressed="false">Stammdaten</button>
+      <button type="button" data-g="2" aria-pressed="false">Outcome und Team</button>
+    </div>
+    <ul class="req" data-gl="0">
+      <li><div class="need"><small>Du brauchst</small>Objektpost läuft über die Aliase je Objekt zusammen</div><div class="do"><small>Ich setze um</small>Eine Routine liest Aliase und 00_EINGANG laufend aus<br><span class="tag">Automatisierung</span></div></li>
+      <li><div class="need"><small>Du brauchst</small>Jedes Dokument bekommt Dok-ID und Eintrag im Quellenregister</div><div class="do"><small>Ich setze um</small>Vergabe und Eintrag passieren beim Ablegen von selbst<br><span class="tag">Automatisierung</span></div></li>
+      <li><div class="need"><small>Du brauchst</small>Ablage nach deinem Fünf-Schritte-Protokoll, ohne Klick pro Lauf</div><div class="do"><small>Ich setze um</small>Das Protokoll läuft als Routine. Du prüfst eine Liste am Tag<br><span class="tag">Automatisierung</span></div></li>
+      <li><div class="need"><small>Du brauchst</small>Fehlende Belege finden</div><div class="do"><small>Ich setze um</small>Nächtlicher Abgleich: Was fehlt im Quellenregister?<br><span class="tag">Automatisierung + Datenbank</span></div></li>
+    </ul>
+    <ul class="req" data-gl="1" hidden>
+      <li><div class="need"><small>Du brauchst</small>Eine Quelle der Wahrheit für Objekte, Mieter, Verträge, Personen</div><div class="do"><small>Ich setze um</small>Eine Datenbank, gespeist aus den Stammdaten deiner Dossiers<br><span class="tag">Datenbank</span></div></li>
+      <li><div class="need"><small>Du brauchst</small>Ein Owner je Kategorie</div><div class="do"><small>Ich setze um</small>Der Owner bekommt das Schreibrecht, alle anderen lesen<br><span class="tag">Datenbank</span></div></li>
+      <li><div class="need"><small>Du brauchst</small>Zentrales Fristen- und Vorgangsregister</div><div class="do"><small>Ich setze um</small>Eine Tabelle darin. Kalender und Briefing lesen von dort<br><span class="tag">Datenbank + Automatisierung</span></div></li>
+      <li><div class="need"><small>Du brauchst</small>Ein Muster für alle Bereiche</div><div class="do"><small>Ich setze um</small>Gleiches Datenmodell je Vermögensbereich. Neuer Bereich heißt: anschließen<br><span class="tag">Datenbank</span></div></li>
+    </ul>
+    <ul class="req" data-gl="2" hidden>
+      <li><div class="need"><small>Du brauchst</small>Agenten arbeiten nur auf verifizierten Stammdaten</div><div class="do"><small>Ich setze um</small>Claude greift auf die Stammdaten zu, nicht auf lose Dateien<br><span class="tag">KI-Zugang</span></div></li>
+      <li><div class="need"><small>Du brauchst</small>Briefings und Berichte jederzeit neu erzeugbar</div><div class="do"><small>Ich setze um</small>Morgenbriefing wie heute, dazu Berichte und Fristen-Hinweise automatisch<br><span class="tag">KI-Zugang + Automatisierung</span></div></li>
+      <li><div class="need"><small>Du brauchst</small>Skills fürs Team, getrennt von deinen persönlichen</div><div class="do"><small>Ich setze um</small>Ein Zugang je Rolle mit genau ihren Daten und Werkzeugen<br><span class="tag">KI-Zugang je Rolle</span></div></li>
+      <li><div class="need"><small>Du brauchst</small>Nichts darf an einer Person hängen</div><div class="do"><small>Ich setze um</small>Zugänge gehören zu Rollen, nicht zu Personen. Egal ob Claude, ChatGPT oder Gemini<br><span class="tag">KI-Zugang je Rolle</span></div></li>
+    </ul>
+  </section>
+
+  <!-- 4 Regeln -->
+  <section class="stage" data-stage="3" hidden>
+    <div class="kicker">Deine Arbeitsregeln</div>
+    <h2>Deine Regeln. <span class="green">Technisch gesichert.</span></h2>
+    <ul class="req">
+      <li><div class="need"><small>Deine Regel</small>Belege sind unveränderlich</div><div class="do"><small>So ist sie gesichert</small>Neues wird nur hinzugefügt, nie überschrieben. Jede Änderung bleibt als Version erhalten<br><span class="tag">Datenbank</span></div></li>
+      <li><div class="need"><small>Deine Regel</small>Claude löscht nie, sondern archiviert</div><div class="do"><small>So ist sie gesichert</small>Die KI-Zugänge haben schlicht kein Löschrecht<br><span class="tag">KI-Zugang</span></div></li>
+      <li><div class="need"><small>Deine Regel</small>Nur Entwürfe. Nichts geht ohne dich raus</div><div class="do"><small>So ist sie gesichert</small>Versand und Zahlung haben keinen automatischen Weg. Es gibt nur Entwurf und Freigabe<br><span class="tag">Automatisierung</span></div></li>
+      <li><div class="need"><small>Deine Regel</small>Lücken als TBD, nie angenommene Werte</div><div class="do"><small>So ist sie gesichert</small>Fehlende Angaben bleiben als offen markiert und tauchen im Briefing auf<br><span class="tag">Datenbank</span></div></li>
+    </ul>
   </section>
 
   <!-- 4 Fragen -->
-  <section class="stage" data-stage="3" hidden>
+  <section class="stage" data-stage="4" hidden>
     <div class="kicker">Deine drei Fragen</div>
     <ul class="qa">
       <li><div class="q">Wie viel Autonomie bei Routine-Ablage?</div><div class="a">Was sich rückgängig machen lässt, läuft ohne Klick. Zahlungen und Außenkommunikation bleiben bei dir.</div></li>
@@ -161,7 +201,7 @@ footer a{color:#476854}
   </section>
 
   <!-- 5 Start -->
-  <section class="stage" data-stage="4" hidden>
+  <section class="stage" data-stage="5" hidden>
     <div class="kicker">Der Start</div>
     <h2>Heidelberg zuerst. <span class="green">Dein Muster für alle Bereiche.</span></h2>
     <ol class="path">
@@ -215,6 +255,12 @@ footer a{color:#476854}
     vb.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
     cap.textContent=on?'Grün ist, was dazukommt. Alles andere bleibt.':'Dein Diagramm aus dem Steckbrief. Tippe auf „Technisch umgesetzt“.';
     if(on)track('fundament-umgesetzt');
+  });});
+  var gb=[].slice.call(document.querySelectorAll('[data-g]')),gl=[].slice.call(document.querySelectorAll('[data-gl]'));
+  gb.forEach(function(b){b.addEventListener('click',function(){
+    gb.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    gl.forEach(function(l){l.hidden=l.dataset.gl!==b.dataset.g;});
+    track('fundament-schicht-'+b.dataset.g);
   });});
 })();
 </script>
